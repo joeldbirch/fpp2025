@@ -1,0 +1,42 @@
+// Colors
+
+$theme-colors: (
+  'white':                #fff,
+  'offwhite':             #fafafa,
+  'mercury':              #eee,
+  'brand':                #84c12b,
+  'brand tint':           mix(#fff, #84c12b, 90%),
+  'brand hairline':       mix(#fff, #84c12b, 75%),
+  'comp':                 #888,
+  'accent':               #EB9000,
+  'dullbrand':            mix(#84c12b, #888, 80%),
+  'alert':                #b00b00,
+  'success':              #78c753,
+  'silver':               #ddd,
+  'silver chalice':       #aaa,
+  'access grey':          #727272,
+  'access gray':          #727272,
+  'mine shaft':           #444,
+  'cod grey':             #191919,
+  'cod gray':             #191919,
+  'black':                #000,
+
+  'image overlay':        rgba(#000, .6),
+  'cod grey overlay':     rgba(#0d0d0d, .7),
+  'cod gray overlay':     rgba(#0d0d0d, .7),
+  'white overlay':        rgba(#fff, .6),
+  'soft shadow':          rgba(#000, .14),
+  'dark shadow':          rgba(#000, .4)
+);
+
+
+// helper variables
+$brand: map-get($theme-colors, 'brand');
+$dullbrand: map-get($theme-colors, 'dullbrand');
+$font-color: map-get($theme-colors, 'mine shaft');
+$quiet-color: lighten($font-color, 20%);
+$loud-color: map-get($theme-colors, 'cod grey');
+$heading-color: $loud-color;
+
+$darkness: map-get($theme-colors, 'cod grey');
+$lightness: map-get($theme-colors, 'silver');

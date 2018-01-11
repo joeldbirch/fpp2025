@@ -1,0 +1,56 @@
+@import '../../sass/framework.bundle';
+
+.banner {
+  background: color('dullbrand');
+  position: relative;
+
+  &::before {
+    background-image: url('../../img/head2.jpg');
+    background-size: cover;
+    bottom: 0;
+    content: '';
+    left: 0;
+    opacity: .8;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.sitetitle {
+  position: relative;
+
+  @include respond-to(desk) {
+    margin: 0 auto;
+    max-width: $fullwidth;
+    text-align: center;
+  }
+}
+
+.logo {
+  $size: $xxxxl;
+
+  @include adjust-font-size-to($size);
+
+  color: color('white');
+  font-family: $serif;
+  font-weight: 100;
+  line-height: .6;
+  margin-bottom: 0;
+  padding: 1em 25% 1em $margins;
+  text-transform: lowercase;
+
+  @include respond-to(widepalm) {
+    padding-right: $margins;
+  }
+
+  @include respond-to(lap) {
+    padding: 1.8em $margins-xx;
+  }
+
+  span {
+    font-family: $sans-serif-light;
+    font-size: $s;
+    font-weight: 300;
+  }
+}

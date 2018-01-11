@@ -1,0 +1,100 @@
+@import '../../sass/framework.bundle';
+
+.nav {
+  background-color: rgba($dullbrand, .3);
+  font-family: $sans-serif;
+  position: relative;
+
+  @include respond-to(smallest) {
+    padding-left: .4rem;
+  }
+
+
+  @include respond-to(desk) {
+    text-align: center;
+  }
+}
+
+.list,
+.item {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  &.active {
+    position: relative;
+
+    @include respond-to(lap) {
+      background-color: color('white');
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+  }
+}
+
+.link {
+  color: rgba(color('white'), .7);
+  display: inline-block;
+  font-weight: normal;
+  padding: .75em ($margins - .4rem);
+  text-decoration: none;
+  text-transform: lowercase;
+
+  @include respond-to(lap) {
+    @include adjust-font-size-to($s, 12);
+    padding: 1em $margins;
+    padding: 1em 4vw;
+  }
+
+
+  @include respond-to(desk) {
+    padding: 1em $margins-xx;
+  }
+
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: color('white');
+
+    @include respond-to(lap) {
+      background-color: rgba($brand, .6);
+    }
+  }
+
+  .active & {
+    color: transparent;
+
+    &:focus,
+    &:hover,
+    &:active {
+      background-color: transparent;
+      color: transparent;
+      cursor: default;
+    }
+
+    &::after {
+      color: color('white');
+      content: attr(data-text);
+      font-weight: bold;
+      left: 0;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+
+      @include respond-to(lap) {
+        color: color('cod grey');
+
+        &:focus,
+        &:hover,
+        &:active {
+          color: color('cod grey');
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
