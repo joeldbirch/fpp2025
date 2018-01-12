@@ -1,7 +1,7 @@
 ---
-templateKey: 'home-page'
 path: /
 title: the home of fast, furry-ous & always groovy graphic design.
+menuLabel: Home
 ---
 
 ## Faster Pussycat Productions – a small but tenacious graphic design business.

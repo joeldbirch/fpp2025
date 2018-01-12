@@ -1,7 +1,7 @@
 ---
-templateKey: 'contact-page'
 path: /contact
 title: a faster way to send us a message.
+menuLabel: Contact
 ---
 
 ## Contact Form

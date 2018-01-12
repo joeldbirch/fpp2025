@@ -1,5 +1,4 @@
 ---
-templateKey: 'smoggy-page'
 path: /smoggy
 title: Smoggy.
 ---

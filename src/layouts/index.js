@@ -10,13 +10,13 @@ import '../sass/_generic.global.scss'
 export default ({children}) => (
   <Wrap>
     <Banner>
-      <Menu/>
+      <Menu />
     </Banner>
 
     <div className="s-editable" style={{ margin: '0 auto', maxWidth: 650, padding: '0 1rem' }}>
       {children()}
     </div>
 
-    <Footer/>
+    <Footer />
   </Wrap>
 )

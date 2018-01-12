@@ -1,7 +1,7 @@
 ---
-templateKey: 'portfolio-page'
 path: /portfolio
 title: get comfy & browse our portfolio.
+menuLabel: Portfolio
 ---
 
 ## Please make yourself comfy and browse our portfolio.

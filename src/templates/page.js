@@ -10,7 +10,6 @@ export default function Template({data}) {
       </main>
       <div className="sidebar">sidebar stuff</div>
     </div>
-
   )
 }
 
