@@ -22,22 +22,10 @@
   padding: 0;
 }
 
-.item {
-  &.active {
-    position: relative;
-
-    @include respond-to(lap) {
-      background-color: color('white');
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-    }
-  }
-}
-
 .link {
   color: rgba(color('white'), .7);
   display: inline-block;
-  font-weight: normal;
+  font-weight: bold;
   padding: .75em ($margins - .4rem);
   text-decoration: none;
   text-transform: lowercase;
@@ -54,46 +42,26 @@
   }
 
 
-  &:focus,
-  &:hover,
-  &:active {
+  &:not(.active):hover {
     color: color('white');
 
     @include respond-to(lap) {
       background-color: rgba($brand, .6);
     }
   }
+}
 
-  .active & {
-    color: transparent;
+.active {
+  color: color('white');
 
-    &:focus,
-    &:hover,
-    &:active {
-      background-color: transparent;
-      color: transparent;
+  @include respond-to(lap) {
+    background-color: color('white');
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: color('cod grey');
+
+    &:hover {
       cursor: default;
-    }
-
-    &::after {
-      color: color('white');
-      content: attr(data-text);
-      font-weight: bold;
-      left: 0;
-      position: absolute;
-      text-align: center;
-      width: 100%;
-
-      @include respond-to(lap) {
-        color: color('cod grey');
-
-        &:focus,
-        &:hover,
-        &:active {
-          color: color('cod grey');
-          cursor: pointer;
-        }
-      }
     }
   }
 }

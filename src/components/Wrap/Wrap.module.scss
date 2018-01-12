@@ -1,0 +1,10 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  > :not(:first-child):not(:last-child) {
+    flex: 1 0 auto;
+    width: 100%;
+  }
+}

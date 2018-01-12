@@ -12,23 +12,21 @@ const mobileVr = verticalRhythm({
 
 
 const fppTheme = Object.assign({}, twinPeaksTheme, {
+  includeNormalize: true,
   baseFontSize: '16px',
   baseLineHeight: 1.625,
   googleFonts: [
       {
         name: 'Open Sans',
-        styles: ['300'],
+        styles: ['300', '400', '400i', '600'],
       },
     ],
   headerFontFamily: ['Open Sans', 'sans-serif'],
   bodyFontFamily: ['Georgia', 'sans-serif'],
-  bodyGray: 27,
+  bodyColor: baseFontColor,
   headerWeight: '300',
   headerColor: brandColor,
   overrideThemeStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => ({
-    body: {
-      color: baseFontColor
-    },
     a: {
       textShadow: 'none',
       backgroundImage: 'none',
@@ -66,8 +64,6 @@ const fppTheme = Object.assign({}, twinPeaksTheme, {
     },
   })
 })
-
-console.log(new Typography(fppTheme));
 
 const typography = new Typography(fppTheme)
 
