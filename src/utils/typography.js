@@ -12,6 +12,7 @@ const mobileVr = verticalRhythm({
 
 
 const fppTheme = Object.assign({}, twinPeaksTheme, {
+  name: 'fppTheme',
   includeNormalize: true,
   baseFontSize: '16px',
   baseLineHeight: 1.625,
