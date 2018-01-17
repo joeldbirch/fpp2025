@@ -4,6 +4,9 @@ import TheHeading from '../components/TheHeading/TheHeading.js'
 
 export default function Template({data}) {
   const {markdownRemark: page} = data
+
+  const sidebarContent = (page.frontmatter.sidebarWidgets) ? <div className="sidebar">{page.frontmatter.sidebarWidgets}</div> : ''
+
   return (
     <BaseContentWrap>
       <TheHeading>{page.frontmatter.title}</TheHeading>
@@ -12,7 +15,7 @@ export default function Template({data}) {
         style={{ margin: '0 auto', maxWidth: 650, padding: '0 1rem' }}
         dangerouslySetInnerHTML={{ __html: page.html }}
       />
-      <div className="sidebar">sidebar stuff</div>
+      { sidebarContent }
     </BaseContentWrap>
   )
 }
@@ -24,6 +27,7 @@ export const pageQuery = graphql`
       frontmatter {
         path
         title
+        sidebarWidgets
       }
     }
   }

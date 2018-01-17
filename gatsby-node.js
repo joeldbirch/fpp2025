@@ -10,8 +10,11 @@ exports.createPages = ({boundActionCreators, graphql}) => {
           html
           id
           frontmatter {
+            name
+            type
             path
             title
+            sidebarWidgets
           }
         }
       }
@@ -22,11 +25,12 @@ exports.createPages = ({boundActionCreators, graphql}) => {
     }
 
     res.data.allMarkdownRemark.edges.forEach(({node}) => {
-      createPage({
-        path: node.frontmatter.path,
-        component: pageTemplate
-      })
+      if (node.frontmatter.type !== 'sidebar') {
+        createPage({
+          path: node.frontmatter.path,
+          component: pageTemplate
+        })
+      }
     })
   })
 }
-
