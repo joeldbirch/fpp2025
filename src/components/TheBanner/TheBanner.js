@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Banner.module.scss'
+import styles from './style.module.scss'
 
 export default ({ children }) => (
   <header className={styles.banner} role="banner">

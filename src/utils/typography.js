@@ -29,6 +29,7 @@ const fppTheme = Object.assign({}, twinPeaksTheme, {
   headerColor: brandColor,
   overrideThemeStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => ({
     a: {
+      color: linkColor,
       textShadow: 'none',
       backgroundImage: 'none',
     },

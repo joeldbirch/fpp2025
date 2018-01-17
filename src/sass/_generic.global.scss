@@ -1,5 +1,24 @@
+@import './framework.bundle';
+
 html,
 body,
 [id="___gatsby"] {
   height: 100%;
+}
+
+h1 {
+  color: $font-color;
+  font-family: Times New Roman, Times, serif;
+  font-size: $xxxl;
+  font-weight: normal;
+  line-height: 1.12em;
+  text-transform: lowercase;
+
+  @include respond-to(lap) {
+    font-size: $xxxxl;
+  }
+
+  @include respond-to(desk) {
+    font-size: $xxxxxl;
+  }
 }

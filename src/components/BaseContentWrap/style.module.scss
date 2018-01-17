@@ -1,0 +1,17 @@
+@import '../../sass/framework.bundle';
+
+.innerwrap {
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 $margins;
+  width: 100%;
+
+  @include respond-to(lap) {
+    padding-left: $margins-xx;
+    padding-right: $margins-xx;
+  }
+
+  @include respond-to(desk) {
+    max-width: $fullwidth;
+  }
+}

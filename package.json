@@ -8,13 +8,15 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "gatsby": "^1.9.151",
+    "gatsby": "^1.9.157",
     "gatsby-link": "^1.6.34",
     "gatsby-plugin-react-helmet": "^2.0.3",
     "gatsby-plugin-sass": "^1.0.15",
     "gatsby-plugin-typography": "^1.7.10",
     "gatsby-source-filesystem": "^1.5.11",
     "gatsby-transformer-remark": "^1.7.28",
+    "react-custom-ampersand": "^1.1.0",
+    "react-helmet": "^5.2.0",
     "typography-theme-twin-peaks": "^0.15.11"
   }
 }

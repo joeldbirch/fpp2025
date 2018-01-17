@@ -1,15 +1,19 @@
 import React from 'react'
+import BaseContentWrap from '../components/BaseContentWrap/BaseContentWrap.js'
+import TheHeading from '../components/TheHeading/TheHeading.js'
 
 export default function Template({data}) {
   const {markdownRemark: page} = data
   return (
-    <div className="content">
-      <h1>{page.frontmatter.title}</h1>
-      <main dangerouslySetInnerHTML={{ __html: page.html }}>
-
-      </main>
+    <BaseContentWrap>
+      <TheHeading>{page.frontmatter.title}</TheHeading>
+      <main
+        className="s-editable"
+        style={{ margin: '0 auto', maxWidth: 650, padding: '0 1rem' }}
+        dangerouslySetInnerHTML={{ __html: page.html }}
+      />
       <div className="sidebar">sidebar stuff</div>
-    </div>
+    </BaseContentWrap>
   )
 }
 

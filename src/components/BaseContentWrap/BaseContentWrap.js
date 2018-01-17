@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from './Wrap.module.scss'
+import styles from './style.module.scss'
 
 export default ({ children }) => (
-  <div className={styles.wrap}>
+  <div className={styles.innerwrap}>
     {children}
   </div>
 )

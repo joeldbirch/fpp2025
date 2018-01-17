@@ -1,22 +1,22 @@
 import React from 'react'
-import Wrap from '../components/Wrap/Wrap.js'
-import Banner from '../components/Banner/Banner.js'
-import Menu from '../components/Menu/Menu.js'
-import Footer from '../components/Footer/Footer.js'
+import TheWrap from '../components/TheWrap/TheWrap.js'
+import TheBanner from '../components/TheBanner/TheBanner.js'
+import TheMenu from '../components/TheMenu/TheMenu.js'
+import TheFooter from '../components/TheFooter/TheFooter.js'
 
 import '../sass/_generic.global.scss'
 
 
 export default ({children}) => (
-  <Wrap>
-    <Banner>
-      <Menu />
-    </Banner>
+  <TheWrap>
+    <TheBanner>
+      <TheMenu />
+    </TheBanner>
 
-    <div className="s-editable" style={{ margin: '0 auto', maxWidth: 650, padding: '0 1rem' }}>
+    <div className="content">
       {children()}
     </div>
 
-    <Footer />
-  </Wrap>
+    <TheFooter />
+  </TheWrap>
 )
