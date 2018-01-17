@@ -1,6 +1,8 @@
 ---
 path: /smoggy
 title: Smoggy.
+type: page
+sidebarWidgets: general
 ---
 
 ![pussycat drinking](https://farm4.staticflickr.com/3846/14716124565_c36a7a66e9_b.jpg)
