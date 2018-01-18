@@ -12,7 +12,7 @@ export default function SidebarWidgetFactory ({nodes}) {
             key: `widget${i}`
           }
         )
-      })
+      }).reverse()
   }
   const widgets = allSidebarWidgets(nodes)
   return (

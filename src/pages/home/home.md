@@ -5,6 +5,7 @@ type: page
 menuLabel: Home
 sidebarWidgets:
   - General Test Widget
+  - Contact Details
 ---
 
 ## Faster Pussycat Productions – a small but tenacious graphic design business.

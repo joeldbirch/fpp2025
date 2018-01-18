@@ -10,6 +10,7 @@ $theme-colors: (
   'comp':                 #888,
   'accent':               #EB9000,
   'dullbrand':            mix(#84c12b, #888, 80%),
+  'frost':                #f1f8e6,
   'alert':                #b00b00,
   'success':              #78c753,
   'silver':               #ddd,
@@ -32,6 +33,7 @@ $theme-colors: (
 
 // helper variables
 $brand: map-get($theme-colors, 'brand');
+$dullbrand: map-get($theme-colors, 'dullbrand');
 $dullbrand: map-get($theme-colors, 'dullbrand');
 $font-color: map-get($theme-colors, 'mine shaft');
 $quiet-color: lighten($font-color, 20%);

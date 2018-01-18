@@ -1,9 +1,13 @@
 ---
-title: Contact Details
+title: All the nitty-gritty to contact the kitty
 type: sidebar
-templateKey: SidebarContact
+templateKey: SidebarText
 ---
 
-### H3 heading
+### Contact us in any of the usual ways
+#### Carrier pigeons are yum!
 
-Nunc turpis ligula, auctor ut, iaculis porta, consequat vel, turpis. Suspendisse sed diam. In scelerisque condimentum tellus. Vivamus et velit a ante consectetuer tempor. Nunc vitae mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Suspendisse lacinia, lacus a posuere molestie, tellus diam ullamcorper est, in mattis elit nisi nec odio. Aliquam a sem sit amet dolor viverra ornare. Curabitur elit velit, tempus vel, tempus at, ultricies non, arcu. Duis viverra tempus tellus. Duis dignissim convallis tortor. Phasellus nisl.
+<address>p o box 3236  
+ripponlea vic 3185 australia  
+fastest 0412 888 342  
+<span class="emailAddress">info[at]fppdesign[.]com[.]au</span></address>

@@ -4,7 +4,7 @@ title: a faster way to send us a message.
 type: page
 menuLabel: Contact
 sidebarWidgets:
-  - Contact Details
+  - All the nitty-gritty to contact the kitty
 ---
 
 ## Contact Form

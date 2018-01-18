@@ -1,1 +1,76 @@
 @import '../../sass/framework.bundle';
+
+.spotlight {
+  background-color: color('frost');
+  margin: 0 ($margins * -1);
+  padding: $margins;
+
+  @include respond-to(lap) {
+    margin: 0 ($margins-xx * -1);
+    padding: $margins-xx;
+  }
+
+  @include respond-to(desk) {
+    border-bottom: 0;
+    border-radius: 4px;
+    margin: 0 0 rhythm(4);
+    padding: 1rem;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.thumb {
+  position: relative;
+
+  a {
+    &::after {
+      content: normal;
+    }
+  }
+}
+
+.gallery {
+  overflow: hidden;
+
+  dl {
+    border-top: 1px dashed color('dark shadow');
+    float: left;
+    padding: .5em 0;
+    width: 100%;
+  }
+
+  dt {
+    float: left;
+    margin-top: 0;
+    padding-left: 53px;
+    width: 100%;
+  }
+
+  dd {
+    margin: 0 0 0 53px;
+
+    &.thumb {
+      float: left;
+      margin: -1.5em 10px .1em 0;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  a:first-child {
+    border-bottom: 2px solid $brand;
+    float: left;
+
+    &:visited {
+      border-bottom-color: $dullbrand;
+    }
+
+    &:focus,
+    &:hover {
+      border-color: color('accent');
+    }
+  }
+}
