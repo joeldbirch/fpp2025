@@ -3,7 +3,7 @@
   "description": "FPP design website using Gatsby",
   "license": "UNLICENSED",
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "rm -rf .cache && gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve"
   },

@@ -2,19 +2,19 @@ import React from 'react'
 
 export default function SidebarWidgetFactory ({nodes}) {
 
-  const allSidebarWidgets = (nodes) => {
-    return nodes.map(({node}, i) => {
-        const filename = node.frontmatter.templateKey || 'SidebarText'
-        return React.createElement(
-          require(`../SidebarWidgetComponents/${filename}/${filename}.js`),
-          {
-            node,
-            key: `widget${i}`
-          }
-        )
-      }).reverse()
+  const getComponent = function ({templateKey: filename}) {
+    filename = filename || 'SidebarText'
+    return require(`../${filename}/${filename}.js`)
   }
-  const widgets = allSidebarWidgets(nodes)
+
+  const widgets = function(nodes) {
+    return nodes.reverse().map(({node}, i) => React.createElement(
+        getComponent(node.frontmatter),
+        {node, key: `widget${i}`}
+      )
+    )
+  }(nodes)
+
   return (
     <div className="widgets">
       {widgets}

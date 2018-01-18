@@ -1,0 +1,23 @@
+@import '../../sass/framework.bundle';
+
+.spotlight {
+  background-color: color('frost');
+  margin: 0 ($margins * -1);
+  padding: $margins;
+
+  @include respond-to(lap) {
+    margin: 0 ($margins-xx * -1);
+    padding: $margins-xx;
+  }
+
+  @include respond-to(desk) {
+    border-bottom: 0;
+    border-radius: 4px;
+    margin: 0 0 rhythm(4);
+    padding: 1rem;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+}

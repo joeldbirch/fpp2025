@@ -1,0 +1,53 @@
+@import '../../sass/framework.bundle';
+
+
+.gallery {
+  overflow: hidden;
+
+  a {
+    color: $brand;
+  }
+
+  dl {
+    border-top: 1px dashed color('dark shadow');
+    float: left;
+    margin-bottom: 0;
+    padding: .5em 0;
+    width: 100%;
+  }
+
+  dt {
+    float: left;
+    margin-top: 0;
+    padding-left: 53px;
+    width: 100%;
+
+    + dd { // thumb wrapper
+      float: left;
+      margin: -1.5em 10px .1em 0;
+      position: relative;
+      z-index: 1;
+
+      > *:first-child {
+        float: left;
+      }
+
+      a {
+        border-bottom: 2px solid $brand;
+
+        &:focus,
+        &:hover {
+          border-color: color('accent');
+        }
+
+        &::after {
+          content: normal;
+        }
+      }
+    }
+  }
+
+  dd + dd {
+    margin: 0 0 0 53px;
+  }
+}

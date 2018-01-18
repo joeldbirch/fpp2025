@@ -32,6 +32,11 @@ const fppTheme = Object.assign({}, twinPeaksTheme, {
     hr: {
       background: 'transparent',
     },
+    img: {
+      display: 'inline-block',
+      verticalAlign: 'top',
+      marginBottom: 0,
+    },
     a: {
       color: linkColor,
       textShadow: 'none',
@@ -55,7 +60,8 @@ const fppTheme = Object.assign({}, twinPeaksTheme, {
     },
     'h1, h2, h3, h4, h5, h6': {
       lineHeight: 1.354,
-      marginBottom: RHYTHM
+      marginBottom: `${RHYTHM}rem`,
+      marginTop: `${RHYTHM * 2.5}rem`,
     },
     [MOBILE_MEDIA_QUERY]: {
       html: {

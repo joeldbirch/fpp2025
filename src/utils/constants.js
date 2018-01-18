@@ -1,1 +1,1 @@
-export const RHYTHM = '.8125rem'
+export const RHYTHM = .8125

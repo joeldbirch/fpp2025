@@ -5,16 +5,16 @@ import BaseSideColumn from '../components/BaseSideColumn/BaseSideColumn.js'
 import BaseContentWrap from '../components/BaseContentWrap/BaseContentWrap.js'
 import SidebarWidgetFactory from '../components/SidebarWidgetFactory/SidebarWidgetFactory.js'
 
-export default function Template(props) {
-  const {markdownRemark: page} = props.data
+export default function Template({data: {markdownRemark: page}, pathContext}) {
+  const [{html}, {sidebars: sidebarNodes}, {title}] = [page, pathContext, page.frontmatter]
   return (
     <BaseContentWrap>
-      <TheHeading>{page.frontmatter.title}</TheHeading>
+      <TheHeading>{title}</TheHeading>
       <BaseMainColumn>
-        {page.html}
+        {html}
       </BaseMainColumn>
       <BaseSideColumn>
-        <SidebarWidgetFactory nodes={props.pathContext.sidebars} />
+        <SidebarWidgetFactory nodes={sidebarNodes} />
       </BaseSideColumn>
     </BaseContentWrap>
   )
