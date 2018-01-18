@@ -3,6 +3,7 @@ import twinPeaksTheme from 'typography-theme-twin-peaks'
 import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
 import verticalRhythm from 'compass-vertical-rhythm'
 import {brandColor, accentColor, linkColor, baseFontColor} from './colors.js'
+import { RHYTHM } from './constants.js'
 
 
 const mobileVr = verticalRhythm({
@@ -28,6 +29,9 @@ const fppTheme = Object.assign({}, twinPeaksTheme, {
   headerWeight: '300',
   headerColor: brandColor,
   overrideThemeStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => ({
+    hr: {
+      background: 'transparent',
+    },
     a: {
       color: linkColor,
       textShadow: 'none',
@@ -50,7 +54,8 @@ const fppTheme = Object.assign({}, twinPeaksTheme, {
       borderLeftColor: accentColor,
     },
     'h1, h2, h3, h4, h5, h6': {
-      lineHeight: 1.354
+      lineHeight: 1.354,
+      marginBottom: RHYTHM
     },
     [MOBILE_MEDIA_QUERY]: {
       html: {

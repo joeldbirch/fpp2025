@@ -3,6 +3,8 @@ import styles from './style.module.scss'
 
 export default ({ children }) => (
   <div className={styles.innerwrap}>
-    {children}
+    <div className={`${styles.editable}  s-editable`}>
+      {children}
+    </div>
   </div>
 )

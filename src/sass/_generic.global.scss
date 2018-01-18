@@ -6,6 +6,12 @@ body,
   height: 100%;
 }
 
+html {
+  @include respond-to(wall) {
+    font-size: 120%;
+  }
+}
+
 h1 {
   color: $font-color;
   font-family: Times New Roman, Times, serif;

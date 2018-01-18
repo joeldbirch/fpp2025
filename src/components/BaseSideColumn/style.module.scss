@@ -1,0 +1,22 @@
+@import '../../sass/framework.bundle';
+
+.side {
+  margin-top: rhythm(4);
+  padding-top: rhythm(4);
+
+  @include respond-to(desk) {
+    float: right;
+    margin-top: 0;
+    padding-top: 1rem;
+    width: 29%;
+    z-index: 0;
+  }
+
+  p,
+  li,
+  dd,
+  address {
+    @include asides;
+    font-family: $sans-serif;
+  }
+}

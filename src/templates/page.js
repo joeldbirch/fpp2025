@@ -1,21 +1,21 @@
 import React from 'react'
-import BaseContentWrap from '../components/BaseContentWrap/BaseContentWrap.js'
 import TheHeading from '../components/TheHeading/TheHeading.js'
+import BaseMainColumn from '../components/BaseMainColumn/BaseMainColumn.js'
+import BaseSideColumn from '../components/BaseSideColumn/BaseSideColumn.js'
+import BaseContentWrap from '../components/BaseContentWrap/BaseContentWrap.js'
+import SidebarWidgetFactory from '../components/SidebarWidgetFactory/SidebarWidgetFactory.js'
 
-export default function Template({data}) {
-  const {markdownRemark: page} = data
-
-  const sidebarContent = (page.frontmatter.sidebarWidgets) ? <div className="sidebar">{page.frontmatter.sidebarWidgets}</div> : ''
-
+export default function Template(props) {
+  const {markdownRemark: page} = props.data
   return (
     <BaseContentWrap>
       <TheHeading>{page.frontmatter.title}</TheHeading>
-      <main
-        className="s-editable"
-        style={{ margin: '0 auto', maxWidth: 650, padding: '0 1rem' }}
-        dangerouslySetInnerHTML={{ __html: page.html }}
-      />
-      { sidebarContent }
+      <BaseMainColumn>
+        {page.html}
+      </BaseMainColumn>
+      <BaseSideColumn>
+        <SidebarWidgetFactory nodes={props.pathContext.sidebars} />
+      </BaseSideColumn>
     </BaseContentWrap>
   )
 }

@@ -3,7 +3,8 @@ path: /contact
 title: a faster way to send us a message.
 type: page
 menuLabel: Contact
-sidebarWidgets: general
+sidebarWidgets:
+  - Contact Details
 ---
 
 ## Contact Form

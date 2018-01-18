@@ -3,7 +3,7 @@ path: /portfolio
 title: get comfy & browse our portfolio.
 type: page
 menuLabel: Portfolio
-sidebarWidgets: general
+sidebarWidgets: 
 ---
 
 ## Please make yourself comfy and browse our portfolio.
