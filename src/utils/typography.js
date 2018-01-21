@@ -7,8 +7,8 @@ import { RHYTHM } from './constants.js'
 
 
 const mobileVr = verticalRhythm({
-  baseFontSize: '14px',
-  baseLineHeight: '22.75px',
+  baseFontSize: '16px',
+  baseLineHeight: 1.625,
 })
 
 

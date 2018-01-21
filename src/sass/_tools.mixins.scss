@@ -135,7 +135,7 @@
 
 
 @mixin asides {
-  @include respond-to(lap) {
+  @include respond-to(desk) {
     font-size: .75rem;
     line-height: line-height(3, $xs);
   }

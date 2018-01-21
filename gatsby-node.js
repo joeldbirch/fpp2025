@@ -1,11 +1,13 @@
 const path = require('path')
+const getFilename = require('./src/utils/helpers.js').extractFileNameFromAbsPath
+
 
 exports.createPages = ({boundActionCreators, graphql}) => {
   const {createPage} = boundActionCreators
   const pageTemplate = path.resolve('src/templates/page.js')
 
-  const filterSidebarNodes = function ({edges: nodes}, widgetTitles) {
-    return nodes.filter(({node: {frontmatter}}) => frontmatter.type === 'sidebar' &&  widgetTitles.indexOf(frontmatter.title) !== -1)
+  const filterSidebarNodes = function (edges, widgets) {
+    return edges.filter(({node}) => widgets.indexOf(getFilename(node.fileAbsolutePath)) !== -1) || []
   }
 
   return graphql(`{
@@ -14,11 +16,12 @@ exports.createPages = ({boundActionCreators, graphql}) => {
         node {
           html
           id
+          fileAbsolutePath
           frontmatter {
             type
             path
             title
-            sidebarWidgets
+            showSidebars
             templateKey
           }
         }
@@ -28,14 +31,16 @@ exports.createPages = ({boundActionCreators, graphql}) => {
     if (res.errors) {
       return Promise.reject(res.errors)
     }
+    const allMarkdown = res.data.allMarkdownRemark
+    const sidebarNodes = allMarkdown.edges.filter(({node}) => node.frontmatter.type === 'sidebar')
 
-    res.data.allMarkdownRemark.edges.forEach(({node}) => {
+    allMarkdown.edges.forEach(({node}) => {
       if (node.frontmatter.type !== 'sidebar') {
         createPage({
           path: node.frontmatter.path,
           component: pageTemplate,
           context: {
-            sidebars: filterSidebarNodes(res.data.allMarkdownRemark, node.frontmatter.sidebarWidgets || []),
+            sidebars: filterSidebarNodes(sidebarNodes, node.frontmatter.showSidebars),
           }
         })
       }

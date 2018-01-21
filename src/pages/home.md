@@ -3,8 +3,8 @@ path: /
 title: the home of fast, furry-ous & always groovy graphic design.
 type: page
 menuLabel: Home
-sidebarWidgets:
-  - 'The evolution of our website designs:'
+showSidebars:
+  - side-general
 ---
 
 ## Faster Pussycat Productions – a small but tenacious graphic design business.
