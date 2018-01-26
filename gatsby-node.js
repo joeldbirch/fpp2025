@@ -1,49 +1,50 @@
 const path = require('path')
-const getFilename = require('./src/utils/helpers.js').extractFileNameFromAbsPath
 
 
 exports.createPages = ({boundActionCreators, graphql}) => {
   const {createPage} = boundActionCreators
-  const pageTemplate = path.resolve('src/templates/page.js')
 
-  const filterSidebarNodes = function (edges, widgets) {
-    return edges.filter(({node}) => widgets.indexOf(getFilename(node.fileAbsolutePath)) !== -1) || []
-  }
-
-  return graphql(`{
-    allMarkdownRemark {
-      edges {
-        node {
-          html
-          id
-          fileAbsolutePath
-          frontmatter {
-            type
-            path
-            title
-            showSidebars
-            templateKey
+  return new Promise((resolve, reject) => {
+    graphql(
+      `
+        {
+          allWordpressPage {
+            edges {
+              node {
+                id
+                slug
+                status
+                acf {
+                  page_sidebar_items {
+                    wordpress_id
+                    post_title
+                    post_content
+                  }
+                }
+              }
+            }
           }
         }
+      `
+    ).then(result => {
+      if (result.errors) {
+        console.log(result.errors);
+        reject(result.errors)
       }
-    }
-  }`).then(res => {
-    if (res.errors) {
-      return Promise.reject(res.errors)
-    }
-    const allMarkdown = res.data.allMarkdownRemark
-    const sidebarNodes = allMarkdown.edges.filter(({node}) => node.frontmatter.type === 'sidebar')
 
-    allMarkdown.edges.forEach(({node}) => {
-      if (node.frontmatter.type !== 'sidebar') {
-        createPage({
-          path: node.frontmatter.path,
-          component: pageTemplate,
-          context: {
-            sidebars: filterSidebarNodes(sidebarNodes, node.frontmatter.showSidebars),
-          }
-        })
-      }
+      const pageTemplate = path.resolve('src/templates/page.js')
+      result.data.allWordpressPage.edges.forEach(({node}) => {
+        if (node.status === 'publish') {
+          createPage({
+            path: `/${(node.slug === 'home') ? '' : node.slug}`,
+            component: pageTemplate,
+            context: {
+              id: node.id,
+            }
+          })
+        }
+      })
+      resolve()
     })
   })
 }

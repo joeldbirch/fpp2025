@@ -3,31 +3,35 @@ import TheHeading from '../components/TheHeading/TheHeading.js'
 import BaseMainColumn from '../components/BaseMainColumn/BaseMainColumn.js'
 import BaseSideColumn from '../components/BaseSideColumn/BaseSideColumn.js'
 import BaseContentWrap from '../components/BaseContentWrap/BaseContentWrap.js'
-import SidebarWidgetFactory from '../components/SidebarWidgetFactory/SidebarWidgetFactory.js'
+import SidebarWPWidgets from '../components/SidebarWPWidgets/SidebarWPWidgets.js'
 
-export default function Template({data: {markdownRemark: page}, pathContext}) {
-  const [{html}, {sidebars: sidebarNodes}, {title}] = [page, pathContext, page.frontmatter]
+export default function Template(props) {
+  const currentPage = props.data.wordpressPage
+  const sidebarNodes = []
   return (
     <BaseContentWrap>
-      <TheHeading>{title}</TheHeading>
+      <TheHeading>{currentPage.title}</TheHeading>
       <BaseMainColumn>
-        {html}
+        {currentPage.content}
       </BaseMainColumn>
       <BaseSideColumn>
-        <SidebarWidgetFactory nodes={sidebarNodes} />
+        <SidebarWPWidgets nodes={[...currentPage.acf.page_sidebar_items]} />
       </BaseSideColumn>
     </BaseContentWrap>
   )
 }
 
 export const pageQuery = graphql`
-  query Page($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        path
-        title
-        showSidebars
+  query currentPageQuery($id: String!) {
+    wordpressPage(id: { eq: $id }) {
+      title
+      content
+      acf {
+        page_sidebar_items {
+          wordpress_id
+          post_title
+          post_content
+        }
       }
     }
   }

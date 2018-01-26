@@ -3,21 +3,23 @@
   "description": "FPP design website using Gatsby",
   "license": "UNLICENSED",
   "scripts": {
-    "develop": "rm -rf .cache && gatsby develop",
+    "cache": "rm -rf .cache",
+    "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "gatsby": "^1.9.157",
+    "gatsby": "^1.9.164",
     "gatsby-link": "^1.6.34",
     "gatsby-plugin-catch-links": "^1.0.14",
     "gatsby-plugin-react-helmet": "^2.0.3",
     "gatsby-plugin-sass": "^1.0.15",
     "gatsby-plugin-typography": "^1.7.10",
-    "gatsby-source-filesystem": "^1.5.11",
-    "gatsby-transformer-remark": "^1.7.28",
-    "react-custom-ampersand": "^1.1.0",
-    "react-helmet": "^5.2.0",
+    "gatsby-source-wordpress": "^2.0.49",
+    "react": "^16.x",
+    "react-custom-ampersand": "^1.1.5",
+    "react-dom": "^16.x",
+    "react-helmet": "^5.2.x",
     "typography-theme-twin-peaks": "^0.15.11"
   }
 }
