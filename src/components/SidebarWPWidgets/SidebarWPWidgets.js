@@ -4,11 +4,13 @@ import SidebarText from '../SidebarText/SidebarText.js'
 export default function SidebarWPWidget ({nodes}) {
 
   const widgets = function(nodes) {
-    return nodes.reverse().map((node, i) => {
+    console.log(nodes);
+    return nodes.filter(node => node).reverse().map((node, i) => {
       const {post_title: title, post_content: content} = node
       return (
         <SidebarText
-          node={{title, content}}
+          title={title}
+          content={content}
           key={`widget${i}`}
         />
       )
