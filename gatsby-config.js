@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Faster Pussycat Productions',
-    subtitle: 'Data fetched from a site hosted on wordpress.com',
+    subtitle: 'Data fetched from WordPress',
   },
   plugins: [
     'gatsby-plugin-catch-links',

@@ -6,17 +6,17 @@ import BaseContentWrap from '../components/BaseContentWrap/BaseContentWrap.js'
 import SidebarWPWidgets from '../components/SidebarWPWidgets/SidebarWPWidgets.js'
 
 export default function Template(props) {
-  const currentPage = props.data.wordpressPage
-  const sidebarNodes = []
+  const {title, content} = props.data.wordpressPage
+  const {sidebarItems} = props.pathContext
   return (
     <BaseContentWrap>
-      <TheHeading>{currentPage.title}</TheHeading>
+      <TheHeading>{title}</TheHeading>
       <BaseMainColumn>
-        {currentPage.content}
+        {content}
       </BaseMainColumn>
-      <BaseSideColumn>
-        <SidebarWPWidgets nodes={[...currentPage.acf.page_sidebar_items]} />
-      </BaseSideColumn>
+{      <BaseSideColumn>
+        <SidebarWPWidgets nodes={sidebarItems} />
+      </BaseSideColumn>}
     </BaseContentWrap>
   )
 }
@@ -27,11 +27,7 @@ export const pageQuery = graphql`
       title
       content
       acf {
-        page_sidebar_items {
-          wordpress_id
-          post_title
-          post_content
-        }
+        page_sidebar_items
       }
     }
   }
