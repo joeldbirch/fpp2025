@@ -1,6 +1,6 @@
 import React from 'react'
 import {applyCustomAmpersands} from 'react-custom-ampersand'
-import {brandColor} from '../../utils/colors.js'
+import {brandColor} from '../../utils/colors'
 import styles from './style.module.scss'
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { getCurrentYear } from '../../utils/helpers.js'
+import { getCurrentYear } from '../../utils/helpers'
 import styles from './style.module.scss'
 
 

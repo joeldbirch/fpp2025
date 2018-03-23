@@ -1,9 +1,9 @@
 import React from 'react'
-import TheHeading from '../components/TheHeading/TheHeading.js'
-import BaseMainColumn from '../components/BaseMainColumn/BaseMainColumn.js'
-import BaseSideColumn from '../components/BaseSideColumn/BaseSideColumn.js'
-import BaseContentWrap from '../components/BaseContentWrap/BaseContentWrap.js'
-import SidebarWPWidgets from '../components/SidebarWPWidgets/SidebarWPWidgets.js'
+import TheHeading from '../components/TheHeading'
+import BaseMainColumn from '../components/BaseMainColumn'
+import BaseSideColumn from '../components/BaseSideColumn'
+import BaseContentWrap from '../components/BaseContentWrap'
+import SidebarWidgetFactory from '../components/SidebarWidgetFactory'
 
 export default function Template(props) {
   const {title, content} = props.data.wordpressPage
@@ -15,7 +15,7 @@ export default function Template(props) {
         {content}
       </BaseMainColumn>
 {      <BaseSideColumn>
-        <SidebarWPWidgets nodes={sidebarItems} />
+        <SidebarWidgetFactory nodes={sidebarItems} />
       </BaseSideColumn>}
     </BaseContentWrap>
   )

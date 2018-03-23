@@ -1,9 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import TheWrap from '../components/TheWrap/TheWrap.js'
-import TheBanner from '../components/TheBanner/TheBanner.js'
-import TheMenu from '../components/TheMenu/TheMenu.js'
-import TheFooter from '../components/TheFooter/TheFooter.js'
+import TheWrap from '../components/TheWrap'
+import TheBanner from '../components/TheBanner'
+import TheMenu from '../components/TheMenu'
+import TheFooter from '../components/TheFooter'
 
 import '../sass/_generic.global.scss'
 

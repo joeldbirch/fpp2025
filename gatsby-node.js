@@ -1,14 +1,5 @@
 const path = require('path')
-
-const getSidebarData = function(pageSidebarIds, sidebarNodes) {
-
-  const sidebarData = sidebarNodes.filter(({node}) => {
-    const sidebarIds = pageSidebarIds || []
-    return sidebarIds.indexOf(node.wordpress_id) > -1
-  }).map(({node}) => node)
-  return sidebarData
-}
-
+const {getSidebarData, getPath} = require('./src/utils/helpers')
 
 exports.createPages = ({boundActionCreators, graphql}) => {
   const {createPage} = boundActionCreators
@@ -20,6 +11,7 @@ exports.createPages = ({boundActionCreators, graphql}) => {
           pages: allWordpressPage {
             edges {
               node {
+                title
                 id
                 slug
                 link
@@ -36,6 +28,9 @@ exports.createPages = ({boundActionCreators, graphql}) => {
                 wordpress_id
                 title
                 content
+                acf {
+                  template
+                }
               }
             }
           }
@@ -49,10 +44,10 @@ exports.createPages = ({boundActionCreators, graphql}) => {
 
       const pageTemplate = path.resolve('src/templates/page.js')
       result.data.pages.edges.forEach(({node}) => {
-        console.log(node);
         if (node.status === 'publish') {
+          console.log(node.title);
           createPage({
-            path: `/${(node.slug === 'home') ? '' : node.slug}`,
+            path: getPath(node.link),
             component: pageTemplate,
             context: {
               id: node.id,
