@@ -13,7 +13,6 @@ exports.createPages = ({boundActionCreators, graphql}) => {
               node {
                 title
                 id
-                slug
                 link
                 status
                 acf {
@@ -45,7 +44,6 @@ exports.createPages = ({boundActionCreators, graphql}) => {
       const pageTemplate = path.resolve('src/templates/page.js')
       result.data.pages.edges.forEach(({node}) => {
         if (node.status === 'publish') {
-          console.log(node.title);
           createPage({
             path: getPath(node.link),
             component: pageTemplate,

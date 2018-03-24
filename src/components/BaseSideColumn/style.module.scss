@@ -19,4 +19,8 @@
     @include asides;
     font-family: $sans-serif;
   }
+
+  address {
+    margin-bottom: rhythm(8);
+  }
 }
