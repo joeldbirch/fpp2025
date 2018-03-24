@@ -8,7 +8,7 @@ export default function SidebarWidgetFactory ({nodes}) {
   }
 
   const widgets = function(nodes) {
-    return nodes.reverse().map(node => {
+    return nodes.map(node => {
       return React.createElement(
         getComponent(node.acf.template),
         {

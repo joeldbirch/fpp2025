@@ -22,3 +22,11 @@ exports.getPath = function(link) {
   let path = new URL(link)
   return path.href.replace(path.origin, '')
 }
+
+exports.sortByObjProp = function(ordered, objects, property) {
+  return ordered.map(
+    id => objects.find(
+      item => item[property] === id
+    )
+  )
+}

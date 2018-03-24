@@ -4,10 +4,13 @@ import BaseMainColumn from '../components/BaseMainColumn'
 import BaseSideColumn from '../components/BaseSideColumn'
 import BaseContentWrap from '../components/BaseContentWrap'
 import SidebarWidgetFactory from '../components/SidebarWidgetFactory'
+import {sortByObjProp} from '../utils/helpers'
 
 export default function Template(props) {
-  const {title, content} = props.data.wordpressPage
-  const {sidebarItems} = props.pathContext
+  let {title, content, acf} = props.data.wordpressPage
+  let {sidebarItems} = props.pathContext
+  let sortedSidebarItems = sortByObjProp(acf.page_sidebar_items, sidebarItems, 'wordpress_id')
+
   return (
     <BaseContentWrap>
       <TheHeading>{title}</TheHeading>
@@ -15,7 +18,7 @@ export default function Template(props) {
         {content}
       </BaseMainColumn>
 {      <BaseSideColumn>
-        <SidebarWidgetFactory nodes={sidebarItems} />
+        <SidebarWidgetFactory nodes={sortedSidebarItems} />
       </BaseSideColumn>}
     </BaseContentWrap>
   )
