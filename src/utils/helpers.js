@@ -11,10 +11,6 @@ exports.getSidebarData = function(pageSidebarIds, sidebarNodes) {
     let sidebarIds = pageSidebarIds || []
     return sidebarIds.indexOf(node.wordpress_id) > -1
   }).map(({node}) => node)
-
-  sidebarData.forEach(node => console.log(node.wordpress_id))
-  console.log("\n")
-
   return sidebarData
 }
 
