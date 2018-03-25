@@ -52,10 +52,10 @@ module.exports = {
         // It can help you debug specific API Endpoints problems
         verboseOutput: true,
         // Search and Replace Urls across WordPress content
-        searchAndReplaceContentUrls: {
-          sourceUrl: "http://fppdesignwp.dev.au",
-          replacementUrl: "http://fppdesign-2018.dev.au",
-        },
+        // searchAndReplaceContentUrls: {
+        //   sourceUrl: "http://fppdesignwp.dev.au",
+        //   replacementUrl: "http://fppdesign-2018.dev.au",
+        // },
       },
     },
   ],
