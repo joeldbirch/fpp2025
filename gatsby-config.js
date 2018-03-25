@@ -22,7 +22,7 @@ module.exports = {
           */
         baseUrl: "fppdesignwp.dev.au",
         // The protocol. This can be http or https.
-        protocol: "https",
+        protocol: "http",
         // Indicates whether the site is hosted on wordpress.com.
         // If false, then the asumption is made that the site is self hosted.
         // If true, then the plugin will source its content on wordpress.com using the JSON REST API V2.
@@ -53,8 +53,8 @@ module.exports = {
         verboseOutput: true,
         // Search and Replace Urls across WordPress content
         searchAndReplaceContentUrls: {
-          sourceUrl: "https://fppdesignwp.dev.au",
-          replacementUrl: "https://fppdesign-2018.dev.au",
+          sourceUrl: "http://fppdesignwp.dev.au",
+          replacementUrl: "http://fppdesign-2018.dev.au",
         },
       },
     },
