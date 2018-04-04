@@ -1,6 +1,19 @@
 const path = require('path')
 const {getSidebarData, getPath} = require('./src/utils/helpers')
 
+exports.onPreBuild = ({boundActionCreators}) => {
+  const {createRedirect} = boundActionCreators
+  createRedirect({
+    fromPath: 'https://fppdesign.netlify.com/*',
+    toPath: 'https://staging.fppdesign.com.au/:splat',
+  })
+  createRedirect({
+    fromPath: 'http://fppdesign.netlify.com/*',
+    toPath: 'https://staging.fppdesign.com.au/:splat',
+  })
+}
+
+
 exports.createPages = ({boundActionCreators, graphql}) => {
   const {createPage} = boundActionCreators
 
