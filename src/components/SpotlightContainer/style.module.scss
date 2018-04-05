@@ -7,13 +7,14 @@
 
   @include respond-to(lap) {
     margin: 0 ($margins-xx * -1);
-    padding: $margins-xx;
+    padding-left: $margins-xx;
+    padding-right: $margins-xx;
   }
 
   @include respond-to(desk) {
     border-bottom: 0;
     border-radius: 4px;
-    margin: 0 0 rhythm(4);
+    margin: 0 0 $margins / 2;
     padding: 1rem;
   }
 

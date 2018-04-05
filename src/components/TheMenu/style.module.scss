@@ -23,6 +23,8 @@
 }
 
 .link {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   color: rgba(color('white'), .7);
   display: inline-block;
   font-weight: bold;
@@ -56,8 +58,6 @@
 
   @include respond-to(lap) {
     background-color: color('white');
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
     color: color('cod grey');
 
     &:hover {

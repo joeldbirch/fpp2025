@@ -1,11 +1,12 @@
 @import '../../sass/framework.bundle';
 
 .side {
-  margin-top: rhythm(4);
-  padding-top: rhythm(4);
+  margin-top: $margins /2;
+  padding-top: $margins /2;
 
   @include respond-to(desk) {
     float: right;
+    margin-bottom: $margins;
     margin-top: 0;
     padding-top: 1rem;
     width: 29%;

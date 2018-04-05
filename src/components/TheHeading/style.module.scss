@@ -1,7 +1,7 @@
 @import '../../sass/framework.bundle';
 
 .headingwrap {
-  padding: 2rem 0 0;
+  padding: 2rem 0;
 
   @include respond-to(desk) {
     padding: 4rem 0 3rem;

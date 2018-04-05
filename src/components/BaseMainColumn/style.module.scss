@@ -3,6 +3,12 @@
 .main {
   max-width: 43em;
 
+  @include respond-to(notdesk) {
+    > :first-child {
+      margin-top: 0;
+    }
+  }
+
   @include respond-to(desk) {
     float: left;
     max-width: none;
@@ -13,6 +19,7 @@
   }
 
   img {
+    margin-top: 1rem;
     width: 100%;
   }
 }
