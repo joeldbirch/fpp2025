@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import TheHeading from '../components/TheHeading'
-import WufooForm from '../components/WufooForm'
 import BaseMainColumn from '../components/BaseMainColumn'
 import BaseSideColumn from '../components/BaseSideColumn'
 import BaseContentWrap from '../components/BaseContentWrap'
