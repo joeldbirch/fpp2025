@@ -45,6 +45,12 @@
       left: 0;
       position: absolute;
       top: .8em;
+      width: 40px;
+
+      img {
+        height: auto;
+        width: 100%;
+      }
 
       &::after {
         content: normal;
