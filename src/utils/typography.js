@@ -33,6 +33,7 @@ const fppTheme = Object.assign({}, twinPeaksTheme, {
       background: 'transparent',
     },
     img: {
+      height: 'auto',
       display: 'inline-block',
       verticalAlign: 'top',
       marginBottom: 0,
