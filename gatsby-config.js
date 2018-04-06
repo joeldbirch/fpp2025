@@ -56,6 +56,7 @@ module.exports = {
           sourceUrl: "https://fppdesign.netlify.com",
           replacementUrl: "https://staging.fppdesign.com.au",
         },
+        excludedRoutes: require('./data/excludedWPRoutes.js'),
       },
     },
     {
