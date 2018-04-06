@@ -17,6 +17,7 @@ exports.createPages = ({boundActionCreators, graphql}) => {
                 status
                 acf {
                   page_sidebar_items
+                  page_title
                 }
               }
             }
@@ -49,7 +50,8 @@ exports.createPages = ({boundActionCreators, graphql}) => {
             component: pageTemplate,
             context: {
               id: node.id,
-              sidebarItems: getSidebarData(node.acf.page_sidebar_items, result.data.sidebarItems.edges)
+              acf: node.acf,
+              sidebarItems: getSidebarData(node.acf.page_sidebar_items, result.data.sidebarItems.edges),
             }
           })
         }

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Helmet from 'react-helmet'
 import TheHeading from '../components/TheHeading'
 import BaseMainColumn from '../components/BaseMainColumn'
 import BaseSideColumn from '../components/BaseSideColumn'
@@ -15,11 +16,18 @@ class Template extends Component {
 
   render() {
     let {title, content, acf, slug} = this.props.data.wordpressPage
+    let {siteMetadata} = this.props.data.site
     let {sidebarItems} = this.props.pathContext
     let sortedSidebarItems = sortByObjProp(acf.page_sidebar_items, sidebarItems, 'wordpress_id')
+    let pageTitle = [acf.page_title || title, siteMetadata.title].join(' | ')
 
     return (
       <BaseContentWrap>
+
+        <Helmet>
+          <title>{pageTitle}</title>
+        </Helmet>
+
         <TheHeading>{title}</TheHeading>
         <BaseMainColumn>
           {content}
@@ -34,11 +42,17 @@ class Template extends Component {
 
 export const pageQuery = graphql`
   query currentPageQuery($id: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     wordpressPage(id: { eq: $id }) {
       title
       content
       slug
       acf {
+        page_title
         page_sidebar_items
       }
     }
