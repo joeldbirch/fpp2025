@@ -1,6 +1,4 @@
 var excludedRoutes = require('./data/excludedWPRoutes.js')
-var helpers = require('./src/utils/helpers.js')
-var days = helpers.expires_in_days
 
 
 module.exports = {
@@ -72,7 +70,8 @@ module.exports = {
             "X-Frame-Options: ALLOW-FROM http://ami.responsivedesign.is/",
           ],
           "/*.js": [
-            `Expires: ${days(90)}`,
+            "Expires: 1y",
+            "Cache-Control: public, max-age=31536000",
           ],
         },
       },
