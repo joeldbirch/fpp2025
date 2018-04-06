@@ -66,6 +66,9 @@ module.exports = {
           "/*": [
             "X-Frame-Options: ALLOW-FROM http://ami.responsivedesign.is/",
           ],
+          "/**/*.js": [
+            "Expires: 2d",
+          ],
         },
       },
     },
