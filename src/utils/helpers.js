@@ -26,3 +26,11 @@ exports.sortByObjProp = function(ordered, objects, property) {
     )
   )
 }
+
+exports.expires_in_days = function(days) {
+  let now = new Date();
+  let time = now.getTime();
+  let expireTime = time + 1000*60*60*24 * days;
+  now.setTime(expireTime);
+  return now.toGMTString();
+}

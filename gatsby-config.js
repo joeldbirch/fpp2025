@@ -67,7 +67,7 @@ module.exports = {
             "X-Frame-Options: ALLOW-FROM http://ami.responsivedesign.is/",
           ],
           "/*.js": [
-            "Expires: 2d",
+            `Expires: ${require('./src/utils/helpers.js').expires_in_days(90)}`,
           ],
         },
       },
