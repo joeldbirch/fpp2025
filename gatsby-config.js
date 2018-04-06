@@ -1,6 +1,5 @@
 var excludedRoutes = require('./data/excludedWPRoutes.js')
 
-
 module.exports = {
   siteMetadata: {
     title: 'Faster Pussycat Productions',
@@ -70,6 +69,10 @@ module.exports = {
             "X-Frame-Options: ALLOW-FROM http://ami.responsivedesign.is/",
           ],
           "/*.js": [
+            "Expires: 1y",
+            "Cache-Control: public, max-age=31536000",
+          ],
+          "/favicon.ico": [
             "Expires: 1y",
             "Cache-Control: public, max-age=31536000",
           ],
