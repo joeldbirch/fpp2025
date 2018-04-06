@@ -1,3 +1,8 @@
+var excludedRoutes = require('./data/excludedWPRoutes.js')
+var helpers = require('./src/utils/helpers.js')
+var days = helpers.expires_in_days
+
+
 module.exports = {
   siteMetadata: {
     title: 'Faster Pussycat Productions',
@@ -56,7 +61,7 @@ module.exports = {
           sourceUrl: "https://fppdesign.netlify.com",
           replacementUrl: "https://staging.fppdesign.com.au",
         },
-        excludedRoutes: require('./data/excludedWPRoutes.js'),
+        excludedRoutes: excludedRoutes,
       },
     },
     {
@@ -67,7 +72,7 @@ module.exports = {
             "X-Frame-Options: ALLOW-FROM http://ami.responsivedesign.is/",
           ],
           "/*.js": [
-            `Expires: ${require('./src/utils/helpers.js').expires_in_days(90)}`,
+            `Expires: ${days(90)}`,
           ],
         },
       },
