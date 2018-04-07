@@ -29,6 +29,7 @@ class Template extends Component {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="preconnect" href="https://assets.fppdesign.com.au" />
+          <link rel="preconnect" href="https://d33wubrfki0l68.cloudfront.net" />
         </Helmet>
 
         <TheHeading>{title}</TheHeading>
