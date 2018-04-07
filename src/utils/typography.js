@@ -2,7 +2,13 @@ import Typography from 'typography'
 import twinPeaksTheme from 'typography-theme-twin-peaks'
 import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
 import verticalRhythm from 'compass-vertical-rhythm'
-import {brandColor, accentColor, linkColor, baseFontColor} from './colors.js'
+import {
+  brandColor,
+  dullBrandColor,
+  accentColor,
+  linkColor,
+  baseFontColor
+} from './colors.js'
 import { RHYTHM } from './constants.js'
 
 
@@ -27,7 +33,7 @@ const fppTheme = Object.assign({}, twinPeaksTheme, {
   bodyFontFamily: ['Georgia', 'sans-serif'],
   bodyColor: baseFontColor,
   headerWeight: '300',
-  headerColor: brandColor,
+  headerColor: dullBrandColor,
   overrideThemeStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => ({
     hr: {
       background: 'transparent',
@@ -46,15 +52,10 @@ const fppTheme = Object.assign({}, twinPeaksTheme, {
     '.s-editable a:not([class])': {
       color: linkColor,
       fontWeight: 'bold',
-      textDecoration: 'none',
-      textShadow:
-        '.03em 0 #fff,-.03em 0 #fff,0 .03em #fff,0 -.03em #fff,.06em 0 #fff,-.06em 0 #fff,.09em 0 #fff,-.09em 0 #fff,.12em 0 #fff,-.12em 0 #fff,.15em 0 #fff,-.15em 0 #fff', // eslint-disable-line
-      backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, currentColor 1px, currentColor 2px, rgba(0, 0, 0, 0) 2px)`, // eslint-disable-line
+      textDecoration: 'underline',
     },
     '.s-editable a:not([class]):hover,.s-editable a:not([class]):active': {
       color: accentColor,
-      backgroundImage: 'none',
-      textShadow: 'none',
     },
     blockquote: {
       borderLeftColor: accentColor,

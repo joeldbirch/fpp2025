@@ -20,16 +20,14 @@ class Template extends Component {
     let {sidebarItems} = this.props.pathContext
     let sortedSidebarItems = sortByObjProp(acf.page_sidebar_items, sidebarItems, 'wordpress_id')
     let pageTitle = [acf.page_title || title, siteMetadata.title].join(' | ')
+    let description = [acf.description || title, siteMetadata.title].join(' | ')
 
     return (
       <BaseContentWrap>
 
         <Helmet>
           <title>{pageTitle}</title>
-          <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-          <link rel="preconnect" href="https://assets.fppdesign.com.au" crossorigin />
-          <link rel="preconnect" href="https://d33wubrfki0l68.cloudfront.net" crossorigin />
+          <meta name="description" content={description} />
         </Helmet>
 
         <TheHeading>{title}</TheHeading>

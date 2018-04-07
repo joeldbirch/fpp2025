@@ -25,4 +25,15 @@
   ul {
     margin-bottom: 0;
   }
+
+  a {
+    // all links including regular text links and thumb wrapper
+    @include increase-specificity {
+      color: color('darkbrand');
+
+      &:hover {
+        color: color('accent');
+      }
+    }
+  }
 }

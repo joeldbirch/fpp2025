@@ -59,35 +59,34 @@
   }
 
   a {
-    // all links including regular text links and thumb wrapper
-    @include increase-specificity {
-      color: color('brand');
+    white-space: nowrap;
 
-      &:hover {
-        color: color('accent');
-      }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
     }
 
-    // regular text links only
-    &:not(:first-child) {;
-      white-space: nowrap;
-
-      &:after {
-        border: 4px solid transparent;
-        border-left-color: inherit;
-        border-left-width: 5px;
-        border-right-width: 0;
-        content: '';
-        display: inline-block;
-        height: 0;
-        margin-left: .3em;
-        width: 0;
-      }
+    &::after {
+      border: 4px solid transparent;
+      border-left-color: inherit;
+      border-left-width: 5px;
+      border-right-width: 0;
+      content: '';
+      display: inline-block;
+      height: 0;
+      opacity: .7;
+      margin-left: .3em;
+      width: 0;
     }
   }
 
   img {
-    border-bottom: 2px solid currentColor;
+    border-bottom: 2px solid color('brand');
   }
 }
 

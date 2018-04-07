@@ -1,7 +1,7 @@
 @import '../../sass/framework.bundle';
 
 .footer {
-  background-color: $brand;
+  background-color: color('darkbrand');
   clear: both;
   color: color('white');
   font-family: $sans-serif;

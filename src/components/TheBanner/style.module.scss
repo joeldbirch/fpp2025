@@ -1,7 +1,7 @@
 @import '../../sass/framework.bundle';
 
 .banner {
-  background: color('dullbrand');
+  background: color('darkbrand');
   position: relative;
 
   &::before {
@@ -10,7 +10,7 @@
     bottom: 0;
     content: '';
     left: 0;
-    opacity: .8;
+    opacity: .6;
     position: absolute;
     right: 0;
     top: 0;
