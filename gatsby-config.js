@@ -6,6 +6,7 @@ module.exports = {
     subtitle: 'The home of fast and furry-ous design',
   },
   plugins: [
+    'gatsby-link',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
@@ -55,8 +56,8 @@ module.exports = {
         verboseOutput: true,
         // Search and Replace Urls across WordPress content
         searchAndReplaceContentUrls: {
-          sourceUrl: "https://fppdesign.netlify.com",
-          replacementUrl: "https://staging.fppdesign.com.au",
+          sourceUrl: "http://fppdesignwp.dev.au/wp-content/uploads",
+          replacementUrl: "https://assets.fppdesign.com.au",
         },
         excludedRoutes: excludedRoutes,
       },
