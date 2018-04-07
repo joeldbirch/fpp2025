@@ -15,7 +15,7 @@ module.exports = [
   "/*/*/posts/*/revisions",
   "/*/*/posts/*/revisions/*",
   "/*/*/settings",
-  "/*/*/statuses/*",
+  "/*/*/statuses",
   "/*/*/statuses/*",
   "/*/*/tags",
   "/*/*/tags/*",
