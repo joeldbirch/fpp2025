@@ -26,6 +26,9 @@ class Template extends Component {
 
         <Helmet>
           <title>{pageTitle}</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com">
+          <link rel="preconnect" href="https://assets.fppdesign.com.au">
         </Helmet>
 
         <TheHeading>{title}</TheHeading>
