@@ -68,24 +68,6 @@
   }
 }
 
-@mixin asides {
-  $size: size('s');
-  margin-bottom: spacer(.25, $size);
-
-  @include respond-to(desk) {
-    @include adjust-font-size-to($size);
-  }
-}
-
-@mixin earlyasides {
-  $size: size('s');
-  margin-bottom: spacer(.25, $size);
-
-  @include respond-to(lap) {
-    @include adjust-font-size-to($size);
-  }
-}
-
 @mixin list-columns($count: 2) {
   @include respond-to(widepalm) {
     column-count: $count;
@@ -142,7 +124,8 @@
 }
 
 @mixin earlyasides {
-  font-size: $s;
+  font-size: .875rem;
+  line-height: line-height(4, 14px);
 }
 
 @mixin lateasides {

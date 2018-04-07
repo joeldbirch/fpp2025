@@ -52,7 +52,7 @@
     font-weight: normal;
     letter-spacing: 1.5px;
     line-height: line-height(2, $size);
-    margin-bottom: rhythm(4, $size);
+    margin-bottom: spacer(2, $size);
     margin-top: rhythm(1, $size);
     text-transform: lowercase;
   }

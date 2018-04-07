@@ -32,15 +32,7 @@
     padding-left: 50px;
   }
 
-  h3 {
-    margin-top: 0;
-  }
-
   p {
-    @include earlyasides;
-    @include asides;
-    margin-bottom: 0;
-
     > :first-child { // thumb wrapper
       left: 0;
       position: absolute;
