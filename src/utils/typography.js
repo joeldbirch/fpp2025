@@ -20,7 +20,7 @@ const fppTheme = Object.assign({}, twinPeaksTheme, {
   googleFonts: [
       {
         name: 'Open Sans',
-        styles: ['300', '600'],
+        styles: ['300', '400', '600'],
       },
     ],
   headerFontFamily: ['Open Sans', 'sans-serif'],
