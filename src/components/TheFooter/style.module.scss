@@ -5,15 +5,19 @@
   clear: both;
   color: color('white');
   font-family: $sans-serif;
-  font-size: $xs;
   padding: rhythm(12) $margins;
   text-align: center;
 
   @include respond-to(lap) {
+    font-size: $xs;
     padding: rhythm(12) $margins-xx;
   }
 
   p {
     margin-bottom: rhythm(.5, $xs);
+
+    span {
+      white-space: nowrap;
+    }
   }
 }

@@ -6,7 +6,7 @@ import styles from './style.module.scss'
 export default ({ children }) => (
   <footer className={styles.footer} role="contentinfo">
     <p>
-      &copy; faster pussycat productions 2006&#8212;{ getCurrentYear() }
+      &copy; faster pussycat productions <span>20061&#8212;{ getCurrentYear() }</span>
     </p>
   </footer>
 )
