@@ -34,3 +34,7 @@ exports.expires_in_days = function(days) {
   now.setTime(expireTime);
   return now.toGMTString();
 }
+
+exports.commonStartOfWords = function(list) {
+  return list.join(' ').match(/^([^\s]*)[^\s]*(?: \1[^\s]*)*$/)[1]
+}

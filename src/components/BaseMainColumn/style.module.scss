@@ -18,8 +18,11 @@
     z-index: 1;
   }
 
-  img {
+  > p:first-child > img {
     margin-top: 1rem;
+  }
+
+  > p > img {
     width: 100%;
   }
 }

@@ -5,6 +5,7 @@ import BaseMainColumn from '../components/BaseMainColumn'
 import BaseSideColumn from '../components/BaseSideColumn'
 import BaseContentWrap from '../components/BaseContentWrap'
 import SidebarWidgetFactory from '../components/SidebarWidgetFactory'
+import LazyWPImages from '../components/LazyWPImages'
 import {sortByObjProp} from '../utils/helpers'
 import wufooForm from '../utils/wufooForm'
 
@@ -31,9 +32,9 @@ class Template extends Component {
         </Helmet>
 
         <TheHeading>{title}</TheHeading>
-        <BaseMainColumn>
+        <LazyWPImages Container={BaseMainColumn}>
           {content}
-        </BaseMainColumn>
+        </LazyWPImages>
         <BaseSideColumn>
           <SidebarWidgetFactory nodes={sortedSidebarItems} />
         </BaseSideColumn>
