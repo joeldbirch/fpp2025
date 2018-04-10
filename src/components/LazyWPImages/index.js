@@ -1,7 +1,9 @@
 import React from 'react'
 import {setAttrs, removeAttrs} from '../../utils/helpers'
+import {isBrowser} from '../../utils/helpers'
 import styles from './style.module.scss'
-import 'lazysizes'
+
+if (isBrowser) require('lazysizes')
 
 export default class LazyWPImagesProcessor {
 

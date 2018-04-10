@@ -46,3 +46,5 @@ exports.setAttrs = function(el, attrs) {
 exports.removeAttrs = function(el, attrs) {
   attrs.forEach(attr => el.removeAttribute(attr))
 }
+
+exports.isBrowser = typeof window !== 'undefined'
