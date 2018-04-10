@@ -45,10 +45,10 @@
 
 
   &:not(.active) {
-    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 
-    :hover {
+    &:hover {
       color: color('white');
 
       @include respond-to(lap) {
