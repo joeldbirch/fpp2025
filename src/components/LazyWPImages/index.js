@@ -1,25 +1,18 @@
 import React from 'react'
+import {setAttrs, removeAttrs} from '../../utils/helpers'
+import styles from './style.module.scss'
 import 'lazysizes'
 
-class LazyWPImagesProcessor {
+export default class LazyWPImagesProcessor {
 
   filterContent(content) {
     this.doc = this.createDocument(content)
     this.doc.querySelectorAll('img').forEach(this.transformImg.bind(this))
+    return this.doc.body.innerHTML
+  }
 
-    var style = `
-      <style>
-        img.fadeIn {
-          opacity: 0;
-          -webkit-transition: opacity .6s ease-in-out;
-          transition: opacity .6s ease-in-out;
-        }
-        img.lazyloaded {
-          opacity: 1
-        }
-      </style>
-    `
-    return style + this.doc.body.innerHTML
+  filterWithStyle(content) {
+    return  this.filterContent(content) + this.styles()
   }
 
   getSizes(srcset) {
@@ -38,28 +31,41 @@ class LazyWPImagesProcessor {
     })
   }
 
+  styles() {
+    return `<style> .lazyloaded {opacity: 1; } </style>`
+  }
+
+  getPillar({ratio}) {
+    let el = this.doc.createElement('span')
+    el.setAttribute('class', styles.pillar)
+    el.setAttribute('style', `padding-top: ${ratio};`)
+    return el
+  }
+
+  isJpg({src}) {
+    return src.split('.').reverse()[0].indexOf('jp') === 0
+  }
+
   transformImg(image) {
-    var imageData = this.getImageData(image)
-    var imageId = this.getImageId(imageData.classes)
-    if (!imageId) return image
+    let imageData = this.getImageData(image)
+    let imageId = this.getImageId(imageData.classes)
+    if (!imageId || !this.isJpg(imageData)) return image
     imageData.sizes = this.getSizes(imageData.srcset)
-    image.removeAttribute('src')
-    image.removeAttribute('sizes')
-    image.removeAttribute('srcset')
-    image.setAttribute('class', 'lazyload fadeIn')
-    image.setAttribute('data-src', imageData.sizes[2][0])
-    image.setAttribute('data-sizes', 'auto')
-    image.setAttribute('data-srcset', imageData.srcset)
-    image.setAttribute('style', imageData.style)
-    var wrapper = this.doc.createElement('span')
-    wrapper.setAttribute('class', imageData.classes)
-    var blurredImageURL = imageData.sizes[0][0]
-    wrapper.setAttribute('style', `
-      background: rgba(0, 0, 0, .08) url(${blurredImageURL}) 0 0 / cover;
-      display: block;
-      padding-top: ${imageData.ratio};
-      position: relative;
-    `)
+    removeAttrs(image, ['srcset','sizes','src'])
+    setAttrs(image, {
+      'class'      : `lazyload ${styles.img}`,
+      'data-src'   : imageData.sizes[2][0],
+      'data-sizes' : 'auto',
+      'data-srcset': imageData.srcset,
+    })
+
+    let wrapper = this.doc.createElement('span')
+    setAttrs(wrapper, {
+      'class': `${styles.lazywrap} ${imageData.classes}`,
+      'style': `background-image: url(${imageData.sizes[0][0]});`
+    })
+
+    wrapper.appendChild(this.getPillar(imageData))
     image.parentNode.insertBefore(wrapper, image)
     wrapper.appendChild(image)
   }
@@ -71,22 +77,14 @@ class LazyWPImagesProcessor {
   getImageData(image) {
     return {
       ratio: this.getRatio(image),
-      src: image.getAttribute('src'),
-      srcset: image.getAttribute('srcset'),
-      classes: image.getAttribute('class'),
-      style: `
-        display: block;
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-      `,
+      src: image.src,
+      srcset: image.srcset,
+      classes: image.className,
     }
   }
 
   appendLazysizes(doc) {
-    var lazysizesTag = this.doc.createElement('script')
+    let lazysizesTag = this.doc.createElement('script')
     lazysizesTag.setAttribute('async', '')
     lazysizesTag.setAttribute('src', 'https://cdn.jsdelivr.net/npm/lazysizes@4.0.2/lazysizes.min.js')
     this.doc.body.appendChild(lazysizesTag)
@@ -99,28 +97,9 @@ class LazyWPImagesProcessor {
 
   getImageId(classes) {
     if (!classes) return false
-    var splitClasses = classes.split(' ')
-    var wpImageIdClasses = splitClasses.filter(item => item.indexOf('wp-image-') === 0)
+    let splitClasses = classes.split(' ')
+    let wpImageIdClasses = splitClasses.filter(item => item.indexOf('wp-image-') === 0)
     return wpImageIdClasses.pop().replace('wp-image-', '', )
   }
-
-  getImageByID(id) {
-    return {
-      blurred: wpGetAttachmentImageSrc(Math.round(id), 'blurred'),
-      default: wpGetAttachmentImageSrc(Math.round(id), 'default'),
-    };
-  }
-
-}
-
-const lazyImages = new LazyWPImagesProcessor
-
-
-export default ({ children, Container }) => {
-  return (
-    <Container>
-      {lazyImages.filterContent(children)}
-    </Container>
-  )
 }
 

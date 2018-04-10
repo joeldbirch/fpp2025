@@ -5,9 +5,11 @@ import BaseMainColumn from '../components/BaseMainColumn'
 import BaseSideColumn from '../components/BaseSideColumn'
 import BaseContentWrap from '../components/BaseContentWrap'
 import SidebarWidgetFactory from '../components/SidebarWidgetFactory'
-import LazyWPImages from '../components/LazyWPImages'
+import lazyImages from '../components/LazyWPImages'
 import {sortByObjProp} from '../utils/helpers'
 import wufooForm from '../utils/wufooForm'
+
+const lazy = new lazyImages
 
 class Template extends Component {
   componentDidMount() {
@@ -32,9 +34,9 @@ class Template extends Component {
         </Helmet>
 
         <TheHeading>{title}</TheHeading>
-        <LazyWPImages Container={BaseMainColumn}>
-          {content}
-        </LazyWPImages>
+        <BaseMainColumn>
+          {lazy.filterWithStyle(content)}
+        </BaseMainColumn>
         <BaseSideColumn>
           <SidebarWidgetFactory nodes={sortedSidebarItems} />
         </BaseSideColumn>

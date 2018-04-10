@@ -38,3 +38,11 @@ exports.expires_in_days = function(days) {
 exports.commonStartOfWords = function(list) {
   return list.join(' ').match(/^([^\s]*)[^\s]*(?: \1[^\s]*)*$/)[1]
 }
+
+exports.setAttrs = function(el, attrs) {
+  Object.keys(attrs).forEach(attr => el.setAttribute(attr, attrs[attr]))
+}
+
+exports.removeAttrs = function(el, attrs) {
+  attrs.forEach(attr => el.removeAttribute(attr))
+}
