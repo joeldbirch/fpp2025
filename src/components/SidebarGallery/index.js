@@ -1,9 +1,6 @@
 import React from 'react'
 import SpotlightContainer from '../SpotlightContainer'
 import styles from './style.module.scss'
-import lazyImages from '../LazyWPImages'
-
-const lazy = new lazyImages
 
 export default ({node}) => {
   const wrapItemsOnHr = function (html) {
@@ -11,7 +8,7 @@ export default ({node}) => {
       <div
         key={i}
         className={styles.item}
-        dangerouslySetInnerHTML={{ __html: lazy.filterContent(item) }}
+        dangerouslySetInnerHTML={{ __html: item }}
       />
     ))
     return (
