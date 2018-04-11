@@ -5,8 +5,10 @@ import TheBanner from '../components/TheBanner'
 import TheMenu from '../components/TheMenu'
 import TheFooter from '../components/TheFooter'
 import BaseContentWrap from '../components/BaseContentWrap'
+import 'lazysizes'
 
 import '../sass/_generic.global.scss'
+import '../css/jb-lazysizes.css'
 
 const isDevelopment = (process.env.NODE_ENV === 'development')
 
@@ -20,7 +22,6 @@ export default ({children}) => (
       <link rel="preconnect" href="https://assets.fppdesign.com.au" crossorigin />
       <link rel="preconnect" href="https://d33wubrfki0l68.cloudfront.net" crossorigin />
       <meta name="robots" content="noindex" />
-      {(isDevelopment) ? <script async defer src="https://cdn.jsdelivr.net/npm/lazysizes@4.0.2/lazysizes.min.js"></script> : ''}
     </Helmet>
 
     <TheBanner>
