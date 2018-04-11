@@ -1,2 +1,3 @@
 https://fppdesign.netlify.com/*  https://staging.fppdesign.com.au/:splat  302
 http://fppdesign.netlify.com/*  https://staging.fppdesign.com.au/:splat  302
+http://*  https://:splat  302
