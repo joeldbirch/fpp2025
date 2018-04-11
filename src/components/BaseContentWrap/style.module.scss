@@ -57,26 +57,6 @@
     text-transform: lowercase;
   }
 
-  // img {
-  //   height: auto;
-  //   max-width: 100%;
-  //   width: 100%;
-
-  //   > & {
-  //     display: block;
-  //     margin: 1rem 0;
-  //   }
-  // }
-
-  // p, ul, ol, cite, blockquote, dd, td, th, address {
-  //   margin: 0 0 rhythm(2);
-  // }
-
-  // .main p + p {
-  //   text-indent: 1.5em;
-  //   margin-top: rhythm(-2);
-  // }
-
   ul,
   ol {
     @include fancy-list-base;
