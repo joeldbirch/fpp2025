@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 import TheHeading from '../components/TheHeading'
 import BaseMainColumn from '../components/BaseMainColumn'
 import BaseSideColumn from '../components/BaseSideColumn'
-import BaseContentWrap from '../components/BaseContentWrap'
 import SidebarWidgetFactory from '../components/SidebarWidgetFactory'
 import {sortByObjProp} from '../utils/helpers'
 import wufooForm from '../utils/wufooForm'
@@ -23,8 +22,7 @@ class Template extends Component {
     let description = [acf.description || title, siteMetadata.title].join(' | ')
 
     return (
-      <BaseContentWrap>
-
+      <div className="content">
         <Helmet>
           <title>{pageTitle}</title>
           <meta name="description" content={description} />
@@ -37,7 +35,7 @@ class Template extends Component {
         <BaseSideColumn>
           <SidebarWidgetFactory nodes={sortedSidebarItems} />
         </BaseSideColumn>
-      </BaseContentWrap>
+      </div>
     )
   }
 }

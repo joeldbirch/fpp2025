@@ -4,6 +4,7 @@ import TheWrap from '../components/TheWrap'
 import TheBanner from '../components/TheBanner'
 import TheMenu from '../components/TheMenu'
 import TheFooter from '../components/TheFooter'
+import BaseContentWrap from '../components/BaseContentWrap'
 
 import '../sass/_generic.global.scss'
 
@@ -26,8 +27,10 @@ export default ({children}) => (
       <TheMenu />
     </TheBanner>
 
-    <div className="content">
-      {children()}
+    <div className="middle">
+      <BaseContentWrap>
+        {children()}
+      </BaseContentWrap>
     </div>
 
     <TheFooter />
