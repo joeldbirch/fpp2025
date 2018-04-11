@@ -4,11 +4,12 @@
   "license": "UNLICENSED",
   "scripts": {
     "cache": "rm -rf .cache",
-    "develop": "gatsby develop",
+    "develop": "cross-env NODE_ENV=development && gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve"
   },
   "dependencies": {
+    "cross-env": "^5.1.4",
     "gatsby": "^1.9.241",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-catch-links": "^1.0.19",

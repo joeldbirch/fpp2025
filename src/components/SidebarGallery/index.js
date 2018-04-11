@@ -3,8 +3,9 @@ import SpotlightContainer from '../SpotlightContainer'
 import styles from './style.module.scss'
 
 export default ({node}) => {
-  const wrapItemsOnHr = function (html) {
-    const list = html.split('<hr />').map((item, i) => (
+  let wrapItemsOnHr = function (html) {
+    let hr = (html.indexOf('<hr />') !== -1) ? '<hr />' : '<hr>'
+    let list = html.split(hr).map((item, i) => (
       <div
         key={i}
         className={styles.item}

@@ -7,6 +7,7 @@ import TheFooter from '../components/TheFooter'
 
 import '../sass/_generic.global.scss'
 
+const isDevelopment = (process.env.NODE_ENV === 'development')
 
 export default ({children}) => (
   <TheWrap>
@@ -18,6 +19,7 @@ export default ({children}) => (
       <link rel="preconnect" href="https://assets.fppdesign.com.au" crossorigin />
       <link rel="preconnect" href="https://d33wubrfki0l68.cloudfront.net" crossorigin />
       <meta name="robots" content="noindex" />
+      {(isDevelopment) ? <script async defer src="https://cdn.jsdelivr.net/npm/lazysizes@4.0.2/lazysizes.min.js"></script> : ''}
     </Helmet>
 
     <TheBanner>

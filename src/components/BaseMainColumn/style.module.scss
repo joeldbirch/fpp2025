@@ -3,22 +3,21 @@
 .main {
   max-width: 43em;
 
-  @include respond-to(notdesk) {
-    > :first-child {
-      margin-top: 0;
-    }
-  }
-
   @include respond-to(desk) {
     float: left;
     max-width: none;
     min-height: 30em;
     padding-bottom: 3.25em;
+    padding-top: 1rem;
     width: 66%;
     z-index: 1;
   }
 
-  > p:first-child > img {
+  > :not(h2):first-child {
+    margin-top: 0;
+  }
+
+  > h2 {
     margin-top: 1rem;
   }
 
