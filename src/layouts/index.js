@@ -20,7 +20,6 @@ export default ({children}) => (
       <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link rel="preconnect" href="https://assets.fppdesign.com.au" crossorigin />
-      <link rel="preconnect" href="https://d33wubrfki0l68.cloudfront.net" crossorigin />
       <meta name="robots" content="noindex" />
     </Helmet>
 
