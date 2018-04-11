@@ -2,22 +2,22 @@ var excludedRoutes = require('./data/excludedWPRoutes.js')
 
 module.exports = {
   siteMetadata: {
-    title: 'Faster Pussycat Productions',
-    subtitle: 'The home of fast and furry-ous design',
+    title: "Faster Pussycat Productions",
+    subtitle: "The home of fast and furry-ous design",
   },
   plugins: [
-    'gatsby-link',
-    'gatsby-plugin-catch-links',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    "gatsby-link",
+    "gatsby-plugin-catch-links",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
     {
-      resolve: 'gatsby-plugin-typography',
+      resolve: "gatsby-plugin-typography",
       options: {
-        pathToConfigModule: '/src/utils/typography.js',
+        pathToConfigModule: "/src/utils/typography.js",
       },
     },
     {
-      resolve: 'gatsby-source-wordpress',
+      resolve: "gatsby-source-wordpress",
       options: {
         /*
           * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
@@ -63,7 +63,20 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-netlify`,
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: "Faster Pussycat Productions",
+        short_name: "FPP Design",
+        start_url: "/",
+        background_color: "#ffffff",
+        theme_color: "#599e01",
+        display: "minimal-ui",
+        icon: "src/img/icon.png" // This path is relative to the root of the site.
+      },
+    },
+    'gatsby-plugin-offline',
+    {
+      resolve: "gatsby-plugin-netlify",
       options: {
         headers: {
           "/*": [
