@@ -6,7 +6,8 @@
     "cache": "rm -rf .cache",
     "develop": "cross-env NODE_ENV=development && gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "icons": "pngquant --force --speed=1 --quality=10-30 --ext=.png -- ./public/icons/*.png"
   },
   "dependencies": {
     "cross-env": "^5.1.4",
