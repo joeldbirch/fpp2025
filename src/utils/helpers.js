@@ -48,3 +48,4 @@ exports.removeAttrs = function(el, attrs) {
 }
 
 exports.isBrowser = typeof window !== 'undefined'
+exports.isDevelopment = process.env.NODE_ENV === 'development'

@@ -6,13 +6,10 @@ import TheMenu from '../components/TheMenu'
 import TheFooter from '../components/TheFooter'
 import BaseContentWrap from '../components/BaseContentWrap'
 import {isBrowser} from '../utils/helpers'
-
-if(isBrowser) require('lazysizes')
-
 import '../sass/_generic.global.scss'
 import '../css/jb-lazysizes.css'
+if(isBrowser) require('lazysizes')
 
-const isDevelopment = (process.env.NODE_ENV === 'development')
 
 export default ({children}) => (
   <TheWrap>
