@@ -5,7 +5,9 @@ import TheBanner from '../components/TheBanner'
 import TheMenu from '../components/TheMenu'
 import TheFooter from '../components/TheFooter'
 import BaseContentWrap from '../components/BaseContentWrap'
-import 'lazysizes'
+import {isBrowser} from '../utils/helpers'
+
+if(isBrowser) require('lazysizes')
 
 import '../sass/_generic.global.scss'
 import '../css/jb-lazysizes.css'
