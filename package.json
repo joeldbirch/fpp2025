@@ -23,7 +23,7 @@
     "gatsby-source-wordpress": "^2.0.74",
     "lazysizes": "^4.0.2",
     "react": "^16.x",
-    "react-custom-ampersand": "^1.1.5",
+    "react-custom-ampersand": "1.1.7",
     "react-dom": "^16.x",
     "react-helmet": "^5.2.x",
     "typography-theme-twin-peaks": "^0.15.11"

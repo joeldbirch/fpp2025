@@ -4,14 +4,25 @@ import {brandColor} from '../../utils/colors'
 import styles from './style.module.scss'
 
 
+const Ampersand = () => {
+  return (
+    <span style={{
+      color: brandColor,
+      fontFamily: 'Playfair Display, serif',
+      lineHeight: .9
+    }}>
+      &
+    </span>
+  )
+}
+
+
 export default ({ children }) => {
 
   return (
     <div className={styles.headingwrap}>
       <h1 style={{margin: 0}}>
-        { applyCustomAmpersands(children, {
-          color: brandColor
-        }) }
+        { applyCustomAmpersands(children, {}, Ampersand) }
       </h1>
     </div>
   )

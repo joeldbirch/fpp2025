@@ -6782,9 +6782,9 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-custom-ampersand@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/react-custom-ampersand/-/react-custom-ampersand-1.1.5.tgz#e967e1089d832c1ddf19a451ad4f00fc0b1093ba"
+react-custom-ampersand@1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/react-custom-ampersand/-/react-custom-ampersand-1.1.7.tgz#d4ea372194cccb9658bcf770218a9385fce551bc"
   dependencies:
     prop-types "^15.6.0"
     react-helmet "^5.2.0"

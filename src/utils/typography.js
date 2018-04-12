@@ -24,10 +24,10 @@ const fppTheme = Object.assign({}, twinPeaksTheme, {
   baseFontSize: '16px',
   baseLineHeight: 1.625,
   googleFonts: [
-      {
-        name: 'Open Sans',
-        styles: ['300', '400', '600'],
-      },
+      // {
+      //   name: 'Open Sans',
+      //   styles: ['300', '400', '600'],
+      // },
     ],
   headerFontFamily: ['Open Sans', 'sans-serif'],
   bodyFontFamily: ['Georgia', 'sans-serif'],
