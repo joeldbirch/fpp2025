@@ -8,13 +8,13 @@ import {sortByObjProp} from '../utils/helpers'
 import wufooForm from '../utils/wufooForm'
 
 class Template extends Component {
-  componentDidMount() {
+  componentDidMount () {
     let {slug} = this.props.data.wordpressPage
     wufooForm(slug)
   }
 
-  render() {
-    let {title, content, acf, slug} = this.props.data.wordpressPage
+  render () {
+    let {title, content, acf} = this.props.data.wordpressPage
     let {siteMetadata} = this.props.data.site
     let {sidebarItems} = this.props.pathContext
     let sortedSidebarItems = sortByObjProp(acf.page_sidebar_items, sidebarItems, 'wordpress_id')
@@ -22,10 +22,10 @@ class Template extends Component {
     let description = [acf.description || title, siteMetadata.title].join(' | ')
 
     return (
-      <div className="content">
+      <div className='content'>
         <Helmet>
           <title>{pageTitle}</title>
-          <meta name="description" content={description} />
+          <meta name='description' content={description} />
         </Helmet>
 
         <TheHeading>{title}</TheHeading>

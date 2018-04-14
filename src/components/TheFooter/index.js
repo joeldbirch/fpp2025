@@ -2,9 +2,8 @@ import React from 'react'
 import { getCurrentYear } from '../../utils/helpers'
 import styles from './style.module.scss'
 
-
 export default ({ children }) => (
-  <footer className={styles.footer} role="contentinfo">
+  <footer className={styles.footer} role='contentinfo'>
     <p>
       &copy; faster pussycat productions <span>20061&#8212;{ getCurrentYear() }</span>
     </p>

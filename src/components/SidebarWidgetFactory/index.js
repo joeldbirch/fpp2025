@@ -1,13 +1,12 @@
 import React from 'react'
 
 export default function SidebarWidgetFactory ({nodes}) {
-
   const getComponent = function (filename) {
     filename = filename || 'SidebarText'
     return require(`../${filename}/index.js`)
   }
 
-  const widgets = function(nodes) {
+  const widgets = (function (nodes) {
     return nodes.map(node => {
       return React.createElement(
         getComponent(node.acf.template),
@@ -17,10 +16,10 @@ export default function SidebarWidgetFactory ({nodes}) {
         }
       )
     })
-  }(nodes)
+  }(nodes))
 
   return (
-    <div className="widgets">
+    <div className='widgets'>
       {widgets}
     </div>
   )

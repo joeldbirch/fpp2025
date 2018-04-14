@@ -3,22 +3,19 @@ import {applyCustomAmpersands} from 'react-custom-ampersand'
 import {brandColor} from '../../utils/colors'
 import styles from './style.module.scss'
 
-
 const Ampersand = () => {
   return (
     <span style={{
       color: brandColor,
       fontFamily: 'Playfair Display, serif',
-      lineHeight: .9
+      lineHeight: 0.9
     }}>
       &
     </span>
   )
 }
 
-
 export default ({ children }) => {
-
   return (
     <div className={styles.headingwrap}>
       <h1 style={{margin: 0}}>

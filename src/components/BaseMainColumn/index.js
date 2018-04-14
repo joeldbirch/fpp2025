@@ -5,6 +5,5 @@ export default ({ children }) => (
   <main
     className={styles.main}
     dangerouslySetInnerHTML={{ __html: children }}
-  >
-  </main>
+  />
 )

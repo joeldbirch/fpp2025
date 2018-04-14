@@ -8,26 +8,25 @@ import BaseContentWrap from '../components/BaseContentWrap'
 import {isBrowser} from '../utils/helpers'
 import '../sass/_generic.global.scss'
 import '../css/jb-lazysizes.css'
-if(isBrowser) require('lazysizes')
-
+if (isBrowser) require('lazysizes')
 
 export default ({children}) => (
   <TheWrap>
-    <Helmet htmlAttributes={{ lang : 'en' }}>
+    <Helmet htmlAttributes={{ lang: 'en' }}>
       <title>Faster Pussycat Productions</title>
-      <meta name="description" content="The home of fast and furryous graphic design" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link rel="preconnect" href="https://assets.fppdesign.com.au" crossorigin />
-      <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-      <meta name="robots" content="noindex" />
+      <meta name='description' content='The home of fast and furryous graphic design' />
+      <link rel='preconnect' href='https://fonts.googleapis.com' crossorigin />
+      <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+      <link rel='preconnect' href='https://assets.fppdesign.com.au' crossorigin />
+      <link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin />
+      <meta name='robots' content='noindex' />
     </Helmet>
 
     <TheBanner>
       <TheMenu />
     </TheBanner>
 
-    <div className="middle">
+    <div className='middle'>
       <BaseContentWrap>
         {children()}
       </BaseContentWrap>
