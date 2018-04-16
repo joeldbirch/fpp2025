@@ -17,7 +17,7 @@ class Template extends Component {
     let {title, content, acf} = this.props.data.wordpressPage
     let {siteMetadata} = this.props.data.site
     let {sidebarItems} = this.props.pathContext
-    let sortedSidebarItems = sortByObjProp(acf.page_sidebar_items, sidebarItems, 'wordpress_id')
+    let sortedSidebarItems = (acf.page_sidebar_items) ? sortByObjProp(acf.page_sidebar_items, sidebarItems, 'wordpress_id') || []
     let pageTitle = [acf.page_title || title, siteMetadata.title].join(' | ')
     let description = [acf.description || title, siteMetadata.title].join(' | ')
 
