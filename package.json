@@ -7,11 +7,13 @@
     "develop": "cross-env NODE_ENV=development && gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "icons":
-      "pngquant --force --speed=1 --quality=10-30 --ext=.png -- ./public/icons/*.png"
+    "icons": "pngquant --force --speed=1 --quality=10-30 --ext=.png -- ./public/icons/*.png"
   },
   "prettier": {
-    "trailingComma": "es5"
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "semi": false,
+    "printWidth": 100
   },
   "eslintConfig": {
     "env": {
@@ -21,10 +23,7 @@
     },
     "parserOptions": {
       "sourceType": "module",
-      "ecmaVersion": 6,
-      "ecmaFeatures": {
-        "experimentalObjectRestSpread": true
-      }
+      "ecmaVersion": 2018
     }
   },
   "dependencies": {

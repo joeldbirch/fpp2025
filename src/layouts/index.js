@@ -5,14 +5,18 @@ import TheBanner from '../components/TheBanner'
 import TheMenu from '../components/TheMenu'
 import TheFooter from '../components/TheFooter'
 import BaseContentWrap from '../components/BaseContentWrap'
-import {isBrowser} from '../utils/helpers'
+import { isBrowser } from '../utils/helpers'
 import '../sass/_generic.global.scss'
 import '../css/jb-lazysizes.css'
 if (isBrowser) require('lazysizes')
 
-export default ({children}) => (
+export default ({ children }) => (
   <TheWrap>
-    <Helmet htmlAttributes={{ lang: 'en' }}>
+    <Helmet
+      htmlAttributes={{
+        lang: 'en',
+      }}
+    >
       <title>Faster Pussycat Productions</title>
       <meta name='description' content='The home of fast and furryous graphic design' />
       <link rel='preconnect' href='https://fonts.googleapis.com' crossorigin />
@@ -26,10 +30,8 @@ export default ({children}) => (
       <TheMenu />
     </TheBanner>
 
-    <div className='middle'>
-      <BaseContentWrap>
-        {children()}
-      </BaseContentWrap>
+    <div className="middle">
+      <BaseContentWrap>{children()}</BaseContentWrap>
     </div>
 
     <TheFooter />
