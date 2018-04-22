@@ -18,12 +18,17 @@ export default ({ children }) => (
       }}
     >
       <title>Faster Pussycat Productions</title>
-      <meta name='description' content='The home of fast and furryous graphic design' />
-      <link rel='preconnect' href='https://fonts.googleapis.com' crossorigin />
-      <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-      <link rel='preconnect' href='https://assets.fppdesign.com.au' crossorigin />
-      <link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin />
-      <meta name='robots' content='noindex' />
+      <meta name="description" content="The home of fast and furryous graphic design" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link rel="preconnect" href="https://assets.fppdesign.com.au" crossorigin />
+      <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+      <meta name="robots" content="noindex" />
+      <script>
+        document.documentElement.className =
+        document.documentElement.className.replace(/(\bno-js\b|\bjb-yes-js\b)/g, '') + ' jb-yes-js
+        js '
+      </script>
     </Helmet>
 
     <TheBanner>
