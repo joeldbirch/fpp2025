@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import Layout from '../components/layout'
 import TheHeading from '../components/TheHeading'
 import BaseMainColumn from '../components/BaseMainColumn'
 import BaseSideColumn from '../components/BaseSideColumn'
@@ -16,30 +18,32 @@ class Template extends Component {
   render() {
     let { title, content, acf } = this.props.data.wordpressPage
     let { siteMetadata } = this.props.data.site
-    let { sidebarItems } = this.props.pathContext
+    let { sidebarItems } = this.props.pageContext
     let sortedSidebarItems = sortByObjProp(acf.page_sidebar_items, sidebarItems, 'wordpress_id')
     let pageTitle = [acf.page_title || title, siteMetadata.title].join(' | ')
     let description = [acf.description || title, siteMetadata.title].join(' | ')
 
     return (
-      <div className="content">
-        <Helmet>
-          <title>{pageTitle}</title>
-          <meta name="description" content={description} />
-        </Helmet>
+      <Layout>
+        <div className="content">
+          <Helmet>
+            <title>{pageTitle}</title>
+            <meta name="description" content={description} />
+          </Helmet>
 
-        <TheHeading>{title}</TheHeading>
-        <BaseMainColumn>{content}</BaseMainColumn>
-        <BaseSideColumn>
-          <SidebarWidgetFactory nodes={sortedSidebarItems} />
-        </BaseSideColumn>
-      </div>
+          <TheHeading>{title}</TheHeading>
+          <BaseMainColumn>{content}</BaseMainColumn>
+          <BaseSideColumn>
+            <SidebarWidgetFactory nodes={sortedSidebarItems} />
+          </BaseSideColumn>
+        </div>
+      </Layout>
     )
   }
 }
 
 export const pageQuery = graphql`
-  query currentPageQuery($id: String!) {
+  query($id: String!) {
     site {
       siteMetadata {
         title

@@ -27,9 +27,9 @@
     }
   },
   "dependencies": {
+    "compass-vertical-rhythm": "^1.4.5",
     "cross-env": "^5.2.0",
     "gatsby": "^2.3.7",
-    "gatsby-link": "^2.0.16",
     "gatsby-plugin-catch-links": "^2.0.13",
     "gatsby-plugin-manifest": "^2.0.26",
     "gatsby-plugin-netlify": "^2.0.13",
@@ -39,11 +39,13 @@
     "gatsby-plugin-typography": "^2.2.10",
     "gatsby-source-wordpress": "^3.0.51",
     "lazysizes": "^4.1.7",
+    "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-custom-ampersand": "1.1.7",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.19",
+    "typography": "^0.16.19",
     "typography-theme-twin-peaks": "^0.16.19"
   }
 }

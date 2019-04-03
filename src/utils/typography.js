@@ -76,5 +76,5 @@ const fppTheme = Object.assign({}, twinPeaksTheme, {
 })
 
 const typography = new Typography(fppTheme)
-
-export default typography
+const { rhythm, scale } = typography
+export { rhythm, scale, typography as default }

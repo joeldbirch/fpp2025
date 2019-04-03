@@ -1,8 +1,8 @@
 const path = require('path')
 const {getSidebarData, getPath} = require('./src/utils/helpers')
 
-exports.createPages = ({boundActionCreators, graphql}) => {
-  const {createPage} = boundActionCreators
+exports.createPages = ({actions, graphql}) => {
+  const {createPage} = actions
 
   return new Promise((resolve, reject) => {
     graphql(

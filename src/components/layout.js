@@ -35,7 +35,7 @@ export default ({ children }) => (
     </TheBanner>
 
     <div className="middle">
-      <BaseContentWrap>{children()}</BaseContentWrap>
+      <BaseContentWrap>{ children }</BaseContentWrap>
     </div>
 
     <TheFooter />

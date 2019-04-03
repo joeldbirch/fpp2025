@@ -1,9 +1,10 @@
 import React from 'react'
+import SidebarText from '../SidebarText'
+import SidebarGallery from '../SidebarGallery'
 
 export default function SidebarWidgetFactory ({nodes}) {
-  const getComponent = function (filename) {
-    filename = filename || 'SidebarText'
-    return require(`../${filename}/index.js`)
+  const getComponent = function (component = 'SidebarText') {
+    return (component === 'SidebarText') ? SidebarText : SidebarGallery
   }
 
   const widgets = (function (nodes) {

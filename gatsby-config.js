@@ -13,7 +13,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-typography",
       options: {
-        pathToConfigModule: "/src/utils/typography.js",
+        pathToConfigModule: require.resolve("./src/utils/typography.js"),
       },
     },
     {

@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "gatsby-link";
+import { Link } from "gatsby";
 import styles from "./style.module.scss";
 
 export default ({ children }) => (
@@ -7,7 +7,6 @@ export default ({ children }) => (
     <ul className={styles.list}>
       <li className={styles.item}>
         <Link
-          exact
           className={styles.link}
           activeClassName={styles.active}
           to="/"
@@ -22,6 +21,7 @@ export default ({ children }) => (
           activeClassName={styles.active}
           to="/portfolio/"
           title="Our graphic design portfolio"
+          partiallyActive={true}
         >
           Portfolio
         </Link>
@@ -32,6 +32,7 @@ export default ({ children }) => (
           activeClassName={styles.active}
           to="/contact/"
           title="Contact us via our email form"
+          partiallyActive={true}
         >
           Contact
         </Link>
