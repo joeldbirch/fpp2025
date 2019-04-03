@@ -23,7 +23,6 @@ export default ({ children }) => (
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link rel="preconnect" href="https://assets.fppdesign.com.au" crossorigin />
       <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-      <meta name="robots" content="noindex" />
       <script>
         document.documentElement.className =
         document.documentElement.className.replace(/(\bno-js\b|\bjb-yes-js\b)/g, '') + ' jb-yes-js
