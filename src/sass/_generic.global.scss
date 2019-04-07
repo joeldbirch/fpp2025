@@ -14,6 +14,14 @@ html {
   }
 }
 
+[id="___gatsby"] {
+  display: flex;
+
+  >* {
+    width: 100%;
+  }
+}
+
 h1 {
   color: $font-color;
   font-family: Times New Roman, Times, serif;
