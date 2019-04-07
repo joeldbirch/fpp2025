@@ -42,6 +42,7 @@
   }
 
   a {
+
     // all links including regular text links and thumb wrapper
     @include increase-specificity {
       color: color('darkbrand');
