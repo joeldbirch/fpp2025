@@ -7,7 +7,7 @@ import TheFooter from '../components/TheFooter'
 import BaseContentWrap from '../components/BaseContentWrap'
 import { isBrowser } from '../utils/helpers'
 import '../sass/_generic.global.scss'
-import '../css/jb-lazysizes.css'
+import '../css/jb-lazysizes.min.css'
 if (isBrowser) require('lazysizes')
 
 export default ({ children }) => (

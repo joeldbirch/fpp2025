@@ -3,6 +3,7 @@
   "description": "FPP design website using Gatsby",
   "license": "UNLICENSED",
   "scripts": {
+    "cssnano": "postcss ./src/css/jb-lazysizes.css -u cssnano -o ./src/css/jb-lazysizes.min.css --no-map",
     "cache": "rm -rf .cache",
     "develop": "cross-env NODE_ENV=development && gatsby develop",
     "build": "gatsby build",
