@@ -1,5 +1,5 @@
  /*
-  X-Frame-Options: ALLOW-FROM http://ami.responsivedesign.is/
+  Content-Security-Policy: frame-ancestors 'self' http://ami.responsivedesign.is/
 
 /*.svg
   expires: 1y
