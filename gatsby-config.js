@@ -2,30 +2,30 @@ var excludedRoutes = require('./data/excludedWPRoutes.js')
 
 module.exports = {
   siteMetadata: {
-    title: "Faster Pussycat Productions",
-    subtitle: "The home of fast and furry-ous design",
+    title: 'Faster Pussycat Productions',
+    subtitle: 'The home of fast and furry-ous design',
   },
   plugins: [
-    "gatsby-link",
-    "gatsby-plugin-catch-links",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sass",
+    'gatsby-link',
+    'gatsby-plugin-catch-links',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
     {
-      resolve: "gatsby-plugin-typography",
+      resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: require.resolve("./src/utils/typography.js"),
+        pathToConfigModule: require.resolve('./src/utils/typography.js'),
       },
     },
     {
-      resolve: "gatsby-source-wordpress",
+      resolve: 'gatsby-source-wordpress',
       options: {
         /*
-          * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
-          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
-          */
-        baseUrl: "admin.fppdesign.com.au",
+         * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
+         * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
+         */
+        baseUrl: 'admin.fppdesign.com.au',
         // The protocol. This can be http or https.
-        protocol: "https",
+        protocol: 'https',
         // Indicates whether the site is hosted on wordpress.com.
         // If false, then the asumption is made that the site is self hosted.
         // If true, then the plugin will source its content on wordpress.com using the JSON REST API V2.
@@ -38,8 +38,8 @@ module.exports = {
         auth: {
           // If auth.user and auth.pass are filled, then the source plugin will be allowed
           // to access endpoints that are protected with .htaccess.
-          htaccess_user: "cat",
-          htaccess_pass: "seabird-away-bedside",
+          htaccess_user: 'cat',
+          htaccess_pass: 'seabird-away-bedside',
           htaccess_sendImmediately: false,
 
           // If hostingWPCOM is true then you will need to communicate with wordpress.com API
@@ -65,45 +65,28 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: "Faster Pussycat Productions",
-        short_name: "FPP Design",
-        start_url: "/",
-        background_color: "#ffffff",
-        theme_color: "#599e01",
-        display: "minimal-ui",
+        name: 'Faster Pussycat Productions',
+        short_name: 'FPP Design',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#599e01',
+        display: 'minimal-ui',
         icons: [
           {
             src: '/icons/icon-192x192.png',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: '/icons/icon-512x512.png',
             sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
+            type: 'image/png',
+          },
+        ],
         //icon: "src/img/icon.png" // This path is relative to the root of the site.
       },
     },
+    'gatsby-plugin-netlify',
     'gatsby-plugin-offline',
-    {
-      resolve: "gatsby-plugin-netlify",
-      options: {
-        headers: {
-          "/*": [
-            "X-Frame-Options: ALLOW-FROM http://ami.responsivedesign.is/",
-          ],
-          "/*.js": [
-            "Expires: 1y",
-            "Cache-Control: public, max-age=31536000",
-          ],
-          "/favicon.ico": [
-            "Expires: 1y",
-            "Cache-Control: public, max-age=31536000",
-          ],
-        },
-      },
-    },
   ],
 }

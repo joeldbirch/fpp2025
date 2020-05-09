@@ -1,0 +1,47 @@
+ /*
+  X-Frame-Options: ALLOW-FROM http://ami.responsivedesign.is/
+
+/*.svg
+  expires: 1y
+  cache-control: public
+  cache-control: max-age=31536000
+
+/*.png
+  expires: 1y
+  cache-control: public
+  cache-control: max-age=31536000
+
+/*.jpg
+  expires: 1y
+  cache-control: public
+  cache-control: max-age=31536000
+
+/*.webp
+  expires: 1y
+  cache-control: public
+  cache-control: max-age=31536000
+
+/*.css
+  expires: 1y
+  cache-control: public
+  cache-control: max-age=31536000
+
+/*.js
+  expires: 1y
+  cache-control: public
+  cache-control: max-age=31536000
+
+/*.woff
+  expires: 1y
+  cache-control: public
+  cache-control: max-age=31536000
+
+/*.woff2
+  expires: 1y
+  cache-control: public
+  cache-control: max-age=31536000
+
+/favicon.ico
+  expires: 1y
+  cache-control: public
+  cache-control: max-age=31536000
