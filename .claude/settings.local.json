@@ -4,7 +4,15 @@
       "Bash(node:*)",
       "Bash(npm:*)",
       "Bash(yarn --version)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(yarn install)",
+      "Bash(yarn develop)",
+      "WebFetch(domain:spinupwp.com)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:github.com)"
     ],
     "deny": []
   }
