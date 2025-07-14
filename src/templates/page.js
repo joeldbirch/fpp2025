@@ -12,7 +12,7 @@ class Template extends Component {
   render () {
     const { data } = this.props
     const siteMetadata = data.site.siteMetadata
-    const currentPage = data.wordpressAcfPages
+    const currentPage = data.wordpressPage
     const title = currentPage.acf.page_title || currentPage.title
     const content = currentPage.content
     const pageTitle = [title, siteMetadata.title].join(' | ')
@@ -33,9 +33,9 @@ class Template extends Component {
           <BaseSideColumn>
             {this.props.pageContext.sidebarItems &&
               this.props.pageContext.sidebarItems
-                .sort(sortByObjProp('acf.template'))
+                .sort((a, b) => ((a.acf && a.acf.template) || '').localeCompare((b.acf && b.acf.template) || ''))
                 .map((item, index) => (
-                  <SidebarWidgetFactory key={index} itemData={item} />
+                  <SidebarWidgetFactory key={index} nodes={[item]} />
                 ))}
           </BaseSideColumn>
         </div>
@@ -51,7 +51,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    wordpressAcfPages(id: { eq: $id }) {
+    wordpressPage(id: { eq: $id }) {
       title
       content
       slug

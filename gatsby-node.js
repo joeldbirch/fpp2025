@@ -8,7 +8,7 @@ exports.createPages = ({actions, graphql}) => {
     graphql(
       `
         {
-          pages: allWordpressAcfPages {
+          pages: allWordpressPage {
             edges {
               node {
                 title
@@ -22,7 +22,7 @@ exports.createPages = ({actions, graphql}) => {
               }
             }
           }
-          sidebarItems: allWordpressAcfSidebarItems {
+          sidebarItems: allWordpressWpSidebarItems {
             edges {
               node {
                 wordpress_id
