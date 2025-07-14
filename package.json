@@ -5,8 +5,8 @@
   "scripts": {
     "cssnano": "postcss ./src/css/jb-lazysizes.css -u cssnano -o ./src/css/jb-lazysizes.min.css --no-map",
     "cache": "rm -rf .cache",
-    "develop": "cross-env NODE_ENV=development && gatsby develop",
-    "build": "gatsby build",
+    "develop": "cross-env NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider && gatsby develop",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider gatsby build",
     "serve": "gatsby serve",
     "icons": "pngquant --force --speed=1 --quality=10-30 --ext=.png -- ./public/icons/*.png"
   },
@@ -40,13 +40,15 @@
     "gatsby-plugin-typography": "^2.2.10",
     "gatsby-source-wordpress": "^3.0.51",
     "lazysizes": "^4.1.7",
-    "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-custom-ampersand": "1.1.7",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.19",
+    "sass": "^1.89.2",
+    "sharp": "^0.32.0",
     "typography": "^0.16.19",
     "typography-theme-twin-peaks": "^0.16.19"
-  }
+  },
+  "packageManager": "yarn@4.6.0+sha512.5383cc12567a95f1d668fbe762dfe0075c595b4bfff433be478dbbe24e05251a8e8c3eb992a986667c1d53b6c3a9c85b8398c35a960587fbd9fa3a0915406728"
 }

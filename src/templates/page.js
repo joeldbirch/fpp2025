@@ -10,12 +10,12 @@ import { sortByObjProp } from '../utils/helpers'
 
 class Template extends Component {
   render () {
-    const { title, content, acf, slug } = this.props.data.wordpressPage
-    const { siteMetadata } = this.props.data.site
-    const { sidebarItems } = this.props.pageContext
-    const sortedSidebarItems = sortByObjProp(acf.page_sidebar_items, sidebarItems, 'wordpress_id')
-    const pageTitle = [acf.page_title || title, siteMetadata.title].join(' | ')
-    const description = [acf.description || title, siteMetadata.title].join(' | ')
+    // Temporarily disabled WordPress data for build troubleshooting
+    const siteMetadata = { title: 'Faster Pussycat Productions' }
+    const title = 'Test Page'
+    const content = '<p>Build test successful!</p>'
+    const pageTitle = [title, siteMetadata.title].join(' | ')
+    const description = [title, siteMetadata.title].join(' | ')
 
     return (
       <Layout>
@@ -27,10 +27,10 @@ class Template extends Component {
 
           <TheHeading>{title}</TheHeading>
           <BaseMainColumn>
-            {content}
+            <div dangerouslySetInnerHTML={{ __html: content }} />
           </BaseMainColumn>
           <BaseSideColumn>
-            <SidebarWidgetFactory nodes={sortedSidebarItems} />
+            <div>Sidebar placeholder</div>
           </BaseSideColumn>
         </div>
       </Layout>
@@ -38,22 +38,23 @@ class Template extends Component {
   }
 }
 
-export const pageQuery = graphql`
-  query($id: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    wordpressPage(id: { eq: $id }) {
-      title
-      content
-      slug
-      acf {
-        page_title
-        page_sidebar_items
-      }
-    }
-  }
-`
+// Temporarily disabled WordPress query for build troubleshooting
+// export const pageQuery = graphql`
+//   query($id: String!) {
+//     site {
+//       siteMetadata {
+//         title
+//       }
+//     }
+//     wordpressPage(id: { eq: $id }) {
+//       title
+//       content
+//       slug
+//       acf {
+//         page_title
+//         page_sidebar_items
+//       }
+//     }
+//   }
+// `
 export default Template
