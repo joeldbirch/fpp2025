@@ -10,10 +10,11 @@ import { sortByObjProp } from '../utils/helpers'
 
 class Template extends Component {
   render () {
-    // Temporarily disabled WordPress data for build troubleshooting
-    const siteMetadata = { title: 'Faster Pussycat Productions' }
-    const title = 'Test Page'
-    const content = '<p>Build test successful!</p>'
+    const { data } = this.props
+    const siteMetadata = data.site.siteMetadata
+    const currentPage = data.wordpressAcfPages
+    const title = currentPage.acf.page_title || currentPage.title
+    const content = currentPage.content
     const pageTitle = [title, siteMetadata.title].join(' | ')
     const description = [title, siteMetadata.title].join(' | ')
 
@@ -30,7 +31,12 @@ class Template extends Component {
             <div dangerouslySetInnerHTML={{ __html: content }} />
           </BaseMainColumn>
           <BaseSideColumn>
-            <div>Sidebar placeholder</div>
+            {this.props.pageContext.sidebarItems &&
+              this.props.pageContext.sidebarItems
+                .sort(sortByObjProp('acf.template'))
+                .map((item, index) => (
+                  <SidebarWidgetFactory key={index} itemData={item} />
+                ))}
           </BaseSideColumn>
         </div>
       </Layout>
@@ -38,23 +44,22 @@ class Template extends Component {
   }
 }
 
-// Temporarily disabled WordPress query for build troubleshooting
-// export const pageQuery = graphql`
-//   query($id: String!) {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//     wordpressPage(id: { eq: $id }) {
-//       title
-//       content
-//       slug
-//       acf {
-//         page_title
-//         page_sidebar_items
-//       }
-//     }
-//   }
-// `
+export const pageQuery = graphql`
+  query($id: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    wordpressAcfPages(id: { eq: $id }) {
+      title
+      content
+      slug
+      acf {
+        page_title
+        page_sidebar_items
+      }
+    }
+  }
+`
 export default Template

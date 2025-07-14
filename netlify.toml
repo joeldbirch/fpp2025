@@ -1,0 +1,7 @@
+[build]
+  command = "cross-env NODE_OPTIONS=--openssl-legacy-provider yarn build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NODE_OPTIONS = "--openssl-legacy-provider"

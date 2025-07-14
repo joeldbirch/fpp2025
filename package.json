@@ -5,7 +5,7 @@
   "scripts": {
     "cssnano": "postcss ./src/css/jb-lazysizes.css -u cssnano -o ./src/css/jb-lazysizes.min.css --no-map",
     "cache": "rm -rf .cache",
-    "develop": "cross-env NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider && gatsby develop",
+    "develop": "cross-env NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
     "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider gatsby build",
     "serve": "gatsby serve",
     "icons": "pngquant --force --speed=1 --quality=10-30 --ext=.png -- ./public/icons/*.png"
@@ -30,6 +30,7 @@
   "dependencies": {
     "compass-vertical-rhythm": "^1.4.5",
     "cross-env": "^5.2.0",
+    "dotenv": "^17.2.0",
     "gatsby": "^2.3.7",
     "gatsby-plugin-catch-links": "^2.0.13",
     "gatsby-plugin-manifest": "^2.0.26",
