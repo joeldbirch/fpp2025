@@ -1,5 +1,5 @@
 [build]
-  command = "cross-env NODE_OPTIONS=--openssl-legacy-provider yarn build"
+  command = "cross-env NODE_OPTIONS=--openssl-legacy-provider pnpm build"
   publish = "public"
 
 [build.environment]
