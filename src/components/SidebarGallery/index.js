@@ -1,6 +1,6 @@
 import React from 'react'
 import SpotlightContainer from '../SpotlightContainer'
-import styles from './style.module.scss'
+import * as styles from './style.module.scss'
 
 export default ({node}) => {
   let wrapItemsOnHr = function (html) {
@@ -20,7 +20,7 @@ export default ({node}) => {
   }
 
   return (
-    <SpotlightContainer className={`${styles.gallery}  widget-${node.wordpress_id}`}>
+    <SpotlightContainer className={`${styles.gallery}  widget-${node.databaseId}`}>
       <h2>{node.title}</h2>
       <div>
         {wrapItemsOnHr(node.content)}

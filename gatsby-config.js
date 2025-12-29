@@ -1,5 +1,4 @@
 require('dotenv').config()
-var excludedRoutes = require('./data/excludedWPRoutes.js')
 
 module.exports = {
   siteMetadata: {
@@ -8,11 +7,13 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-sass',
       options: {
         implementation: require('sass'),
+        sassOptions: {
+          silenceDeprecations: ['legacy-js-api'],
+        },
       },
     },
     {
@@ -24,17 +25,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        baseUrl: 'admin.fppdesign.com.au',
-        protocol: 'https',
-        hostingWPCOM: false,
-        useACF: true,
+        url: 'https://admin.fppdesign.com.au/graphql',
         auth: {
-          htaccess_user: process.env.HTACCESS_USER,
-          htaccess_pass: process.env.HTACCESS_PASSWORD,
-          htaccess_sendImmediately: false,
+          htaccess: {
+            username: process.env.HTACCESS_USER,
+            password: process.env.HTACCESS_PASSWORD,
+          },
         },
-        verboseOutput: true,
-        excludedRoutes: excludedRoutes,
       },
     },
     {
@@ -58,7 +55,6 @@ module.exports = {
             type: 'image/png',
           },
         ],
-        //icon: "src/img/icon.png" // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-netlify',

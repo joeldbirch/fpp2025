@@ -1,62 +1,60 @@
 const path = require('path')
-const {getSidebarData, getPath} = require('./src/utils/helpers')
+const { getSidebarData, getPath } = require('./src/utils/helpers')
 
-exports.createPages = ({actions, graphql}) => {
-  const {createPage} = actions
+exports.createPages = async ({ actions, graphql }) => {
+  const { createPage } = actions
 
-  return new Promise((resolve, reject) => {
-    graphql(
-      `
-        {
-          pages: allWordpressPage {
-            edges {
-              node {
-                title
-                id
-                link
-                status
-                acf {
-                  page_sidebar_items
-                  page_title
-                }
-              }
-            }
+  const result = await graphql(`
+    {
+      pages: allWpPage {
+        nodes {
+          title
+          id
+          link
+          status
+          pageMetadata {
+            pageTitle
           }
-          sidebarItems: allWordpressWpSidebarItems {
-            edges {
-              node {
-                wordpress_id
-                title
-                content
-                acf {
-                  template
+          sidebarSelection {
+            pageSidebarItems {
+              nodes {
+                ... on WpSidebarItem {
+                  databaseId
+                  title
+                  content
+                  sidebarLayout {
+                    template
+                  }
                 }
               }
             }
           }
         }
-      `
-    ).then(result => {
-      if (result.errors) {
-        console.log(result.errors);
-        reject(result.errors)
       }
+    }
+  `)
 
-      const pageTemplate = path.resolve('src/templates/page.js')
-      result.data.pages.edges.forEach(({node}) => {
-        if (node.status === 'publish') {
-          createPage({
-            path: getPath(node.link),
-            component: pageTemplate,
-            context: {
-              id: node.id,
-              acf: node.acf,
-              sidebarItems: getSidebarData(node.acf.page_sidebar_items, result.data.sidebarItems.edges),
-            }
-          })
-        }
+  if (result.errors) {
+    console.log(result.errors)
+    throw result.errors
+  }
+
+  const pageTemplate = path.resolve('src/templates/page.js')
+  result.data.pages.nodes.forEach((node) => {
+    if (node.status === 'publish' && node.link) {
+      const sidebarItems = node.sidebarSelection?.pageSidebarItems?.nodes || []
+      createPage({
+        path: getPath(node.link),
+        component: pageTemplate,
+        context: {
+          id: node.id,
+          acf: {
+            page_sidebar_items: sidebarItems.map((item) => item.databaseId),
+            page_title: node.pageMetadata?.pageTitle,
+          },
+          sidebarItems: sidebarItems,
+        },
       })
-      resolve()
-    })
+    }
   })
 }

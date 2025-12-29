@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import styles from "./style.module.scss";
+import * as styles from "./style.module.scss";
 
 export default ({ children }) => (
   <nav className={styles.nav} role="navigation">

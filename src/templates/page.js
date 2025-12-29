@@ -1,64 +1,64 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import TheHeading from '../components/TheHeading'
 import BaseMainColumn from '../components/BaseMainColumn'
 import BaseSideColumn from '../components/BaseSideColumn'
 import SidebarWidgetFactory from '../components/SidebarWidgetFactory'
-import { sortByObjProp } from '../utils/helpers'
 
-class Template extends Component {
-  render () {
-    const { data } = this.props
-    const siteMetadata = data.site.siteMetadata
-    const currentPage = data.wordpressPage
-    const title = currentPage.acf.page_title || currentPage.title
-    const content = currentPage.content
-    const pageTitle = [title, siteMetadata.title].join(' | ')
-    const description = [title, siteMetadata.title].join(' | ')
+function Template({ data, pageContext }) {
+  const siteMetadata = data.site.siteMetadata
+  const currentPage = data.wpPage
+  const title = pageContext.acf?.page_title || currentPage.title
+  const content = currentPage.content
 
-    return (
-      <Layout>
-        <div className="content">
-          <Helmet>
-            <title>{pageTitle}</title>
-            <meta name="description" content={description} />
-          </Helmet>
+  return (
+    <Layout>
+      <div className="content">
+        <TheHeading>{title}</TheHeading>
+        <BaseMainColumn>
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </BaseMainColumn>
+        <BaseSideColumn>
+          {pageContext.sidebarItems &&
+            pageContext.sidebarItems
+              .sort((a, b) =>
+                (a.sidebarLayout?.template || '').localeCompare(
+                  b.sidebarLayout?.template || ''
+                )
+              )
+              .map((item, index) => <SidebarWidgetFactory key={index} nodes={[item]} />)}
+        </BaseSideColumn>
+      </div>
+    </Layout>
+  )
+}
 
-          <TheHeading>{title}</TheHeading>
-          <BaseMainColumn>
-            <div dangerouslySetInnerHTML={{ __html: content }} />
-          </BaseMainColumn>
-          <BaseSideColumn>
-            {this.props.pageContext.sidebarItems &&
-              this.props.pageContext.sidebarItems
-                .sort((a, b) => ((a.acf && a.acf.template) || '').localeCompare((b.acf && b.acf.template) || ''))
-                .map((item, index) => (
-                  <SidebarWidgetFactory key={index} nodes={[item]} />
-                ))}
-          </BaseSideColumn>
-        </div>
-      </Layout>
-    )
-  }
+export const Head = ({ data, pageContext }) => {
+  const siteMetadata = data.site.siteMetadata
+  const currentPage = data.wpPage
+  const title = pageContext.acf?.page_title || currentPage.title
+  const pageTitle = [title, siteMetadata.title].join(' | ')
+
+  return (
+    <>
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageTitle} />
+    </>
+  )
 }
 
 export const pageQuery = graphql`
-  query($id: String!) {
+  query ($id: String!) {
     site {
       siteMetadata {
         title
       }
     }
-    wordpressPage(id: { eq: $id }) {
+    wpPage(id: { eq: $id }) {
       title
       content
       slug
-      acf {
-        page_title
-        page_sidebar_items
-      }
     }
   }
 `

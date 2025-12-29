@@ -1,4 +1,3 @@
-const { URL } = require("url");
 
 exports.getCurrentYear = function() {
   return new Date().getFullYear();
@@ -13,18 +12,22 @@ exports.extractFileNameFromAbsPath = function(path) {
 };
 
 exports.getSidebarData = function(pageSidebarIds, sidebarNodes) {
-  let sidebarData = sidebarNodes
-    .filter(({ node }) => {
-      let sidebarIds = pageSidebarIds || [];
-      return sidebarIds.indexOf(node.wordpress_id) > -1;
-    })
-    .map(({ node }) => node);
+  let sidebarIds = pageSidebarIds || [];
+  let sidebarData = sidebarNodes.filter((node) => {
+    return sidebarIds.indexOf(node.databaseId) > -1;
+  });
   return sidebarData;
 };
 
 exports.getPath = function(link) {
-  let path = new URL(link);
-  return path.href.replace(path.origin, "");
+  if (!link) return '/';
+  if (link.startsWith('/')) return link;
+  try {
+    let path = new URL(link);
+    return path.href.replace(path.origin, "");
+  } catch {
+    return link;
+  }
 };
 
 exports.sortByObjProp = function(ordered, objects, property) {

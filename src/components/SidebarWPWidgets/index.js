@@ -3,12 +3,12 @@ import SidebarText from '../SidebarText'
 
 export default function SidebarWPWidget ({nodes}) {
   const widgets = (function (nodes) {
-    return nodes.reverse().map(({title, content, wordpress_id, template}) => {
+    return nodes.reverse().map(({title, content, databaseId, template}) => {
       return (
         <SidebarText
           title={title}
           content={content}
-          key={`widget-${wordpress_id}`}
+          key={`widget-${databaseId}`}
         />
       )
     })
