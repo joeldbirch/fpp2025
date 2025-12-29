@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:math";
 @use "settings.defaults" as *;
 
 // @author  Joel Birch
@@ -6,7 +7,7 @@
 // @param lines  How many vertical rhythm lines you want
 // @param font-size  Current element's font-size in px
 @function relative-rhythm($lines: 1, $font-size: $base-font-size) {
-  $spacer: $base-line-height / $font-size * $lines;
+  $spacer: math.div($base-line-height, $font-size) * $lines;
   @return $spacer;
 }
 
@@ -23,7 +24,7 @@
 
 // Outputs rem units to maintain relationship with base font-size.
 @function rem-spacer($lines: 1) {
-  @return $lines * ($base-line-height / $base-font-size) * 1rem;
+  @return $lines * math.div($base-line-height, $base-font-size) * 1rem;
 }
 
 
@@ -38,7 +39,7 @@
 }
 
 @mixin establish-baseline {
-  $percentage: $base-font-size / 16px * 100%;
+  $percentage: math.div($base-font-size, 16px) * 100%;
 
   html {
     font-size: $percentage;

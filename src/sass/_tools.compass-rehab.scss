@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:math";
 @use "settings.defaults" as *;
 @use "tools.functions" as *;
 @use "tools.vertical-rhythm" as *;
@@ -9,7 +10,7 @@
 // alias functions to ease transition away from Compass.
 // Note: $lines is divided by four before fed into spacer.
 @function rhythm($lines: 4, $font-size: $base-font-size) {
-  @return spacer($lines / 4, $font-size);
+  @return spacer(math.div($lines, 4), $font-size);
 }
 
 
@@ -17,25 +18,25 @@
 // Note: $lines is divided by four before fed into new mixins.
 @mixin adjust-font-size-to($size: $base-font-size, $lines: 4) {
   font-size: em($size);
-  line-height: line-height($lines / 4, $size);
+  line-height: line-height(math.div($lines, 4), $size);
 }
 
 @mixin adjust-leading-to($lines: 4, $size: $base-font-size) {
-  line-height: line-height($lines / 4, $size);
+  line-height: line-height(math.div($lines, 4), $size);
 }
 
 @mixin margin-leader($lines: 4, $size: $base-font-size) {
-  margin-top: spacer($lines / 4, $size);
+  margin-top: spacer(math.div($lines, 4), $size);
 }
 
 @mixin margin-trailer($lines: 4, $size: $base-font-size) {
-  margin-bottom: spacer($lines / 4, $size);
+  margin-bottom: spacer(math.div($lines, 4), $size);
 }
 
 @mixin trailing-border($border-width: 1px, $lines: 4, $size: $base-font-size) {
   border-bottom-style: solid;
   border-bottom-width: em($border-width, $size);
-  padding-bottom: spacer($lines / 4, $size) - em($border-width, $size);
+  padding-bottom: spacer(math.div($lines, 4), $size) - em($border-width, $size);
 }
 
 @mixin inline-list {

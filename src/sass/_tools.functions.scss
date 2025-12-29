@@ -1,12 +1,13 @@
 @use "sass:color";
 @use "sass:list";
 @use "sass:map";
+@use "sass:math";
 @use "settings.colors" as *;
 @use "settings.defaults" as *;
 
 // Convert px to em
 @function em($px, $base: $base-font-size) {
-  @return ($px / $base) * 1em;
+  @return math.div($px, $base) * 1em;
 }
 
 // Slightly lighten a color

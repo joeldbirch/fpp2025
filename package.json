@@ -62,8 +62,5 @@
       "node-sass"
     ]
   },
-  "packageManager": "pnpm@9.15.2",
-  "devDependencies": {
-    "sass-migrator": "^2.5.6"
-  }
+  "packageManager": "pnpm@9.15.2"
 }

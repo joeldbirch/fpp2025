@@ -1,3 +1,4 @@
+@use "sass:math";
 @use '../../sass/framework.bundle' as *;
 
 .spotlight {
@@ -14,7 +15,7 @@
   @include respond-to(desk) {
     border-bottom: 0;
     border-radius: 4px;
-    margin: 0 0 $margins / 2;
+    margin: 0 0 math.div($margins, 2);
     padding: 1rem;
   }
 
