@@ -7,7 +7,8 @@ const Ampersand = () => {
     <span
       style={{
         color: brandColor,
-        fontFamily: 'Playfair Display, serif',
+        fontFamily: '"Playfair Display", serif',
+        fontStyle: 'italic',
         lineHeight: 0.9,
       }}
     >

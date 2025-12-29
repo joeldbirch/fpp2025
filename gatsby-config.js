@@ -3,7 +3,6 @@ require('dotenv').config()
 module.exports = {
   siteMetadata: {
     title: 'Faster Pussycat Productions',
-    subtitle: 'The home of fast and furry-ous design',
   },
   plugins: [
     'gatsby-plugin-catch-links',
