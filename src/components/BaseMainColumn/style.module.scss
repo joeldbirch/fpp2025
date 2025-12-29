@@ -1,4 +1,4 @@
-@import '../../sass/framework.bundle';
+@use '../../sass/framework.bundle' as *;
 
 .main {
   max-width: 43em;

@@ -1,3 +1,7 @@
+@use "settings.defaults" as *;
+@use "tools.functions" as *;
+@use "tools.mixins" as *;
+
 .s-form {
   position: relative;
 

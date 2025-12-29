@@ -1,4 +1,4 @@
-@import '../../sass/framework.bundle';
+@use '../../sass/framework.bundle' as *;
 
 .nav {
   background-color: rgba(color('darkbrand'), .3);

@@ -1,3 +1,5 @@
+@use "settings.responsive" as *;
+
 
 @mixin respond-to($media) {
   @if $media == onlylap {
@@ -21,7 +23,7 @@
       @content;
     }
   } @else if $media == palm {
-    @media all and (min-width: $bp01) {
+    @media all and (min-width: $bp05) {
       @content;
     }
   } @else if $media == lap-portrait-max {

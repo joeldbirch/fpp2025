@@ -1,9 +1,9 @@
-@import 'settings.defaults';
-@import 'settings.colors';
-@import 'settings.responsive';
-@import 'tools.functions';
-@import 'tools.compass-rehab';
-@import 'tools.vertical-rhythm';
-@import 'tools.mixins';
-@import 'tools.mixins.lists';
-@import 'tools.responsive';
+@forward 'settings.defaults';
+@forward 'settings.colors';
+@forward 'settings.responsive';
+@forward 'tools.functions' hide tint, shade;
+@forward 'tools.compass-rehab';
+@forward 'tools.vertical-rhythm';
+@forward 'tools.mixins';
+@forward 'tools.mixins.lists';
+@forward 'tools.responsive';

@@ -1,4 +1,4 @@
-@import '../../sass/framework.bundle';
+@use '../../sass/framework.bundle' as *;
 
 .innerwrap {
   margin: 0 auto;

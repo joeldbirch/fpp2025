@@ -77,6 +77,10 @@ importers:
       typography-theme-twin-peaks:
         specifier: ^0.16.19
         version: 0.16.19
+    devDependencies:
+      sass-migrator:
+        specifier: ^2.5.6
+        version: 2.5.6
 
 packages:
 
@@ -3474,6 +3478,7 @@ packages:
     engines: {node: '>=10.13.0'}
     peerDependencies:
       gatsby: ^2.0.15
+    bundledDependencies: []
 
   gatsby-telemetry@1.10.2:
     resolution: {integrity: sha512-LwMtRIdcNuI25D+yU7RO+UcmF+3uPz0Zrefa+/rkTmxZuz54bOGSYqmzJJt1L1gRz7Jdl+DmYRqVgmiW/dsr/g==}
@@ -6367,6 +6372,11 @@ packages:
     engines: {node: '>= 6.9.0'}
     peerDependencies:
       webpack: ^3.0.0 || ^4.0.0
+
+  sass-migrator@2.5.6:
+    resolution: {integrity: sha512-hTp/1AYbM4trFwjeTSX8Tw6JL/IYS0+xcaGrDMvi5k2xt9zU3/Z02taNbYUxKOvxIB6qN1Ziq1IMFIY5gPaMnw==}
+    engines: {node: '>=10.12.0'}
+    hasBin: true
 
   sass@1.96.0:
     resolution: {integrity: sha512-8u4xqqUeugGNCYwr9ARNtQKTOj4KmYiJAVKXf2CTIivTCR51j96htbMKWDru8H5SaQWpyVgTfOF8Ylyf5pun1Q==}
@@ -12540,7 +12550,7 @@ snapshots:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.8
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
 
@@ -15818,6 +15828,8 @@ snapshots:
       semver: 6.3.1
       webpack: 4.47.0
 
+  sass-migrator@2.5.6: {}
+
   sass@1.96.0:
     dependencies:
       chokidar: 4.0.3
@@ -17381,7 +17393,7 @@ snapshots:
 
   wide-align@1.1.5:
     dependencies:
-      string-width: 1.0.2
+      string-width: 4.2.3
 
   widest-line@3.1.0:
     dependencies:

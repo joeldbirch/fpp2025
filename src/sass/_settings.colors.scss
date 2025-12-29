@@ -1,3 +1,5 @@
+@use "sass:color";
+@use "sass:map";
 // Colors
 
 $theme-colors: (
@@ -5,8 +7,8 @@ $theme-colors: (
   'offwhite':             #fafafa,
   'mercury':              #eee,
   'brand':                #599e01,
-  'brand tint':           mix(#fff, #84c12b, 90%),
-  'brand hairline':       mix(#fff, #84c12b, 75%),
+  'brand tint':           color.mix(#fff, #84c12b, 90%),
+  'brand hairline':       color.mix(#fff, #84c12b, 75%),
   'comp':                 #68735e,
   'accent':               #EB9000,
   'dullbrand':            #599e01,
@@ -33,13 +35,13 @@ $theme-colors: (
 
 
 // helper variables
-$brand: map-get($theme-colors, 'brand');
-$dullbrand: map-get($theme-colors, 'dullbrand');
-$dullbrand: map-get($theme-colors, 'dullbrand');
-$font-color: map-get($theme-colors, 'mine shaft');
-$quiet-color: lighten($font-color, 20%);
-$loud-color: map-get($theme-colors, 'cod grey');
+$brand: map.get($theme-colors, 'brand');
+$dullbrand: map.get($theme-colors, 'dullbrand');
+$dullbrand: map.get($theme-colors, 'dullbrand');
+$font-color: map.get($theme-colors, 'mine shaft');
+$quiet-color: color.adjust($font-color, $lightness: 20%);
+$loud-color: map.get($theme-colors, 'cod grey');
 $heading-color: $loud-color;
 
-$darkness: map-get($theme-colors, 'cod grey');
-$lightness: map-get($theme-colors, 'silver');
+$darkness: map.get($theme-colors, 'cod grey');
+$lightness: map.get($theme-colors, 'silver');

@@ -18,6 +18,17 @@ $b: 18.7px;
 $s: 14px;
 $xs: 12px;
 
+$modular-scale: (
+  'xxxxxl': $xxxxxl,
+  'xxxxl': $xxxxl,
+  'xxxl': $xxxl,
+  'xxl': $xxl,
+  'xl': $xl,
+  'l': $l,
+  'b': $b,
+  's': $s,
+  'xs': $xs
+);
 
 $sans-serif: 'Open Sans', sans-serif;
 $sans-serif-light: $sans-serif;

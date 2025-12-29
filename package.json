@@ -58,7 +58,12 @@
     "overrides": {
       "sharp": "^0.32.0"
     },
-    "neverBuiltDependencies": ["node-sass"]
+    "neverBuiltDependencies": [
+      "node-sass"
+    ]
   },
-  "packageManager": "pnpm@9.15.2"
+  "packageManager": "pnpm@9.15.2",
+  "devDependencies": {
+    "sass-migrator": "^2.5.6"
+  }
 }

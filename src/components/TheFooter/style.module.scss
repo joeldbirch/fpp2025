@@ -1,4 +1,4 @@
-@import '../../sass/framework.bundle';
+@use '../../sass/framework.bundle' as *;
 
 .footer {
   background-color: color('darkbrand');

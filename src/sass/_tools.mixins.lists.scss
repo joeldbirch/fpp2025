@@ -1,3 +1,8 @@
+@use "settings.colors" as *;
+@use "settings.defaults" as *;
+@use "tools.compass-rehab" as *;
+@use "tools.functions" as functions;
+
 @mixin fancy-list-base {
   counter-reset: fancylists;
   list-style-type: none;
@@ -25,7 +30,7 @@
       style: solid;
       width: 1px;
     };
-    box-shadow: inset .12em .12em 0 rgba(color('white'), .8), 1px 1px 0 rgba(color('black'), .08);
+    box-shadow: inset .12em .12em 0 rgba(functions.color('white'), .8), 1px 1px 0 rgba(functions.color('black'), .08);
     height: .375em;
     left: -1.1em;
     top: .525em;

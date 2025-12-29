@@ -1,3 +1,8 @@
+@use "sass:color";
+@use "settings.defaults" as *;
+@use "tools.functions" as *;
+@use "tools.vertical-rhythm" as *;
+
 // THIS FILE REQUIRES _tools.vertical-rhythm.scss included prior to it
 
 
@@ -51,7 +56,7 @@
 // @param {Number} $percentage - percentage of `$color` in returned color
 // @return {Color}
 @function tint($color, $percentage) {
-  @return mix($color, #fff, 100% - $percentage);
+  @return color.mix($color, #fff, 100% - $percentage);
 }
 
 // Slightly darken a color
@@ -60,5 +65,5 @@
 // @param {Number} $percentage - percentage of `$color` in returned color
 // @return {Color}
 @function shade($color, $percentage) {
-  @return mix($color, #000, 100% - $percentage);
+  @return color.mix($color, #000, 100% - $percentage);
 }

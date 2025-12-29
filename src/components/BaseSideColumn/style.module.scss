@@ -1,4 +1,4 @@
-@import '../../sass/framework.bundle';
+@use '../../sass/framework.bundle' as *;
 
 .side {
   margin-top: $margins /2;

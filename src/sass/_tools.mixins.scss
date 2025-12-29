@@ -1,4 +1,10 @@
-// Apply ‘attention’ styles in one go.
+@use "settings.colors" as *;
+@use "settings.defaults" as *;
+@use "tools.functions" as *;
+@use "tools.responsive" as *;
+@use "tools.vertical-rhythm" as *;
+
+// Apply 'attention' styles in one go.
 @mixin attention($self: false) {
 
   @if($self != false) {

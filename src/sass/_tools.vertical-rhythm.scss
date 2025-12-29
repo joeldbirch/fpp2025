@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "settings.defaults" as *;
+
 // @author  Joel Birch
 // @description  Quick and nasty function to help with vertical spacer. Better off using something more robust, but this is simpler for demonstrating the idea.
 // @param lines  How many vertical rhythm lines you want
@@ -27,8 +30,8 @@
 //@description  Retrieve modular scale value for font-sizes
 // @param  Size key
 @function size($key) {
-  @if map-has-key($modular-scale, $key) {
-    @return map-get($modular-scale, $key);
+  @if map.has-key($modular-scale, $key) {
+    @return map.get($modular-scale, $key);
   }
   @warn "Unknown '#{$key}' in $modular-scale.";
   @return null;
