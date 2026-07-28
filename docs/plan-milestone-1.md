@@ -2,38 +2,67 @@
 
 Rebuild the fppdesign-2018 Gatsby 5 site as Astro 7 SSG in `/home/joel/dev/fppastro`, keeping the headless WordPress backend (`https://admin.fppdesign.com.au/graphql`). EmDash CMS is out of scope (Milestone 2, see `docs/adr/0002`).
 
-Reference docs: `CONTEXT.md`, `docs/adr/0001-lazysizes-over-astro-image.md`, `docs/adr/0002-incremental-migration-deferred-emdash.md`. Source site: `/home/joel/dev/fppdesign-2018`. WP reference: `/home/joel/dev/fpp-admin` (do NOT read `.env`, `wp-config.php`, or any credentials).
+Reference docs: `CONTEXT.md`, `docs/adr/0001-lazysizes-over-astro-image.md`, `docs/adr/0002-incremental-migration-deferred-emdash.md`. Source site: `/home/joel/dev/fppdesign-2018`. WP reference: `/home/joel/dev/fpp-admin` (read-only reference for plugin/schema details — not needed for the build). htaccess credentials for the WP GraphQL endpoint live in `/home/joel/dev/fppdesign-2018/.env` — the implementer may read that file.
+
+## How to resume across sessions
+
+1. Read this file.
+2. Find the first phase containing an unticked `- [ ]` item — that is where you are.
+3. Completed phases are committed; `git log --oneline` shows phase commits.
+4. Never skip a phase's **Validate** step before its **Commit** step.
+
+## Git management
+
+- Work directly on `main` (solo repo, pre-release).
+- One commit per phase, after its validation passes. Suggested message given per phase.
+- If a phase's validation fails and you can't fix it within the session, commit nothing; leave a `STATUS.md` note at repo root describing the blocker.
+- Phase 0 prerequisite check: `git status` clean except for this plan file. If the plan itself is uncommitted, commit it first: `docs: milestone 1 implementation plan`.
 
 ## Key decisions (already made — do not relitigate)
 
 1. **Keep React components**, port 1:1. Astro renders React server-side; zero client JS except lazysizes. Rename every `index.js` → `index.jsx` (Vite requires `.jsx` for JSX). Only 2 components change internally.
-2. **Port SCSS as-is** (Astro compiles `.scss` natively). Replace the Typography.js runtime with extracted static CSS. Convert repeated rem values to CSS custom properties only where a value repeats 3+ times as a design token (per ADR discussion).
+2. **Port SCSS as-is** (Astro compiles `.scss` natively). Replace the Typography.js runtime with extracted static CSS. Convert repeated rem values to CSS custom properties only where a value repeats 3+ times as a design token.
 3. **Images**: keep lazysizes + jb-lazysizes CSS. Images are pre-sized on the WP Offload CDN (`assets.fppdesign.com.au`). Do NOT use `astro:assets`/`Image` (ADR 0001). Fixture content already contains server-rewritten lazysizes markup (`data-src`, `jb-aspect-*`).
 4. **SSG only**, deploy to Netlify, `publish = "dist"`, Node 22 (package.json engines is `>=22.12.0`).
 5. **Contact form is a Netlify form** (`data-netlify="true"`, `action="/thank-you/"`) embedded in WP content — works as-is in static output. `/thank-you/` is a WP page covered by the catch-all route.
 6. **wufooForm.js is dead code** — nothing imports it. Do not port it, do not port `utils/typography.js`.
 
-## Steps
+---
 
-### 1. Add integrations (scaffold already exists)
+## Phase 1 — Dependencies & config
 
-Astro 7.1.4 minimal template is already initialised in `/home/joel/dev/fppastro`. Do NOT re-scaffold. From the repo root:
+Astro 7.1.4 minimal template is already initialised. Do NOT re-scaffold.
 
-```bash
-pnpm astro add react
-pnpm add sass compass-vertical-rhythm lazysizes
+- [ ] Run `pnpm astro add react`
+- [ ] Run `pnpm add sass compass-vertical-rhythm lazysizes`
+- [ ] Replace `astro.config.mjs` contents with:
+
+```js
+import { defineConfig } from 'astro/config'
+import react from '@astrojs/react'
+
+export default defineConfig({
+  site: 'https://fppdesign.com.au',
+  trailingSlash: 'always',
+  integrations: [react()],
+})
 ```
 
-Delete the placeholder `src/pages/index.astro`.
+**Validate**: `pnpm build` exits 0 (placeholder `src/pages/index.astro` still present — it gets deleted in Phase 6).
 
-### 2. Static assets → `public/`
+**Commit**: `git add -A && git commit -m "chore: add react, sass, lazysizes integrations"`
 
-Copy from `/home/joel/dev/fppdesign-2018/static/`:
-- `_headers`, `_redirects` (verbatim — Netlify reads from output root)
-- `favicon.ico`, `apple-touch-icon.png`, `pinterest-1db85.html`
-- `icons/icon-192x192.png`, `icons/icon-512x512.png`
+---
 
-Delete scaffold leftovers `public/favicon.svg` (keep the copied `favicon.ico`). Write `public/manifest.webmanifest` (replaces gatsby-plugin-manifest):
+## Phase 2 — Static assets & manifest
+
+Copy from `/home/joel/dev/fppdesign-2018/static/` into `public/`:
+
+- [ ] `_headers`, `_redirects` (verbatim — Netlify reads from output root)
+- [ ] `favicon.ico`, `apple-touch-icon.png`, `pinterest-1db85.html`
+- [ ] `icons/icon-192x192.png`, `icons/icon-512x512.png`
+- [ ] Delete scaffold leftover `public/favicon.svg`
+- [ ] Write `public/manifest.webmanifest` (replaces gatsby-plugin-manifest):
 
 ```json
 {
@@ -50,13 +79,17 @@ Delete scaffold leftovers `public/favicon.svg` (keep the copied `favicon.ico`). 
 }
 ```
 
-### 3. Typography + styles
+**Validate**: `pnpm build` exits 0; `ls dist/` shows `_headers`, `_redirects`, `manifest.webmanifest`, `icons/`, `pinterest-1db85.html`.
 
-Copy directories verbatim from fppdesign-2018: `src/sass/` (14 partials), `src/css/jb-lazysizes.min.css` (+ `.css` source), `src/fonts/`, `src/img/`. Relative `url()` refs in SCSS resolve under Vite unchanged.
+**Commit**: `git commit -am "feat: static assets and web manifest"`
 
-Two edits to `src/sass/_generic.global.scss`: replace the `[id="___gatsby"]` selector with `body` (2 rule blocks — the `height: 100%` group and the `display: flex` block). Astro has no Gatsby wrapper div; the body is the flex container.
+---
 
-Extract the Typography.js CSS (its runtime doesn't exist outside Gatsby):
+## Phase 3 — Styles, fonts, typography
+
+- [ ] Copy verbatim from fppdesign-2018: `src/sass/` (14 partials), `src/css/jb-lazysizes.min.css` (+ `.css` source), `src/fonts/`, `src/img/`. Relative `url()` refs in SCSS resolve under Vite unchanged.
+- [ ] Edit `src/sass/_generic.global.scss`: replace the `[id="___gatsby"]` selector with `body` (2 rule blocks — the `height: 100%` group and the `display: flex` block). Astro has no Gatsby wrapper div; body is the flex container.
+- [ ] Extract the Typography.js CSS (its runtime doesn't exist outside Gatsby):
 
 ```bash
 curl -s https://fppdesign.com.au/ | python3 -c "
@@ -67,15 +100,21 @@ print(hit[0].strip() if hit else 'NOT FOUND')
 " > src/styles/typography.css
 ```
 
-The `.s-editable` selector is unique to this site's typography overrides; if NOT FOUND, inspect the live page's style blocks and identify by `font-family:Georgia` + heading rules. Then hand-convert repeated rem values to `:root` custom properties where the same value appears 3+ times (e.g. vertical-rhythm margins); leave one-offs literal.
+The `.s-editable` selector is unique to this site's typography overrides; if NOT FOUND, inspect the live page's style blocks and identify by `font-family:Georgia` + heading rules.
 
-### 4. Port React components
+- [ ] Hand-convert repeated rem values in `typography.css` to `:root` custom properties where the same value appears 3+ times (e.g. vertical-rhythm margins); leave one-offs literal.
 
-Copy `src/components/*` from fppdesign-2018, renaming every `index.js` → `index.jsx` (keep `style.module.scss` siblings). `import * as styles from './style.module.scss'` works unchanged in Astro/Vite.
+**Validate**: `grep -c "s-editable" src/styles/typography.css` ≥ 1; `grep "___gatsby" src/sass/_generic.global.scss` returns nothing; `pnpm build` exits 0.
 
-Components ported unchanged: TheWrap, TheBanner, TheFooter, TheHeading, BaseMainColumn, BaseSideColumn, BaseContentWrap, SpotlightContainer, SidebarText, SidebarGallery, SidebarWidgetFactory.
+**Commit**: `git commit -am "feat: port sass framework, fonts, extracted typography css"`
 
-`components/layout.jsx` — add `currentPath` prop, forward to TheMenu:
+---
+
+## Phase 4 — React components
+
+- [ ] Copy `src/components/*` from fppdesign-2018, renaming every `index.js` → `index.jsx` (keep `style.module.scss` siblings). `import * as styles from './style.module.scss'` works unchanged.
+- [ ] Components ported unchanged: TheWrap, TheBanner, TheFooter, TheHeading, BaseMainColumn, BaseSideColumn, BaseContentWrap, SpotlightContainer, SidebarText, SidebarGallery, SidebarWidgetFactory.
+- [ ] `components/layout.jsx` — add `currentPath` prop, forward to TheMenu:
 
 ```jsx
 export default ({ children, currentPath }) => (
@@ -87,7 +126,7 @@ export default ({ children, currentPath }) => (
 )
 ```
 
-`components/TheMenu/index.jsx` — full rewrite (Gatsby `Link` → `<a>`, active state from prop):
+- [ ] `components/TheMenu/index.jsx` — full rewrite (Gatsby `Link` → `<a>`, active state from prop):
 
 ```jsx
 import * as styles from './style.module.scss'
@@ -116,11 +155,20 @@ export default ({ currentPath = '/' }) => (
 )
 ```
 
-Copy `src/utils/colors.js` verbatim (TheHeading imports it). Copy `src/utils/helpers.js` but keep only `getCurrentYear` (used by TheFooter) — delete the rest (`getPath`, `getSidebarData`, `sortByObjProp`, `expires_in_days`, `commonStartOfWords`, `setAttrs`, `removeAttrs`, `extractFileNameFromAbsPath` are unused; the Gatsby node layer that consumed them is gone). Do NOT port `utils/typography.js` or `utils/wufooForm.js`.
+- [ ] Copy `src/utils/colors.js` verbatim (TheHeading imports it).
+- [ ] Copy `src/utils/helpers.js` but keep only `getCurrentYear` (used by TheFooter) — delete the rest (`getPath`, `getSidebarData`, `sortByObjProp`, `expires_in_days`, `commonStartOfWords`, `setAttrs`, `removeAttrs`, `extractFileNameFromAbsPath` are unused).
+- [ ] Do NOT port `utils/typography.js` or `utils/wufooForm.js` (dead code).
 
-### 5. Fixture data layer
+**Validate**: `find src/components -name "index.js"` returns nothing; `grep -rn "from 'gatsby'\|from \"gatsby\"" src/` returns nothing; `pnpm build` exits 0.
 
-Copy `docs/representative-pages/*.json` → `src/data/*.json`. Create `src/lib/pages.js`:
+**Commit**: `git commit -am "feat: port react components from gatsby"`
+
+---
+
+## Phase 5 — Data layer
+
+- [ ] Copy `docs/representative-pages/*.json` → `src/data/*.json`
+- [ ] Create `src/lib/pages.js`:
 
 ```js
 const WP_GRAPHQL = 'https://admin.fppdesign.com.au/graphql'
@@ -166,11 +214,18 @@ WPGraphQL type names = Gatsby names minus the `Wp` prefix (`WpPage`→`Page`, `W
 
 `ponytail:` `first: 100` is a hard ceiling covering all 34 current pages — bump or paginate when the count nears 100.
 
-Create `.env` with empty placeholders `HTACCESS_USER=` / `HTACCESS_PASSWORD=` and note in README that real values come from the user (never read `fppdesign-2018/.env`).
+- [ ] Create `.env` containing `HTACCESS_USER` and `HTACCESS_PASSWORD` with values copied from `/home/joel/dev/fppdesign-2018/.env`. Ensure `.env` is listed in `.gitignore` (add it if missing).
 
-### 6. Layout, pages, config
+**Validate**: `python3 -m json.tool src/data/home.json > /dev/null` (and the other 3 fixtures) parse; `ls src/data/` shows 4 files; `pnpm build` exits 0.
 
-`src/layouts/Site.astro` — HTML shell + head (replaces gatsby-ssr.js + Gatsby Head), client-entry script (replaces gatsby-browser.js):
+**Commit**: `git commit -am "feat: fixture data layer with WP graphql fetch"`
+
+---
+
+## Phase 6 — Layout, pages, Netlify config
+
+- [ ] Delete placeholder `src/pages/index.astro`
+- [ ] Create `src/layouts/Site.astro` — HTML shell + head (replaces gatsby-ssr.js + Gatsby Head), client-entry script (replaces gatsby-browser.js):
 
 ```astro
 ---
@@ -207,7 +262,7 @@ const { title, currentPath } = Astro.props
 
 Do NOT add `is:inline` to the script — Astro must bundle it so `import('lazysizes')` resolves.
 
-`src/pages/[...slug].astro` — replaces gatsby-node.js + templates/page.js:
+- [ ] Create `src/pages/[...slug].astro` — replaces gatsby-node.js + templates/page.js:
 
 ```astro
 ---
@@ -247,22 +302,8 @@ const sidebarItems = (page.sidebarSelection?.pageSidebarItems?.nodes || [])
 </SiteLayout>
 ```
 
-`src/pages/404.astro` — port of 404.js: SiteLayout, TheHeading "Page Not Found", BaseMainColumn with the "doesn't exist" paragraph and a plain `<a href="/">Return to the home page</a>` link. Title "Page Not Found | Faster Pussycat Productions".
-
-`astro.config.mjs`:
-
-```js
-import { defineConfig } from 'astro/config'
-import react from '@astrojs/react'
-
-export default defineConfig({
-  site: 'https://fppdesign.com.au',
-  trailingSlash: 'always',
-  integrations: [react()],
-})
-```
-
-`netlify.toml`:
+- [ ] Create `src/pages/404.astro` — port of 404.js: SiteLayout, TheHeading "Page Not Found", BaseMainColumn with the "doesn't exist" paragraph and a plain `<a href="/">Return to the home page</a>` link. Title "Page Not Found | Faster Pussycat Productions".
+- [ ] Create `netlify.toml`:
 
 ```toml
 [build]
@@ -273,13 +314,41 @@ export default defineConfig({
   NODE_VERSION = "22"
 ```
 
-## Verification
+**Validate**: `pnpm build` exits 0; dist contains `index.html`, `portfolio/stationery/index.html`, `portfolio/cds/index.html`, `contact/index.html`, `404.html`; `grep -l 'data-netlify' dist/contact/index.html` matches.
 
-1. `pnpm build` without env vars → dist contains `index.html`, `portfolio/stationery/index.html`, `portfolio/cds/index.html`, `contact/index.html`, `404.html` (fixture pages only).
-2. `pnpm dev` → visually compare all 4 pages against `https://fppdesign.com.au` equivalents. Verify: styled `&` ampersand in headings (e.g. portfolio "Get comfy & browse our portfolio"), sidebar gallery split-on-`<hr>` items + text client list on `/portfolio/cds/`, nav active states.
-3. `view-source` contact page → `<form ... data-netlify="true" action="/thank-you/">` present.
-4. Browser console: `<html>` class flips `no-js` → `jb-yes-js js`; lazysizes swaps `data-src`→`src` on scroll.
-5. **User supplies real htaccess credentials** (implementer never reads the old `.env`) → `pnpm build` emits all 34 routes including `/thank-you/`, `/smoggy/*`, `/foster-kittens/*`, and remaining `/portfolio/*` sections.
+**Commit**: `git commit -am "feat: pages, layout, catch-all route, netlify config"`
+
+---
+
+## Phase 7 — Visual parity (fixture content)
+
+- [ ] `pnpm dev`, compare against `https://fppdesign.com.au` equivalents:
+  - [ ] `/` vs live home
+  - [ ] `/portfolio/stationery/` vs live
+  - [ ] `/portfolio/cds/` vs live — sidebar gallery split-on-`<hr>` items AND text client list widget both render
+  - [ ] `/contact/` vs live — form renders
+- [ ] Styled `&` ampersand appears in headings containing `&` (Playfair italic, brand green)
+- [ ] Nav active state correct on each page
+- [ ] Browser console: `<html>` class flips `no-js` → `jb-yes-js js`; lazysizes swaps `data-src`→`src` on scroll
+- [ ] `view-source` contact page shows `<form ... data-netlify="true" action="/thank-you/">`
+
+**Validate**: checklist complete. Fix-forward any parity issues in this phase.
+
+**Commit** (if fixes were needed): `git commit -am "fix: visual parity corrections"`
+
+---
+
+## Phase 8 — WordPress wiring (requires user credentials)
+
+- [ ] Confirm `.env` is populated (values were copied from `fppdesign-2018/.env` in Phase 5).
+- [ ] `pnpm build` → dist contains all 34 routes: `/thank-you/`, `/smoggy/*` (26), `/foster-kittens/*` (5), all `/portfolio/*` sections (8), `/`, `/contact/`. Spot-check 2–3 newly built pages in `pnpm preview`.
+- [ ] Remind user: production deploy needs `HTACCESS_USER`/`HTACCESS_PASSWORD` set in Netlify env — without them the build silently falls back to the 4 fixture pages.
+
+**Validate**: `find dist -name index.html | wc -l` = 34 (plus `404.html`).
+
+**Commit** (if query fragments needed adjustment): `git commit -am "feat: verified WP graphql query against live schema"`
+
+---
 
 ## Out of scope (Milestone 2+)
 
@@ -288,6 +357,5 @@ EmDash CMS, Cloudflare Pages migration, service worker/offline support (gatsby-p
 ## Assumptions
 
 - WPGraphQL type names are Gatsby names minus `Wp` prefix; verify via GraphiQL if the query errors.
-- Production deploy requires `HTACCESS_USER`/`HTACCESS_PASSWORD` set in Netlify env — without them the build silently falls back to the 4 fixture pages.
 - JS not TS; pnpm; Node 22.
 - The `<?xml encoding="UTF-8">` junk prefixing some WP content strings renders harmlessly (same as today); leave for parity.
