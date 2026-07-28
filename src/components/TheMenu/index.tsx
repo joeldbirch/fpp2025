@@ -1,4 +1,4 @@
-import * as styles from './style.module.scss'
+import styles from './style.module.scss'
 
 const items = [
   { href: '/', label: 'Home', title: 'FPP home page', exact: true },
@@ -6,7 +6,7 @@ const items = [
   { href: '/contact/', label: 'Contact', title: 'Contact us via our email form' },
 ]
 
-export default ({ currentPath = '/' }) => (
+export default ({ currentPath = '/' }: { currentPath?: string }) => (
   <nav className={styles.nav} role="navigation">
     <ul className={styles.list}>
       {items.map((item) => {

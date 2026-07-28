@@ -1,25 +1,25 @@
-interface SidebarLayout {
+export interface SidebarLayout {
   template: string | null
 }
 
-interface SidebarItem {
+export interface SidebarItem {
   databaseId: number
   title: string
   content: string
   sidebarLayout?: SidebarLayout | null
 }
 
-interface SidebarSelection {
+export interface SidebarSelection {
   pageSidebarItems?: {
     nodes: SidebarItem[]
   } | null
 }
 
-interface PageMetadata {
+export interface PageMetadata {
   pageTitle: string | null
 }
 
-interface Page {
+export interface Page {
   databaseId: number
   uri: string
   title: string

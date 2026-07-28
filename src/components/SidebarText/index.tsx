@@ -1,7 +1,7 @@
-import React from 'react'
+import type { SidebarItem } from '../../lib/pages'
 import SpotlightContainer from '../SpotlightContainer'
 
-export default ({node}) => {
+export default ({ node }: { node: SidebarItem }) => {
   return (
     <SpotlightContainer className={`widget-${node.databaseId}`}>
       <h2>{node.title}</h2>

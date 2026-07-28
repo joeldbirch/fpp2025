@@ -2,7 +2,13 @@
 import '../sass/_generic.global.scss'
 import '../css/jb-lazysizes.min.css'
 import '../styles/typography.css'
-import Layout from '../components/layout.jsx'
+import Layout from '../components/layout'
+
+interface Props {
+  title: string
+  currentPath: string
+}
+
 const { title, currentPath } = Astro.props
 ---
 <html lang="en" class="no-js">

@@ -1,6 +1,6 @@
-import React from 'react'
+import type { ReactNode } from 'react'
 import { brandColor } from '../../utils/colors'
-import * as styles from './style.module.scss'
+import styles from './style.module.scss'
 
 const Ampersand = () => {
   return (
@@ -17,20 +17,19 @@ const Ampersand = () => {
   )
 }
 
-const applyCustomAmpersands = (text) => {
-  if (typeof text !== 'string') return text
+const applyCustomAmpersands = (text: string): string | ReactNode[] => {
   const parts = text.split('&')
   if (parts.length === 1) return text
-  return parts.reduce((acc, part, i) => {
+  return parts.reduce<ReactNode[]>((acc, part, i) => {
     if (i === 0) return [part]
     return [...acc, <Ampersand key={i} />, part]
   }, [])
 }
 
-export default ({ children }) => {
+export default ({ children }: { children?: ReactNode }) => {
   return (
     <div className={styles.headingwrap}>
-      <h1 style={{ margin: 0 }}>{applyCustomAmpersands(children)}</h1>
+      <h1 style={{ margin: 0 }}>{typeof children === 'string' ? applyCustomAmpersands(children) : children}</h1>
     </div>
   )
 }
