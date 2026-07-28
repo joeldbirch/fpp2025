@@ -4,7 +4,7 @@ import TheHeading from '../components/TheHeading/index.jsx'
 import BaseMainColumn from '../components/BaseMainColumn/index.jsx'
 import BaseSideColumn from '../components/BaseSideColumn/index.jsx'
 import SidebarWidgetFactory from '../components/SidebarWidgetFactory/index.jsx'
-import { getAllPages } from '../lib/pages.js'
+import { getAllPages } from '../lib/pages'
 
 export async function getStaticPaths() {
   const pages = await getAllPages()
