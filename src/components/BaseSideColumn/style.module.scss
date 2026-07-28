@@ -1,0 +1,28 @@
+@use "sass:math";
+@use '../../sass/framework.bundle' as *;
+
+.side {
+  margin-top: math.div($margins, 2);
+  padding-top: math.div($margins, 2);
+
+  @include respond-to(desk) {
+    float: right;
+    margin-bottom: $margins;
+    margin-top: 0;
+    padding-top: 1rem;
+    width: 29%;
+    z-index: 0;
+  }
+
+  p,
+  li,
+  dd,
+  address {
+    @include asides;
+    font-family: $sans-serif;
+  }
+
+  address {
+    margin-bottom: rhythm(8);
+  }
+}

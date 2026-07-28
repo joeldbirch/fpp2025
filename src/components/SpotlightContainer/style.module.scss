@@ -1,0 +1,56 @@
+@use "sass:math";
+@use '../../sass/framework.bundle' as *;
+
+.spotlight {
+  background-color: color('frost');
+  margin: 0 ($margins * -1);
+  padding: $margins;
+
+  @include respond-to(lap) {
+    margin: 0 ($margins-xx * -1);
+    padding-left: $margins-xx;
+    padding-right: $margins-xx;
+  }
+
+  @include respond-to(desk) {
+    border-bottom: 0;
+    border-radius: 4px;
+    margin: 0 0 math.div($margins, 2);
+    padding: 1rem;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  h3 {
+    line-height: line-height(3, 14px);
+    margin-bottom: spacer(.5, 14px);
+
+    @include increase-specificity {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    @include earlyasides;
+    @include asides;
+    margin-bottom: 0;
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
+
+  a {
+
+    // all links including regular text links and thumb wrapper
+    @include increase-specificity {
+      color: color('darkbrand');
+
+      &:hover {
+        color: color('accent');
+      }
+    }
+  }
+}

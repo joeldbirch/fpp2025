@@ -1,0 +1,73 @@
+@use '../../sass/framework.bundle' as *;
+
+.nav {
+  background-color: rgba(color('darkbrand'), .3);
+  font-family: $sans-serif;
+  position: relative;
+
+  @include respond-to(smallest) {
+    padding-left: .4rem;
+  }
+
+
+  @include respond-to(desk) {
+    text-align: center;
+  }
+}
+
+.list,
+.item {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: color('frost');
+  display: inline-block;
+  font-weight: bold;
+  padding: .75em ($margins - .4rem);
+  text-decoration: none;
+  text-transform: lowercase;
+
+  @include respond-to(lap) {
+    @include adjust-font-size-to($s, 12);
+    padding: 1em $margins;
+    padding: 1em 4vw;
+  }
+
+
+  @include respond-to(desk) {
+    padding: 1em $margins-xx;
+  }
+
+
+  &:not(.active) {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    &:hover {
+      color: color('white');
+
+      @include respond-to(lap) {
+        background-color: rgba($brand, .6);
+      }
+    }
+  }
+}
+
+.active {
+  color: color('white');
+
+  @include respond-to(lap) {
+    background-color: color('white');
+    color: color('cod grey');
+
+    &:hover {
+      cursor: default;
+    }
+  }
+}
+

@@ -1,0 +1,82 @@
+@use '../../sass/framework.bundle' as *;
+
+.list {
+  overflow: hidden;
+
+  @include respond-to(lap) {
+    column-count: 2;
+    column-gap: 1.5rem;
+  }
+
+  @include respond-to(desk) {
+    column-count: auto;
+  }
+}
+
+.item {
+  border-top: 1px dashed color('soft shadow');
+  break-inside: avoid;
+  min-height: 61px;
+  padding: .5em 0;
+  position: relative;
+
+  br {
+    display: none;
+  }
+}
+
+.gallery {
+
+  h3,
+  p {
+    padding-left: 50px;
+  }
+
+  p {
+    > :first-child { // thumb wrapper
+      border-bottom: 2px solid color('brand');
+      left: 0;
+      position: absolute;
+      top: .8em;
+      height: 40px;
+      width: 40px;
+
+      img {
+        height: 40px;
+        width: 40px;
+      }
+
+      &::after {
+        content: normal;
+      }
+    }
+  }
+
+  a {
+    white-space: nowrap;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+
+    &::after {
+      border: 4px solid transparent;
+      border-left-color: inherit;
+      border-left-width: 5px;
+      border-right-width: 0;
+      content: '';
+      display: inline-block;
+      height: 0;
+      opacity: .7;
+      margin-left: .3em;
+      width: 0;
+    }
+  }
+}
+
