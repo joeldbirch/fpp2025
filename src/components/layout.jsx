@@ -3,7 +3,7 @@ import TheWrap from './TheWrap'
 import TheBanner from './TheBanner'
 import TheMenu from './TheMenu'
 import TheFooter from './TheFooter'
-import BaseContentWrap from './BaseMainColumn'
+import BaseContentWrap from './BaseContentWrap'
 
 export default ({ children, currentPath }) => (
   <TheWrap>
