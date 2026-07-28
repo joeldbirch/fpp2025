@@ -1,0 +1,35 @@
+
+$fullwidth: 66em;
+$margins: 1.5rem;
+$margins-xx: 2.7rem;
+
+// typography
+$base-font-size: 16px;
+$base-line-height: 6.5px;
+
+// Traditional
+$xxxxxl: 64px;
+$xxxxl: 48px;
+$xxxl: 32px;
+$xxl: 28px;
+$xl: 24px;
+$l: 21.3px;
+$b: 18.7px;
+$s: 14px;
+$xs: 12px;
+
+$modular-scale: (
+  'xxxxxl': $xxxxxl,
+  'xxxxl': $xxxxl,
+  'xxxl': $xxxl,
+  'xxl': $xxl,
+  'xl': $xl,
+  'l': $l,
+  'b': $b,
+  's': $s,
+  'xs': $xs
+);
+
+$sans-serif: 'Open Sans', sans-serif;
+$sans-serif-light: $sans-serif;
+$serif: 'Times New Roman', Times, serif;

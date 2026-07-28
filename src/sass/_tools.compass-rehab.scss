@@ -1,0 +1,70 @@
+@use "sass:color";
+@use "sass:math";
+@use "settings.defaults" as *;
+@use "tools.functions" as *;
+@use "tools.vertical-rhythm" as *;
+
+// THIS FILE REQUIRES _tools.vertical-rhythm.scss included prior to it
+
+
+// alias functions to ease transition away from Compass.
+// Note: $lines is divided by four before fed into spacer.
+@function rhythm($lines: 4, $font-size: $base-font-size) {
+  @return spacer(math.div($lines, 4), $font-size);
+}
+
+
+// alias mixins to ease transition away from Compass.
+// Note: $lines is divided by four before fed into new mixins.
+@mixin adjust-font-size-to($size: $base-font-size, $lines: 4) {
+  font-size: em($size);
+  line-height: line-height(math.div($lines, 4), $size);
+}
+
+@mixin adjust-leading-to($lines: 4, $size: $base-font-size) {
+  line-height: line-height(math.div($lines, 4), $size);
+}
+
+@mixin margin-leader($lines: 4, $size: $base-font-size) {
+  margin-top: spacer(math.div($lines, 4), $size);
+}
+
+@mixin margin-trailer($lines: 4, $size: $base-font-size) {
+  margin-bottom: spacer(math.div($lines, 4), $size);
+}
+
+@mixin trailing-border($border-width: 1px, $lines: 4, $size: $base-font-size) {
+  border-bottom-style: solid;
+  border-bottom-width: em($border-width, $size);
+  padding-bottom: spacer(math.div($lines, 4), $size) - em($border-width, $size);
+}
+
+@mixin inline-list {
+  list-style-type: none;
+
+  &,
+  & li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+// Slightly lighten a color
+// @access public
+// @param {Color} $color - color to tint
+// @param {Number} $percentage - percentage of `$color` in returned color
+// @return {Color}
+@function tint($color, $percentage) {
+  @return color.mix($color, #fff, 100% - $percentage);
+}
+
+// Slightly darken a color
+// @access public
+// @param {Color} $color - color to shade
+// @param {Number} $percentage - percentage of `$color` in returned color
+// @return {Color}
+@function shade($color, $percentage) {
+  @return color.mix($color, #000, 100% - $percentage);
+}

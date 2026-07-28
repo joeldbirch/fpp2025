@@ -1,0 +1,141 @@
+@use "settings.colors" as *;
+@use "settings.defaults" as *;
+@use "tools.functions" as *;
+@use "tools.responsive" as *;
+@use "tools.vertical-rhythm" as *;
+
+// Apply 'attention' styles in one go.
+@mixin attention($self: false) {
+
+  @if($self != false) {
+
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+          @content;
+      }
+
+  } @else {
+
+    &:hover,
+    &:active,
+    &:focus {
+        @content;
+    }
+
+  }
+
+}
+
+// Increase class-level specificity of a rule without functionaly modifying the selector
+@mixin increase-specificity($depth: 1) {
+  $sel: '';
+
+  @while($depth > 0) {
+    $sel: $sel + ':nth-child(n)';
+    $depth: $depth - 1;
+  }
+
+  &#{$sel} {
+    @content;
+  }
+}
+
+
+@mixin vertical-padding($padding) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+@mixin horizontal-padding($padding) {
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+@mixin glow($shadow-values: 0 0 2px 2px rgba($brand, .5)) {
+  box-shadow: $shadow-values;
+}
+
+@mixin image-outline($shadow-values: 0 0 0 1px #e3e3e3) {
+  box-shadow: $shadow-values;
+}
+
+@mixin unstyle-button {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  -webkit-appearance: none;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
+@mixin list-columns($count: 2) {
+  @include respond-to(widepalm) {
+    column-count: $count;
+    column-gap: spacer(.25);
+
+    > * {
+      column-break-inside: avoid;
+    }
+  }
+
+  @include respond-to(lap) {
+    column-gap: spacer(.5);
+  }
+}
+
+@mixin visuallyhidden {
+  position: absolute;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
+}
+
+
+// used in _scoped.editable.scss
+@mixin intro-para {
+  $size: size('b');
+  font-size: em($size);
+  font-weight: 300;
+  line-height: line-height(1, $size);
+  margin-bottom: spacer(1, $size);
+
+  @include respond-to(lap) {
+    $size: size('l');
+    font-size: em($size);
+    line-height: line-height(1.25, $size);
+    margin-bottom: spacer(2, $size);
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+
+@mixin asides {
+  @include respond-to(desk) {
+    font-size: .75rem;
+    line-height: line-height(3, $xs);
+  }
+}
+
+@mixin earlyasides {
+  font-size: .875rem;
+  line-height: line-height(4, 14px);
+}
+
+@mixin lateasides {
+  @include respond-to(desk) {
+    font-size: $s;
+  }
+}

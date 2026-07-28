@@ -1,0 +1,74 @@
+@use "settings.responsive" as *;
+
+
+@mixin respond-to($media) {
+  @if $media == onlylap {
+    @media all and (min-width: $bp1) and (max-width: $bp2) {
+      @content;
+    }
+  } @else if $media == onlypalm_height_and_width {
+    @media only all and (max-height: $bp2) and (max-width: $bp2) {
+      @content;
+    }
+  } @else if $media == onlywidepalm_and_lap {
+    @media all and (min-width: $bp05) and (max-width: $bp2) {
+      @content;
+    }
+  } @else if $media == tallpalm {
+    @media all and (min-width: $bp05) and (min-height: $hbp2) {
+      @content;
+    }
+  } @else if $media == widepalm {
+    @media all and (min-width: $bp05) {
+      @content;
+    }
+  } @else if $media == palm {
+    @media all and (min-width: $bp05) {
+      @content;
+    }
+  } @else if $media == lap-portrait-max {
+    @media all and (min-width: $bp1) and (max-height: $hbp2) {
+      @content;
+    }
+  } @else if $media == lap {
+    @media all and (min-width: $bp1) {
+      @content;
+    }
+  } @else if $media == lap-portrait {
+    @media all and (min-width: $bp1) and (min-height: $hbp2) {
+      @content;
+    }
+  } @else if $media == desk {
+    @media all and (min-width: $bp2) {
+      @content;
+    }
+  } @else if $media == talldesk {
+    @media all and (min-width: $bp2) and (min-height: $hbp2) {
+      @content;
+    }
+  } @else if $media == bigdesk {
+    @media all and (min-width: $bp3) {
+      @content;
+    }
+  } @else if $media == wall {
+    @media all and (min-width: $bp4) {
+      @content;
+    }
+  } @else if $media == notdesk {
+    @media all and (max-width: $bp2 - 0.001em) {
+      @content;
+    }
+  } @else if $media == onlypalm {
+    @media all and (max-width: $bp1 - 0.001em) {
+      @content;
+    }
+  } @else if $media == smallest {
+    @media all and (max-width: $bp05 - 0.001em) {
+      @content;
+    }
+  } @else if $media == hires {
+    @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (min-resolution: 144dpi) {
+      @content;
+    }
+  }
+}

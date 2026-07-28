@@ -1,0 +1,94 @@
+.jb-aspect-ratio-wrapper {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.jb-aspect-ratio-pillar {
+  float: left
+}
+
+.jb-aspect-blurred,
+.jb-aspect-ratio-img {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%
+}
+
+.jb-aspect-ratio-img {
+  display: block;
+  z-index: 1
+}
+
+.jb-aspect-blurred {
+  background-color: rgba(0, 0, 0, .08);
+  background-position: 50%;
+  background-size: cover;
+  position: absolute;
+  -webkit-transition: opacity .1s .25s, visibility 1ms .4s, -webkit-filter 0s .25s;
+  transition: opacity .1s .25s, visibility 1ms .4s, -webkit-filter 0s .25s;
+  -o-transition: opacity .1s .25s, filter 0s .25s, visibility 1ms .4s;
+  transition: opacity .1s .25s, filter 0s .25s, visibility 1ms .4s;
+  transition: opacity .1s .25s, filter 0s .25s, visibility 1ms .4s, -webkit-filter 0s .25s;
+  will-change: opacity
+}
+
+.lazyloaded+.jb-aspect-blurred {
+  opacity: 0;
+  visibility: hidden
+}
+
+@media screen and (min-width:500px) {
+  .jb-aspect-blurred {
+    -webkit-filter: blur(4px);
+    filter: blur(4px)
+  }
+
+  .lazyloaded+.jb-aspect-blurred {
+    -webkit-filter: none;
+    filter: none
+  }
+}
+
+.jb-noscript {
+  margin: 0;
+  width: 100%
+}
+
+.fadein {
+  opacity: .001;
+  -webkit-transition: opacity .2s ease-out;
+  -o-transition: opacity .2s ease-out;
+  transition: opacity .2s ease-out
+}
+
+img.lazyloaded {
+  opacity: 1
+}
+
+.jb-aspect-blurred,
+img.lazyload {
+  display: none
+}
+
+.jb-yes-js .jb-aspect-blurred,
+.jb-yes-js img.lazyload,
+.js-active .jb-aspect-blurred,
+.js-active img.lazyload,
+.js .jb-aspect-blurred,
+.js img.lazyload,
+.yes-js .jb-aspect-blurred,
+.yes-js img.lazyload {
+  display: block
+}
+
+.alignleft,
+.alignright {
+  width: 40%
+}

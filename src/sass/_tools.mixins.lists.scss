@@ -1,0 +1,60 @@
+@use "settings.colors" as *;
+@use "settings.defaults" as *;
+@use "tools.compass-rehab" as *;
+@use "tools.functions" as functions;
+
+@mixin fancy-list-base {
+  counter-reset: fancylists;
+  list-style-type: none;
+  margin-left: .2em;
+  padding-left: 0;
+
+  li {
+    margin-bottom: 0;
+    margin-left: 1em;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+    }
+  }
+}
+
+@mixin circle-marker {
+  &:before {
+    background-color: rgba($brand, .2);
+    border: {
+      color: tint($brand, 10%);
+      radius: 50%;
+      style: solid;
+      width: 1px;
+    };
+    box-shadow: inset .12em .12em 0 rgba(functions.color('white'), .8), 1px 1px 0 rgba(functions.color('black'), .08);
+    height: .375em;
+    left: -1.1em;
+    top: .525em;
+    width: .375em;
+  }
+
+  li {
+    &::before {
+      height: .2em;
+      width: .2em;
+    }
+  }
+}
+
+@mixin number-marker {
+  &::before {
+    color: $brand;
+    content: counter(fancylists) '.';
+    counter-increment: fancylists;
+    font-size: $s;
+    font-weight: bold;
+    margin-right: .3em;
+    right: 100%;
+    text-align: right;
+    top: .35em;
+  }
+}

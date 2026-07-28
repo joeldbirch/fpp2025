@@ -1,0 +1,39 @@
+@use 'framework.bundle' as *;
+@use 'generic.fonts';
+@use 'scoped.form';
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  @include respond-to(wall) {
+    font-size: 120%;
+  }
+}
+
+body {
+  display: flex;
+
+  >* {
+    width: 100%;
+  }
+}
+
+h1 {
+  color: $font-color;
+  font-family: Times New Roman, Times, serif;
+  font-size: $xxxl;
+  font-weight: normal;
+  line-height: 1.12em;
+  text-transform: lowercase;
+
+  @include respond-to(lap) {
+    font-size: $xxxxl;
+  }
+
+  @include respond-to(desk) {
+    font-size: $xxxxxl;
+  }
+}

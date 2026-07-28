@@ -1,0 +1,48 @@
+@use "sass:map";
+@use "sass:math";
+@use "settings.defaults" as *;
+
+// @author  Joel Birch
+// @description  Quick and nasty function to help with vertical spacer. Better off using something more robust, but this is simpler for demonstrating the idea.
+// @param lines  How many vertical rhythm lines you want
+// @param font-size  Current element's font-size in px
+@function relative-rhythm($lines: 1, $font-size: $base-font-size) {
+  $spacer: math.div($base-line-height, $font-size) * $lines;
+  @return $spacer;
+}
+
+// use this for line-height. Outputs unitless values, preferrable for setting line-height.
+@function line-height($lines: 1, $font-size: $base-font-size) {
+  @return relative-rhythm($lines, $font-size);
+}
+
+// use this for margins. Outputs em units to maintain relationship with font-size.
+@function spacer($lines: 1, $font-size: $base-font-size) {
+  $value: relative-rhythm($lines, $font-size);
+  @return $value * 1em;
+}
+
+// Outputs rem units to maintain relationship with base font-size.
+@function rem-spacer($lines: 1) {
+  @return $lines * math.div($base-line-height, $base-font-size) * 1rem;
+}
+
+
+//@description  Retrieve modular scale value for font-sizes
+// @param  Size key
+@function size($key) {
+  @if map.has-key($modular-scale, $key) {
+    @return map.get($modular-scale, $key);
+  }
+  @warn "Unknown '#{$key}' in $modular-scale.";
+  @return null;
+}
+
+@mixin establish-baseline {
+  $percentage: math.div($base-font-size, 16px) * 100%;
+
+  html {
+    font-size: $percentage;
+    line-height: spacer(1, $base-font-size); // output with em units
+  }
+}
