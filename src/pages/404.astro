@@ -1,0 +1,14 @@
+---
+import SiteLayout from '../layouts/Site.astro'
+import TheHeading from '../components/TheHeading/index.jsx'
+import BaseMainColumn from '../components/BaseMainColumn/index.jsx'
+---
+<SiteLayout title="Page Not Found | Faster Pussycat Productions" currentPath={Astro.url.pathname}>
+  <div class="content">
+    <TheHeading>Page Not Found</TheHeading>
+    <BaseMainColumn>
+      <p>Sorry, the page you are looking for doesn't exist.</p>
+      <a href="/">Return to the home page</a>
+    </BaseMainColumn>
+  </div>
+</SiteLayout>

@@ -1,0 +1,35 @@
+---
+import SiteLayout from '../layouts/Site.astro'
+import TheHeading from '../components/TheHeading/index.jsx'
+import BaseMainColumn from '../components/BaseMainColumn/index.jsx'
+import BaseSideColumn from '../components/BaseSideColumn/index.jsx'
+import SidebarWidgetFactory from '../components/SidebarWidgetFactory/index.jsx'
+import { getAllPages } from '../lib/pages.js'
+
+export async function getStaticPaths() {
+  const pages = await getAllPages()
+  return pages
+    .filter((p) => p.status === 'publish' && p.uri)
+    .map((p) => ({
+      params: { slug: p.uri.replace(/^\/|\/$/g, '') || undefined },
+      props: { page: p },
+    }))
+}
+
+const { page } = Astro.props
+const title = page.pageMetadata?.pageTitle || page.title
+const sidebarItems = (page.sidebarSelection?.pageSidebarItems?.nodes || [])
+  .slice()
+  .sort((a, b) => (a.sidebarLayout?.template || '').localeCompare(b.sidebarLayout?.template || ''))
+---
+<SiteLayout title={`${title} | Faster Pussycat Productions`} currentPath={Astro.url.pathname}>
+  <div class="content">
+    <TheHeading>{title}</TheHeading>
+    <BaseMainColumn>
+      <div set:html={page.content} />
+    </BaseMainColumn>
+    <BaseSideColumn>
+      {sidebarItems.map((item) => <SidebarWidgetFactory nodes={[item]} />)}
+    </BaseSideColumn>
+  </div>
+</SiteLayout>
