@@ -7,7 +7,7 @@ const items = [
 ]
 
 export default ({ currentPath = '/' }: { currentPath?: string }) => (
-  <nav className={styles.nav} role="navigation">
+  <nav className={styles.nav}>
     <ul className={styles.list}>
       {items.map((item) => {
         const active = item.exact ? currentPath === item.href : currentPath.startsWith(item.href)
