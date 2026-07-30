@@ -221,6 +221,9 @@ html {
     font: 100%/1.625 'Georgia', sans-serif;
     box-sizing: border-box;
     overflow-y: scroll;
+    @media all and (min-width: 135em) {
+        font-size: 120%;
+    }
 }
 
 * {

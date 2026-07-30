@@ -90,11 +90,6 @@ $bp05: 28em;
 $bp1: 40em;
 $bp2: 55em;
 $bp3: 85em;
-$bp4: 135em;
-
-$hbp1: 25em;
-$hbp2: 45em;
-$hbp3: 58em;
 
 
 @mixin respond-to($media) {
@@ -108,10 +103,6 @@ $hbp3: 58em;
     }
   } @else if $media == desk {
     @media all and (min-width: $bp2) {
-      @content;
-    }
-  } @else if $media == wall {
-    @media all and (min-width: $bp4) {
       @content;
     }
   } @else if $media == smallest {

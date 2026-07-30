@@ -42,12 +42,6 @@ body {
   height: 100%;
 }
 
-html {
-  @include respond-to(wall) {
-    font-size: 120%;
-  }
-}
-
 body {
   display: flex;
 
