@@ -1,0 +1,94 @@
+[functions]
+
+[functions."*"]
+
+[[plugins]]
+origin = "default"
+package = "@netlify/plugin-gatsby"
+pinned_version = "3"
+
+[plugins.inputs]
+
+[build]
+publish = "/Users/joelbirch/dev/fppdesign-2018/public"
+publishOrigin = "config"
+commandOrigin = "config"
+command = "cross-env NODE_OPTIONS=--openssl-legacy-provider yarn build"
+
+[build.environment]
+NODE_VERSION = "20"
+NODE_OPTIONS = "--openssl-legacy-provider"
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
+X-Content-Type-Options = "nosniff"
+
+[[headers]]
+for = "/static/*"
+
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/sw.js"
+
+[headers.values]
+Cache-Control = "no-cache"
+
+[[headers]]
+for = "/offline-plugin-app-shell-fallback/"
+
+[headers.values]
+Link = "</webpack-runtime-5d0ace6b8dcfeec2207a.js>; rel=preload; as=script, </component---node-modules-gatsby-plugin-offline-app-shell-js-f32a9641410a0aa8cb07.js>; rel=preload; as=script"
+
+[[redirects]]
+from = "https://fppdesign.netlify.app/*"
+to = "https://fppdesign.com.au/:splat"
+status = 301.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "http://fppdesign.netlify.app/*"
+to = "https://fppdesign.com.au/:splat"
+status = 301.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "http://fppdesign.com.au/*"
+to = "https://fppdesign.com.au/:splat"
+status = 301.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
