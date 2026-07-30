@@ -26,10 +26,10 @@ const applyCustomAmpersands = (text: string): string | ReactNode[] => {
   }, [])
 }
 
-export default ({ children }: { children?: ReactNode }) => {
+export default ({ title }: { title: string }) => {
   return (
     <div className={styles.headingwrap}>
-      <h1 style={{ margin: 0 }}>{typeof children === 'string' ? applyCustomAmpersands(children) : children}</h1>
+      <h1 style={{ margin: 0 }}>{applyCustomAmpersands(title.replace(' and ', ' & '))}</h1>
     </div>
   )
 }

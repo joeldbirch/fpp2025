@@ -24,7 +24,7 @@ const sidebarItems = (page.sidebarSelection?.pageSidebarItems?.nodes || [])
 ---
 <SiteLayout title={`${title} | Faster Pussycat Productions`} currentPath={Astro.url.pathname}>
   <div class="content">
-    <TheHeading>{title}</TheHeading>
+    <TheHeading title={title} />
     <BaseMainColumn>
       <div set:html={page.content} />
     </BaseMainColumn>
