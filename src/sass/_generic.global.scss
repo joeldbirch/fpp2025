@@ -124,12 +124,12 @@ h1 {
 
     &:focus,
     &:hover {
-      background-color: color('white');
+      background-color: white;
       outline: 0;
     }
 
     &:active {
-      filter: brightness(.8);
+      filter: brightness(0.8);
     }
   }
 

@@ -1,21 +1,5 @@
 @use '../../sass/framework.bundle' as *;
 
-.innerwrap {
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 0 $margins;
-  width: 100%;
-
-  @include respond-to(lap) {
-    padding-left: $margins-xx;
-    padding-right: $margins-xx;
-  }
-
-  @include respond-to(desk) {
-    max-width: $fullwidth;
-  }
-}
-
 
 
 // typography
@@ -59,7 +43,22 @@
 
   ul,
   ol {
-    @include fancy-list-base;
+    counter-reset: fancylists;
+    list-style-type: none;
+    margin-left: .2em;
+    padding-left: 0;
+
+    li {
+      margin-bottom: 0;
+      margin-left: 1em;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+      }
+    }
+
 
     ul {
       margin-top: 0;
@@ -68,19 +67,49 @@
 
   ul {
     li {
-      @include circle-marker;
+      &:before {
+        background-color: rgba($brand, .2);
+        border: {
+          color: $brand;
+          radius: 50%;
+          style: solid;
+          width: 1px;
+        };
+        box-shadow: inset .12em .12em 0 rgba(white, .8), 1px 1px 0 rgba(black, .08);
+        height: .375em;
+        left: -1.1em;
+        top: .525em;
+        width: .375em;
+      }
+
+      li {
+        &::before {
+          height: .2em;
+          width: .2em;
+        }
+      }
     }
   }
 
   ol {
     li {
-      @include number-marker;
+      &::before {
+        color: $brand;
+        content: counter(fancylists) '.';
+        counter-increment: fancylists;
+        font-size: $s;
+        font-weight: bold;
+        margin-right: .3em;
+        right: 100%;
+        text-align: right;
+        top: .35em;
+      }
     }
   }
 
   acronym,
   abbr {
-    border-bottom: 1px dotted color('access gray');
+    border-bottom: 1px dotted color('access grey');
   }
 
   // .flydirt {

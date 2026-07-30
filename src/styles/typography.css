@@ -240,14 +240,6 @@ html {
 
 body {
     color: #444;
-    font-family: 'Georgia', sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
-    font-kerning: normal;
-    -moz-font-feature-settings: "kern", "liga", "clig", "calt";
-    -ms-font-feature-settings: "kern", "liga", "clig", "calt";
-    -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
-    font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
 img, h2, h3, h4, h5, h6, ul, ol, blockquote, hgroup, dl, dd, p, figure, pre, table, fieldset, form, noscript, iframe, hr, address {
@@ -265,8 +257,6 @@ h2, h3, h4, h5, h6 {
     color: #599e01;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    text-rendering: optimizeLegibility;
-    line-height: 1.1;
 }
 
 b, strong, dt, th {
