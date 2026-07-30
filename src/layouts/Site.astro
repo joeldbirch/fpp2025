@@ -24,12 +24,15 @@ const { title, currentPath } = Astro.props
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="icon" href="/favicon.ico" />
+    <script>
+      document.documentElement.className =
+        document.documentElement.className.replace(/(\bno-js\b|\bjb-yes-js\b)/g, '') + ' jb-yes-js js '
+    </script>
   </head>
   <body>
     <Layout currentPath={currentPath}><slot /></Layout>
     <script>
-      document.documentElement.className =
-        document.documentElement.className.replace(/(\bno-js\b|\bjb-yes-js\b)/g, '') + ' jb-yes-js js '
+      // @ts-expect-error because we don't want astro inlining this with is:inline
       import('lazysizes')
     </script>
   </body>
