@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-widepalm: 28rem;
+  --breakpoint-lap: 40rem;
+  --breakpoint-desk: 55rem;
+  --breakpoint-wide: 85rem;
+
+  --container-5xl: 66em;
+
+  --font-sans: 'Open Sans', sans-serif;
+  --font-serif: 'Times New Roman', Times, serif;
+}
