@@ -3,6 +3,7 @@ import styles from './style.module.scss'
 
 export default ({ children }: { children?: ReactNode }) => (
   <div className={`
+    overflow-hidden
     mx-auto
     px-6
     lap:px-11
