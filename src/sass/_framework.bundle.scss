@@ -1,9 +1,256 @@
-@forward 'settings.defaults';
-@forward 'settings.colors';
-@forward 'settings.responsive';
-@forward 'tools.functions' hide tint, shade;
-@forward 'tools.compass-rehab';
-@forward 'tools.vertical-rhythm';
-@forward 'tools.mixins';
-@forward 'tools.mixins.lists';
-@forward 'tools.responsive';
+@use "sass:color";
+@use "sass:map";
+@use "sass:math";
+
+$fullwidth: 66em;
+$margins: 1.5rem;
+$margins-xx: 2.7rem;
+
+// typography
+$base-font-size: 16px;
+$base-line-height: 6.5px;
+
+// Traditional
+$xxxxxl: 64px;
+$xxxxl: 48px;
+$xxxl: 32px;
+$xxl: 28px;
+$xl: 24px;
+$l: 21.3px;
+$b: 18.7px;
+$s: 14px;
+$xs: 12px;
+
+$modular-scale: (
+  'xxxxxl': $xxxxxl,
+  'xxxxl': $xxxxl,
+  'xxxl': $xxxl,
+  'xxl': $xxl,
+  'xl': $xl,
+  'l': $l,
+  'b': $b,
+  's': $s,
+  'xs': $xs
+);
+
+$sans-serif: 'Open Sans', sans-serif;
+$sans-serif-light: $sans-serif;
+$serif: 'Times New Roman', Times, serif;
+
+
+// Colors
+
+$theme-colors: (
+  'white':                #fff,
+  'offwhite':             #fafafa,
+  'mercury':              #eee,
+  'brand':                #599e01,
+  'brand tint':           color.mix(#fff, #84c12b, 90%),
+  'brand hairline':       color.mix(#fff, #84c12b, 75%),
+  'comp':                 #68735e,
+  'accent':               #EB9000,
+  'dullbrand':            #599e01,
+  'darkbrand':            #467d00,
+  'frost':                #f1f8e6,
+  'alert':                #b00b00,
+  'success':              #78c753,
+  'silver':               #ddd,
+  'silver chalice':       #aaa,
+  'access grey':          #727272,
+  'access gray':          #727272,
+  'mine shaft':           #444,
+  'cod grey':             #191919,
+  'cod gray':             #191919,
+  'black':                #000,
+
+  'image overlay':        rgba(#000, .6),
+  'cod grey overlay':     rgba(#0d0d0d, .7),
+  'cod gray overlay':     rgba(#0d0d0d, .7),
+  'white overlay':        rgba(#fff, .6),
+  'soft shadow':          rgba(#000, .14),
+  'dark shadow':          rgba(#000, .4)
+);
+
+
+// helper variables
+$brand: map.get($theme-colors, 'brand');
+$dullbrand: map.get($theme-colors, 'dullbrand');
+$dullbrand: map.get($theme-colors, 'dullbrand');
+$font-color: map.get($theme-colors, 'mine shaft');
+$quiet-color: color.adjust($font-color, $lightness: 20%);
+$loud-color: map.get($theme-colors, 'cod grey');
+$heading-color: $loud-color;
+
+$darkness: map.get($theme-colors, 'cod grey');
+$lightness: map.get($theme-colors, 'silver');
+
+// breakpoints
+// remember: media queries treat 1em as 16px regardless of body font size
+$bp05: 28em;
+$bp1: 40em;
+$bp2: 55em;
+$bp3: 85em;
+$bp4: 135em;
+
+$hbp1: 25em;
+$hbp2: 45em;
+$hbp3: 58em;
+
+
+@mixin respond-to($media) {
+  @if $media == widepalm {
+    @media all and (min-width: $bp05) {
+      @content;
+    }
+  } @else if $media == lap {
+    @media all and (min-width: $bp1) {
+      @content;
+    }
+  } @else if $media == desk {
+    @media all and (min-width: $bp2) {
+      @content;
+    }
+  } @else if $media == wall {
+    @media all and (min-width: $bp4) {
+      @content;
+    }
+  } @else if $media == smallest {
+    @media all and (max-width: ($bp05 - 0.001em)) {
+      @content;
+    }
+  }
+}
+
+
+// Convert px to em
+@function em($px, $base: $base-font-size) {
+  @return math.div($px, $base) * 1em;
+}
+
+// @description Retrieve theme color
+// @param {Key} color name
+@function color($key) {
+  @if map.has-key($theme-colors, $key) {
+    @return map.get($theme-colors, $key);
+  }
+  @warn "Unknown '#{$key}' in $theme-colors.";
+  @return null;
+}
+
+// @author  Joel Birch
+// @description  Quick and nasty function to help with vertical spacer. Better off using something more robust, but this is simpler for demonstrating the idea.
+// @param lines  How many vertical rhythm lines you want
+// @param font-size  Current element's font-size in px
+@function relative-rhythm($lines: 1, $font-size: $base-font-size) {
+  $spacer: math.div($base-line-height, $font-size) * $lines;
+  @return $spacer;
+}
+
+// use this for line-height. Outputs unitless values, preferrable for setting line-height.
+@function line-height($lines: 1, $font-size: $base-font-size) {
+  @return relative-rhythm($lines, $font-size);
+}
+
+// use this for margins. Outputs em units to maintain relationship with font-size.
+@function spacer($lines: 1, $font-size: $base-font-size) {
+  $value: relative-rhythm($lines, $font-size);
+  @return $value * 1em;
+}
+
+// alias functions to ease transition away from Compass.
+// Note: $lines is divided by four before fed into spacer.
+@function rhythm($lines: 4, $font-size: $base-font-size) {
+  @return spacer(math.div($lines, 4), $font-size);
+}
+
+
+// alias mixins to ease transition away from Compass.
+// Note: $lines is divided by four before fed into new mixins.
+@mixin adjust-font-size-to($size: $base-font-size, $lines: 4) {
+  font-size: em($size);
+  line-height: line-height(math.div($lines, 4), $size);
+}
+
+// Increase class-level specificity of a rule without functionaly modifying the selector
+@mixin increase-specificity($depth: 1) {
+  $sel: '';
+
+  @while($depth > 0) {
+    $sel: $sel + ':nth-child(n)';
+    $depth: $depth - 1;
+  }
+
+  &#{$sel} {
+    @content;
+  }
+}
+
+@mixin asides {
+  @include respond-to(desk) {
+    font-size: .75rem;
+    line-height: line-height(3, $xs);
+  }
+}
+
+@mixin earlyasides {
+  font-size: .875rem;
+  line-height: line-height(4, 14px);
+}
+
+
+@mixin fancy-list-base {
+  counter-reset: fancylists;
+  list-style-type: none;
+  margin-left: .2em;
+  padding-left: 0;
+
+  li {
+    margin-bottom: 0;
+    margin-left: 1em;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+    }
+  }
+}
+
+@mixin circle-marker {
+  &:before {
+    background-color: rgba($brand, .2);
+    border: {
+      color: $brand;
+      radius: 50%;
+      style: solid;
+      width: 1px;
+    };
+    box-shadow: inset .12em .12em 0 rgba(color('white'), .8), 1px 1px 0 rgba(color('black'), .08);
+    height: .375em;
+    left: -1.1em;
+    top: .525em;
+    width: .375em;
+  }
+
+  li {
+    &::before {
+      height: .2em;
+      width: .2em;
+    }
+  }
+}
+
+@mixin number-marker {
+  &::before {
+    color: $brand;
+    content: counter(fancylists) '.';
+    counter-increment: fancylists;
+    font-size: $s;
+    font-weight: bold;
+    margin-right: .3em;
+    right: 100%;
+    text-align: right;
+    top: .35em;
+  }
+}
+
