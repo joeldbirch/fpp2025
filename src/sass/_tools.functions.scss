@@ -1,5 +1,3 @@
-@use "sass:color";
-@use "sass:list";
 @use "sass:map";
 @use "sass:math";
 @use "settings.colors" as *;
@@ -10,24 +8,6 @@
   @return math.div($px, $base) * 1em;
 }
 
-// Slightly lighten a color
-// @access public
-// @param {Color} $color - color to tint
-// @param {Number} $percentage - percentage of `$color` in returned color
-// @return {Color}
-@function tint($color, $percentage) {
-  @return color.mix($color, #fff, $percentage);
-}
-
-// Slightly darken a color
-// @access public
-// @param {Color} $color - color to shade
-// @param {Number} $percentage - percentage of `$color` in returned color
-// @return {Color}
-@function shade($color, $percentage) {
-  @return color.mix($color, #000, $percentage);
-}
-
 
 // @description Retrieve theme color
 // @param {Key} color name
@@ -36,18 +16,5 @@
     @return map.get($theme-colors, $key);
   }
   @warn "Unknown '#{$key}' in $theme-colors.";
-  @return null;
-}
-
-
-// @description Returns z-index based on index of item in list
-// @param {List} z-index list the item is in
-// @param {Key} the item name to get index of
-@function z($list, $element) {
-  $z-index: list.index($list, $element);
-  @if $z-index {
-    @return $z-index;
-  }
-  @warn "There is no item '#{$element}'' in this list; choose one of: #{$list}";
   @return null;
 }
