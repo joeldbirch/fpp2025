@@ -19,5 +19,6 @@
   "nested-properties",
   "vault-nickname",
   "link-as",
-  "editing-toolbar"
+  "editing-toolbar",
+  "disable-tabs"
 ]
