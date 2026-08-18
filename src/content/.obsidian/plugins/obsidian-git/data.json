@@ -1,8 +1,8 @@
 {
-  "commitMessage": "Blog update {{date}}: {{numFiles}} file(s) changed.",
+  "commitMessage": "Site update {{date}}: {{numFiles}} file(s) changed.",
   "autoCommitMessage": "Blog update {{date}}: {{numFiles}} file(s) changed.",
   "commitMessageScript": "",
-  "commitDateFormat": "M/D/YYYY h:ma",
+  "commitDateFormat": "D/M/YYYY h:ma",
   "autoSaveInterval": 0,
   "autoPushInterval": 0,
   "autoPullInterval": 0,

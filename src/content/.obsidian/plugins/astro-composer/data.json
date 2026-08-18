@@ -44,7 +44,7 @@
   "helpButtonReplacement": {
     "enabled": true,
     "commandId": "astro-composer:edit-astro-config",
-    "iconId": "rocket"
+    "iconId": "cat"
   },
   "showMdxFilesInExplorer": true,
   "processBackgroundFileChanges": true,
