@@ -1,5 +1,5 @@
 {
-  "defaultTemplate": "---\ntitle: \"{{title}}\"\npageTitle: \"\"\nsidebar: []\n---\n",
+  "defaultTemplate": "---\ntitle: \"{{title}}\"\nsidebar: []\npageTitle: \"\"\nupdated: \"\"\ndate: \"\"\naliases: \"\"\n---\n",
   "autoInsertProperties": true,
   "dateFormat": "YYYY-MM-DD",
   "enableCopyHeadingLink": true,
@@ -19,12 +19,12 @@
       "name": "Pages",
       "folder": "pages",
       "linkBasePath": "/",
-      "template": "---\ntitle: \"{{title}}\"\npageTitle: \"\"\nsidebar: []\npublished: {{date}}\nupdated:  \n---\n",
+      "template": "---\ntitle: \"{{title}}\"\nsidebar: []\npageTitle: \"\"\nupdated: \"\"\ndate: \"\"\naliases: \"\"\n---\n",
       "enabled": true,
       "creationMode": "folder",
       "indexFileName": "index",
       "ignoreSubfolders": false,
-      "enableUnderscorePrefix": true,
+      "enableUnderscorePrefix": false,
       "modifiedDateField": "updated"
     },
     {
@@ -49,8 +49,8 @@
   "showMdxFilesInExplorer": true,
   "processBackgroundFileChanges": true,
   "syncDraftDate": true,
-  "draftDetectionMode": "underscore-prefix",
-  "draftProperty": "",
+  "draftDetectionMode": "property",
+  "draftProperty": "draft",
   "draftLogic": "true-is-draft",
   "publishDateField": "",
   "renameOnTitleClick": false,

@@ -24,7 +24,9 @@
     "content-type-1787012488587-o7d6hl8xj": {
       "titleProperty": "title",
       "hasDraftStatus": true,
-      "template": "---\ntitle: \"{{title}}\"\npageTitle: \"\"\nsidebar: []\n---\n"
+      "template": "---\ntitle: \"{{title}}\"\nsidebar: []\npageTitle: \"\"\nupdated: \"\"\ndate: \"\"\naliases: \"\"\n---\n",
+      "draftProperty": "draft",
+      "draftLogic": "true-draft"
     },
     "content-type-1787012488587-fkg62onhp": {
       "titleProperty": "title",
@@ -37,7 +39,7 @@
   "preset": "vanilla",
   "presetName": "",
   "presetsRepo": "davidvkimball/vaultcms-presets",
-  "enableEditingToolbar": false,
+  "enableEditingToolbar": true,
   "enableExtendedFileTypes": false,
   "enabledPlugins": [
     "astro-composer",
@@ -68,7 +70,7 @@
         "id": "content-type-1787012488587-o7d6hl8xj",
         "name": "Pages",
         "folder": "pages",
-        "template": "---\ntitle: \"{{title}}\"\npageTitle: \"\"\nsidebar: []\n---\n",
+        "template": "---\ntitle: \"{{title}}\"\nsidebar: []\npageTitle: \"\"\nupdated: \"\"\ndate: \"\"\naliases: \"\"\n---\n",
         "enabled": true,
         "linkBasePath": "/",
         "creationMode": "folder",
@@ -85,7 +87,7 @@
         "indexFileName": "index"
       }
     ],
-    "defaultTemplate": "---\ntitle: \"{{title}}\"\npageTitle: \"\"\nsidebar: []\n---\n",
+    "defaultTemplate": "---\ntitle: \"{{title}}\"\nsidebar: []\npageTitle: \"\"\nupdated: \"\"\ndate: \"\"\naliases: \"\"\n---\n",
     "configFilePath": "../../astro.config.mjs",
     "terminalProjectRootPath": "../..",
     "showMdxFilesInExplorer": true,
@@ -93,7 +95,9 @@
     "postsCreationMode": "folder",
     "postsIndexFileName": "index",
     "syncDraftDate": true,
-    "draftDetectionMode": "underscore-prefix"
+    "draftDetectionMode": "property",
+    "draftProperty": "draft",
+    "draftLogic": "true-is-draft"
   },
   "seoConfig": {
     "titleProperty": "title",
@@ -271,7 +275,7 @@
   },
   "ignoreConfig": {
     "gitIgnoreConfigured": true,
-    "viteIgnoreConfigured": true
+    "viteIgnoreConfigured": false
   },
   "gitConfig": {
     "enabled": false,
