@@ -1,3 +1,9 @@
+import { getCollection } from 'astro:content'
+
+// WordPress-shaped interfaces — kept intact so [...slug].astro and the React
+// sidebar components work unchanged. Content now comes from Vault CMS
+// markdown collections (src/content/pages, src/content/sidebar).
+
 export interface SidebarLayout {
   template: string | null
 }
@@ -29,40 +35,30 @@ export interface Page {
   sidebarSelection?: SidebarSelection | null
 }
 
-const WP_GRAPHQL = 'https://admin.fppdesign.com.au/graphql'
-
-const QUERY = `query AllPages {
-  pages(first: 100, where: { status: PUBLISH }) {
-    nodes {
-      databaseId uri title content status
-      pageMetadata { pageTitle }
-      sidebarSelection {
-        pageSidebarItems {
-          nodes {
-            ... on SidebarItem {
-              databaseId title content
-              sidebarLayout { template }
-            }
-          }
-        }
-      }
-    }
-  }
-}`
+const idHash = (id: string) => [...id].reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7)
 
 export async function getAllPages(): Promise<Page[]> {
-  const { HTACCESS_USER, HTACCESS_PASSWORD } = import.meta.env
-  if (!HTACCESS_USER || !HTACCESS_PASSWORD) {
-    const files = import.meta.glob<{ default: any }>('../data/*.json', { eager: true })
-    return Object.values(files).map((m) => m.default)
-  }
-  const auth = Buffer.from(`${HTACCESS_USER}:${HTACCESS_PASSWORD}`).toString('base64')
-  const res = await fetch(WP_GRAPHQL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Basic ${auth}` },
-    body: JSON.stringify({ query: QUERY }),
-  })
-  const json = await res.json()
-  if (json.errors) throw new Error(JSON.stringify(json.errors))
-  return json.data.pages.nodes
+  const [pages, sidebar] = await Promise.all([getCollection('pages'), getCollection('sidebar')])
+
+  return pages.map((p) => ({
+    databaseId: idHash(p.id),
+    uri: p.id === 'index' ? '/' : `/${p.id}`,
+    title: p.data.title,
+    content: p.rendered?.html ?? '',
+    status: p.data.draft ? 'draft' : 'publish',
+    pageMetadata: { pageTitle: p.data.pageTitle ?? null },
+    sidebarSelection: {
+      pageSidebarItems: {
+        nodes: (p.data.sidebar ?? [])
+          .map((slug) => sidebar.find((s) => s.id === slug))
+          .filter((s): s is (typeof sidebar)[number] => Boolean(s))
+          .map((s) => ({
+            databaseId: idHash(s.id),
+            title: s.data.title,
+            content: s.rendered?.html ?? '',
+            sidebarLayout: { template: s.data.template ?? null },
+          })),
+      },
+    },
+  }))
 }
