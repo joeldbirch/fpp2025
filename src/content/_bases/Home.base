@@ -50,7 +50,7 @@ views:
         - file.folder.startsWith("pages")
     sort:
       - property: file.ctime
-        direction: DESC
+        direction: ASC
     imageFormat: cover
     showDate: true
     customizeNewButton: true
