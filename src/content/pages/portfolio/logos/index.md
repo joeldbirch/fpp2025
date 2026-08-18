@@ -7,6 +7,7 @@ published: 2026-08-18
 updated: 2026-08-18
 ---
 <p><span class="alignnone size-large wp-image-173 jb-aspect-ratio-wrapper"><span class="jb-aspect-ratio-pillar" style="padding-top: 75%"></span><noscript class="jb-noscript"><img loading="lazy" decoding="async" src="https://assets.fppdesign.com.au/2018/04/portLOGOWestSyd-1280x960.jpg" alt="Village Green Western Sydney logo" width="1280" height="960" class="jb-aspect-ratio-img"></noscript><img alt="Village Green Western Sydney logo" width="1280" height="960" class="jb-aspect-ratio-img lazyload fadein" data-src="https://assets.fppdesign.com.au/wp-content/uploads/2018/04/28111217/portLOGOWestSyd-361x271.jpg" data-sizes="auto" data-srcset=""><span class="jb-aspect-blurred" style="background-image: url();"></span></span></p>
+
 ## Village Green
 
 Village Green is a leading independent service provider of packaged environmental solutions to clients seeking reduced environmental impact. For this region of New South Wales, Faster Pussycat Productions designed this logo for the Western Sydney campaign.
