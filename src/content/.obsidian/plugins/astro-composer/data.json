@@ -1,0 +1,59 @@
+{
+  "defaultTemplate": "---\ntitle: \"{{title}}\"\npageTitle: \"\"\nsidebar: []\n---\n",
+  "autoInsertProperties": true,
+  "dateFormat": "YYYY-MM-DD",
+  "enableCopyHeadingLink": true,
+  "copyHeadingLinkFormat": "astro",
+  "addTrailingSlashToLinks": true,
+  "enableOpenTerminalCommand": true,
+  "terminalProjectRootPath": "../..",
+  "terminalApplicationName": "",
+  "enableTerminalDebugLogging": false,
+  "enableTerminalRibbonIcon": true,
+  "enableOpenConfigFileCommand": true,
+  "configFilePath": "../../astro.config.mjs",
+  "enableConfigRibbonIcon": true,
+  "contentTypes": [
+    {
+      "id": "content-type-1787012488587-o7d6hl8xj",
+      "name": "Pages",
+      "folder": "pages",
+      "linkBasePath": "/",
+      "template": "---\ntitle: \"{{title}}\"\npageTitle: \"\"\nsidebar: []\npublished: {{date}}\nupdated:  \n---\n",
+      "enabled": true,
+      "creationMode": "folder",
+      "indexFileName": "index",
+      "ignoreSubfolders": false,
+      "enableUnderscorePrefix": true,
+      "modifiedDateField": "updated"
+    },
+    {
+      "id": "content-type-1787012488587-fkg62onhp",
+      "name": "Sidebar",
+      "folder": "sidebar",
+      "linkBasePath": "/sidebar/",
+      "template": "---\ntitle: \"{{title}}\"\ntemplate: \"\"\n---\n",
+      "enabled": true,
+      "creationMode": "folder",
+      "indexFileName": "index",
+      "ignoreSubfolders": false,
+      "enableUnderscorePrefix": false
+    }
+  ],
+  "migrationCompleted": true,
+  "helpButtonReplacement": {
+    "enabled": true,
+    "commandId": "astro-composer:edit-astro-config",
+    "iconId": "rocket"
+  },
+  "showMdxFilesInExplorer": true,
+  "processBackgroundFileChanges": true,
+  "syncDraftDate": true,
+  "draftDetectionMode": "underscore-prefix",
+  "draftProperty": "",
+  "draftLogic": "true-is-draft",
+  "publishDateField": "",
+  "renameOnTitleClick": false,
+  "updateModifiedDate": false,
+  "modifiedDateField": ""
+}

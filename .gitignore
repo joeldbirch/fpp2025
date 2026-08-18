@@ -25,3 +25,8 @@ pnpm-debug.log*
 
 public/static/
 public/page-data/
+
+# Vault CMS / Obsidian
+**/.obsidian/workspace.json
+**/.obsidian/workspace-mobile.json
+.ref/

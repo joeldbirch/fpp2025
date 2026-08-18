@@ -9,6 +9,12 @@ export default defineConfig({
   integrations: [react()],
 
   vite: {
+    server: {
+      watch: {
+        ignored: ['**/.obsidian/**', '**/_bases/**', '**/bases/**', '**/_home/**', '**/home/**', '**/_base/**', '**/base/**']
+      }
+    },
+    assetsInclude: ['**/*.base', '**/.obsidian/**', '**/_bases/**'],
     plugins: [tailwindcss()],
   },
 })
