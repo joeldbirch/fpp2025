@@ -24,15 +24,17 @@
     "content-type-1787012488587-o7d6hl8xj": {
       "titleProperty": "title",
       "hasDraftStatus": true,
-      "template": "---\ntitle: \"{{title}}\"\nsidebar: []\npageTitle: \"\"\nupdated: \"\"\ndate: \"\"\naliases: \"\"\n---\n",
+      "template": "---\ntitle: \"{{title}}\"\nsidebar: []\npageTitle: \"\"\npublished: \"\"\nupdated: \"\"\ndate: \"\"\n---\n",
       "draftProperty": "draft",
       "draftLogic": "true-draft"
     },
     "content-type-1787012488587-fkg62onhp": {
       "titleProperty": "title",
       "descriptionProperty": "description",
-      "hasDraftStatus": false,
-      "template": "---\ntitle: \"{{title}}\"\ntemplate: \"\"\n---\n"
+      "hasDraftStatus": true,
+      "template": "---\ntitle: \"{{title}}\"\ntemplate: \"\"\npageTitle: \"\"\nupdated: \"\"\ndate: \"\"\n---\n",
+      "draftProperty": "draft",
+      "draftLogic": "true-draft"
     }
   },
   "attachmentHandlingMode": "same-folder",
@@ -70,7 +72,7 @@
         "id": "content-type-1787012488587-o7d6hl8xj",
         "name": "Pages",
         "folder": "pages",
-        "template": "---\ntitle: \"{{title}}\"\nsidebar: []\npageTitle: \"\"\nupdated: \"\"\ndate: \"\"\naliases: \"\"\n---\n",
+        "template": "---\ntitle: \"{{title}}\"\nsidebar: []\npageTitle: \"\"\npublished: \"\"\nupdated: \"\"\ndate: \"\"\n---\n",
         "enabled": true,
         "linkBasePath": "/",
         "creationMode": "folder",
@@ -80,14 +82,14 @@
         "id": "content-type-1787012488587-fkg62onhp",
         "name": "Sidebar",
         "folder": "sidebar",
-        "template": "---\ntitle: \"{{title}}\"\ntemplate: \"\"\n---\n",
+        "template": "---\ntitle: \"{{title}}\"\ntemplate: \"\"\npageTitle: \"\"\nupdated: \"\"\ndate: \"\"\n---\n",
         "enabled": true,
         "linkBasePath": "/sidebar/",
         "creationMode": "folder",
         "indexFileName": "index"
       }
     ],
-    "defaultTemplate": "---\ntitle: \"{{title}}\"\nsidebar: []\npageTitle: \"\"\nupdated: \"\"\ndate: \"\"\naliases: \"\"\n---\n",
+    "defaultTemplate": "---\ntitle: \"{{title}}\"\nsidebar: []\npageTitle: \"\"\npublished: \"\"\nupdated: \"\"\ndate: \"\"\n---\n",
     "configFilePath": "../../astro.config.mjs",
     "terminalProjectRootPath": "../..",
     "showMdxFilesInExplorer": true,
