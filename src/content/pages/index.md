@@ -7,6 +7,8 @@ sidebar:
 ## Faster Pussycat Productions – a small but tenacious graphic design business.
 
 Born on the 5th July 1994, we draw upon our decades of experience in advertising and marketing to make your projects purr.
+![mushy](mushy.jpg)
+![flag](https://assets.fppdesign.com.au/wp-content/uploads/2018/04/28111120/clientFLAG-768x460.jpg)
 
 ## Ready to pounce…
 

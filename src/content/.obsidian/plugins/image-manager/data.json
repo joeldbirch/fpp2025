@@ -4,14 +4,14 @@
   "imageNameTemplate": "",
   "attachmentLocation": "obsidian",
   "customAttachmentPath": "./assets",
-  "defaultProvider": "unsplash",
+  "defaultProvider": "local",
   "unsplashProxyServer": "",
   "pexelsApiKey": "",
   "pexelsApiKeySecretId": "",
   "pixabayApiKey": "",
   "pixabayApiKeySecretId": "",
   "defaultOrientation": "any",
-  "defaultImageSize": "large",
+  "defaultImageSize": "original",
   "enablePropertyPaste": true,
   "propertyLinkFormat": "obsidian",
   "customPropertyLinkFormat": "{image-url}",
@@ -29,7 +29,7 @@
   "disableRenameNotice": false,
   "enableDescriptiveImages": true,
   "insertSize": "",
-  "insertReferral": true,
+  "insertReferral": false,
   "insertBackLink": false,
   "appendReferral": false,
   "banner": {
@@ -122,5 +122,5 @@
     "md",
     "mdx"
   ],
-  "debugMode": false
+  "debugMode": true
 }

@@ -195,6 +195,11 @@
       "id": "editing-toolbar:remove-whitespace-compress",
       "name": "Editing Toolbar: Shrink Extra Spaces",
       "icon": "shrink"
+    },
+    {
+      "id": "image-manager:insert-image",
+      "name": "Image Manager: Insert local image",
+      "icon": "image"
     }
   ],
   "followingCommands": [],

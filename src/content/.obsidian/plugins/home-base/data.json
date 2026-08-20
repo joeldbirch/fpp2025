@@ -7,7 +7,7 @@
   "manualOpenMode": "retain",
   "replaceNewTab": false,
   "newTabMode": "only-when-empty",
-  "openWhenAllTabsClosed": false,
+  "openWhenAllTabsClosed": true,
   "useDifferentFileForNewTab": false,
   "newTabType": "File",
   "newTabValue": "",
