@@ -4,32 +4,31 @@ template: SidebarText
 published: 2026-08-18
 updated:
 ---
-<h3>Film graphics</h3>
-<h4>of all kinds&hellip;</h4>
-<ul>
-<li>2025 <strong>Leviticus</strong></li>
-<li>2015 <strong>Ali&rsquo;s Wedding</strong></li>
-<li>2013 <strong>Now Add Honey</strong></li>
-<li>2012 <strong>Galore</strong></li>
-<li>2012 <strong>Save Your Legs</strong></li>
-<li>2011 <strong>Kath and Kimderella</strong></li>
-<li>2011 <strong>John Doe</strong></li>
-<li>2010 <strong>Big Mamma&rsquo;s Boy</strong></li>
-<li>2009 <strong>Kings of Mykonos</strong></li>
-<li>2009 <strong>I Love You Too</strong></li>
-<li>2008 <strong>The Loved Ones</strong></li>
-<li>2008 <strong>My Year Without Sex</strong></li>
-<li>2007 <strong>The Children of the Silk Road</strong></li>
-<li>2006 <strong>Noise</strong></li>
-<li>2006 <strong>The Tumbler</strong></li>
-<li>2005 <strong>Boytown</strong></li>
-<li>2005 <strong>The Book of Revelation</strong></li>
-<li>2004 <strong>Hating Alison Ashley</strong></li>
-<li>2004 <strong>The Extra</strong></li>
-<li>2004 <strong>You &amp; Your Stupid Mate</strong></li>
-<li>2003 <strong>Alice</strong></li>
-<li>2003 <strong>Josh Jarmon</strong></li>
-<li>2002 <strong>The Wannabes</strong></li>
-<li>2002 <strong>Love&rsquo;s Brother</strong></li>
-<li>2002 <strong>Bad Eggs</strong></li>
-</ul>
+### Film graphics
+#### of all kinds…
+
+- 2025 **Leviticus**
+- 2015 **Ali's Wedding**
+- 2013 **Now Add Honey**
+- 2012 **Galore**
+- 2012 **Save Your Legs**
+- 2011 **Kath and Kimderella**
+- 2011 **John Doe**
+- 2010 **Big Mamma's Boy**
+- 2009 **Kings of Mykonos**
+- 2009 **I Love You Too**
+- 2008 **The Loved Ones**
+- 2008 **My Year Without Sex**
+- 2007 **The Children of the Silk Road**
+- 2006 **Noise**
+- 2006 **The Tumbler**
+- 2005 **Boytown**
+- 2005 **The Book of Revelation**
+- 2004 **Hating Alison Ashley**
+- 2004 **The Extra**
+- 2004 **You & Your Stupid Mate**
+- 2003 **Alice**
+- 2003 **Josh Jarmon**
+- 2002 **The Wannabes**
+- 2002 **Love's Brother**
+- 2002 **Bad Eggs**

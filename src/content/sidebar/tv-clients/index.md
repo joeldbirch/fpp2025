@@ -4,120 +4,119 @@ template: SidebarText
 published: 2026-08-18
 updated:
 ---
-<h3>Television graphics</h3>
-<h4>of all kinds&hellip;</h4>
-<ul>
-<li>2023 <strong>White Fever,</strong> <small>ABC</small></li>
-<li>2022 <strong>Surviving Summer,</strong> <small>series 2, Netflix</small></li>
-<li>2021 <strong>Spreadsheet,</strong> <small>Viacom CBS</small></li>
-<li>2021 <strong>MaveriX,</strong> <small>ABC Me</small></li>
-<li>2021 <strong>Fires,</strong> <small>ABC</small></li>
-<li>2021 <strong>Surviving Summer,</strong> <small>series 1, Netflix</small></li>
-<li>2021 <strong>The Record,</strong> <small>Amazon Prime</small></li>
-<li>2018 <strong>Get Krack!n,</strong> <small>series 2, ABC</small></li>
-<li>2017 <strong>Heroes,</strong> <small>ABC</small></li>
-<li>2017 <strong>League Of Her Own,</strong> <small>Ch 7</small></li>
-<li>2017 <strong>Olivia Newtown-John: Hopelessly Devoted to You,</strong> <small>Ch 7</small></li>
-<li>2016 <strong>Newton&rsquo;s Law,</strong> <small>ABC</small></li>
-<li>2016 <strong>Fancy Boy, the tv series,</strong> <small>ABC</small></li>
-<li>2016 <strong>Please Like Me,</strong> <small>series 4, ABC</small></li>
-<li>2015 <strong>Ronny Chieng: International Student,</strong> <small>ABC</small></li>
-<li>2015 <strong>Open Slather,</strong> <small>Foxtel</small></li>
-<li>2014 <strong>Glitch,</strong> <small>ABC</small></li>
-<li>2014 <strong>It&rsquo;s a Date,</strong> <small>series 2, ABC</small></li>
-<li>2014 <strong>Please Like Me,</strong> <small>series 2, ABC</small></li>
-<li>2013 <strong>Marngrook Footy Show,</strong> <small>ABC</small></li>
-<li>2013 <strong>Fat Tony &amp; Co,</strong> <small>Ch 9</small></li>
-<li>2013 <strong>This is Littleton,</strong> <small>ABC</small></li>
-<li>2013 <strong>Slide Show,</strong> <small>Ch 7</small></li>
-<li>2013 <strong>Jonah from Tonga,</strong> <small>ABC</small></li>
-<li>2013 <strong>Ja&rsquo;mie: Private School Girl,</strong> <small>ABC</small></li>
-<li>2013 <strong>Offspring,</strong> <small>series 4, Ch 10</small></li>
-<li>2012 <strong>Jonah from Tonga,</strong> <small>ABC</small></li>
-<li>2012 <strong>Ja&rsquo;mie: Private School Girl,</strong> <small>ABC</small></li>
-<li>2012 <strong>Offspring,</strong> <small>series 4, Ch 10</small></li>
-<li>2012 <strong>Problems,</strong> <small>ABC</small></li>
-<li>2012 <strong>Mr and Mrs Murder,</strong> <small>Ch 10</small></li>
-<li>2012 <strong>Doctor Blake Mysteries,</strong> <small>ABC</small></li>
-<li>2012 <strong>Please Like Me,</strong> <small>series 1, ABC</small></li>
-<li>2012 <strong>Adam Hills in Gordon Street Tonight,</strong> <small>ABC</small></li>
-<li>2012 <strong>Marngrook Footy Show,</strong> <small>ABC</small></li>
-<li>2011 <strong>Myf Warhurst&rsquo;s Nice,</strong> <small>ABC</small></li>
-<li>2011 <strong>Lowdown,</strong> <small>series 2, ABC</small></li>
-<li>2011 <strong>Miss Fisher&rsquo;s Murder Mysteries,</strong> <small>ABC</small></li>
-<li>2011 <strong>Tangle,</strong> <small>series 3, Foxtel</small></li>
-<li>2011 <strong>Spicks and Specks,</strong> <small>ABC</small></li>
-<li>2011 <strong>Adam Hills in Gordon Street Tonight,</strong> <small>ABC</small></li>
-<li>2011 <strong>Marngrook Footy Show,</strong> <small>ABC</small></li>
-<li>2011 <strong>Offspring,</strong> <small>series 2, Ch 10</small></li>
-<li>2010 <strong>Spicks and Specks,</strong> <small>ABC</small></li>
-<li>2010 <strong>Judith Lucy&rsquo;s Spiritual Journey,</strong> <small>ABC</small></li>
-<li>2010 <strong>Outland,</strong> <small>ABC</small></li>
-<li>2010 <strong>The Interview,</strong> <small>ABC</small></li>
-<li>2010 <strong>The Last Word,</strong> <small>SBS</small></li>
-<li>2010 <strong>Underbelly: Movie Files,</strong> <small>Ch 9</small></li>
-<li>2010 <strong>Offspring,</strong> <small>Ch 10</small></li>
-<li>2010 <strong>Killing Time,</strong> <small>Foxtel</small></li>
-<li>2010 <strong>The Librarians,</strong> <small>series 3, ABC</small></li>
-<li>2010 <strong>Santo Sam Ed&rsquo;s Cup Fever,</strong> <small>SBS</small></li>
-<li>2010 <strong>Tangle,</strong> <small>series 2, Foxtel</small></li>
-<li>2010 <strong>Bed of Roses,</strong> <small>series 3, ABC</small></li>
-<li>2010 <strong>Angry Boys,</strong> <small>ABC</small></li>
-<li>2009 <strong>Spicks and Specks,</strong> <small>ABC</small></li>
-<li>2009 <strong>Angry Boys,</strong> <small>ABC</small></li>
-<li>2009 <strong>Sleuth 101,</strong> <small>ABC</small></li>
-<li>2009 <strong>Lowdown,</strong> <small>series 1, ABC</small></li>
-<li>2009 <strong>Hawke,</strong> <small>Ch 10</small></li>
-<li>2009 <strong>The Poker Star,</strong> <small>Ch 10</small></li>
-<li>2009 <strong>Underbelly,</strong> <small>series 3, Ch 9</small></li>
-<li>2009 <strong>Rush,</strong> <small>series 2, Ch 10</small></li>
-<li>2009 <strong>Rockwiz,</strong> <small>SBS</small></li>
-<li>2009 <strong>Race Relations,</strong> <small>ABC</small></li>
-<li>2009 <strong>Thank God You&rsquo;re Here,</strong> <small>Ch 7</small></li>
-<li>2009 <strong>Bed of Roses,</strong> <small>series 2, ABC</small></li>
-<li>2008 <strong>Spicks and Specks,</strong> <small>ABC</small></li>
-<li>2008 <strong>Bed of Roses,</strong> <small>series 2, ABC</small></li>
-<li>2008 <strong>Tangle,</strong> <small>Foxtel</small></li>
-<li>2008 <strong>Underbelly,</strong> <small>series 2, Ch 9</small></li>
-<li>2008 <strong>Saved,</strong> <small>SBS</small></li>
-<li>2008 <strong>The Phone,</strong> <small>Foxtel</small></li>
-<li>2008 <strong>Dirt Game,</strong> <small>ABC</small></li>
-<li>2008 <strong>Rush,</strong> <small>series 1, Ch 10</small></li>
-<li>2008 <strong>Bogan Pride,</strong> <small>SBS</small></li>
-<li>2008 <strong>Carla Cametti PD,</strong> <small>SBS</small></li>
-<li>2008 <strong>Very Small Business,</strong> <small>ABC</small></li>
-<li>2007 <strong>Spicks and Specks,</strong> <small>ABC</small></li>
-<li>2007 <strong>Bed of Roses,</strong> <small>series 1, ABC</small></li>
-<li>2007 <strong>Kath and Kim,</strong> <small>series 4, Ch 7</small></li>
-<li>2007 <strong>Valentine&rsquo;s Day,</strong> <small>ABC</small></li>
-<li>2007 <strong>Underbelly,</strong> <small>Ch 9</small></li>
-<li>2007 <strong>Canal Road,</strong> <small>Ch 9</small></li>
-<li>2007 <strong>The Librarians,</strong> <small>series 1, ABC</small></li>
-<li>2007 <strong>Surprise Gotcha,</strong> <small>Ch 9</small></li>
-<li>2007 <strong>The King,</strong> <small>Ch 9</small></li>
-<li>2007 <strong>Summer Heights High,</strong> <small>ABC</small></li>
-<li>2006 <strong>Bastard Boys,</strong> <small>ABC</small></li>
-<li>2006 <strong>Real Stories,</strong> <small>Ch 10</small></li>
-<li>2006 <strong>Spicks and Specks,</strong> <small>ABC</small></li>
-<li>2005 <strong>Kath and Kim,</strong> <small>telemovie, ABC</small></li>
-<li>2005 <strong>Private Investigators,</strong> <small>Ch 7</small></li>
-<li>2005 <strong>Little Oberon,</strong> <small>Ch 9</small></li>
-<li>2005 <strong>Let Loose Live,</strong> <small>Ch 7</small></li>
-<li>2005 <strong>MDA,</strong> <small>series 3, ABC</small></li>
-<li>2004 <strong>Rockwiz,</strong> <small>SBS</small></li>
-<li>2004 <strong>Kath and Kim,</strong> <small>series 3, ABC</small></li>
-<li>2004 <strong>Russell Coight,</strong> <small>Ch 10</small></li>
-<li>2004 <strong>Secret Life of Us,</strong> <small>Ch 10</small></li>
-<li>2004 <strong>Eagle and Evans,</strong> <small>ABC</small></li>
-<li>2004 <strong>Sensing Murder,</strong> <small>Ch 10</small></li>
-<li>2004 <strong>Rapid Response,</strong> <small>Ch 10</small></li>
-<li>2004 <strong>We Can Be Heroes,</strong> <small>ABC</small></li>
-<li>2004 <strong>Murray Whelan Series,</strong> <small>Ch 7</small></li>
-<li>2003 <strong>Silversun,</strong> <small>ABC</small></li>
-<li>2003 <strong>MDA,</strong> <small>series 2, ABC</small></li>
-<li>2003 <strong>Loot,</strong> <small>ABC</small></li>
-<li>2003 <strong>Kath and Kim,</strong> <small>series 2, ABC</small></li>
-<li>2002 <strong>Welcher and Welcher,</strong> <small>ABC</small></li>
-<li>2002 <strong>Marshall Law,</strong> <small>Ch 7</small></li>
-<li>2002 <strong>MDA,</strong> <small>series 1, ABC</small></li>
-</ul>
+### Television graphics
+#### of all kinds…
+
+- 2023 **White Fever,** <small>ABC</small>
+- 2022 **Surviving Summer,** <small>series 2, Netflix</small>
+- 2021 **Spreadsheet,** <small>Viacom CBS</small>
+- 2021 **MaveriX,** <small>ABC Me</small>
+- 2021 **Fires,** <small>ABC</small>
+- 2021 **Surviving Summer,** <small>series 1, Netflix</small>
+- 2021 **The Record,** <small>Amazon Prime</small>
+- 2018 **Get Krack!n,** <small>series 2, ABC</small>
+- 2017 **Heroes,** <small>ABC</small>
+- 2017 **League Of Her Own,** <small>Ch 7</small>
+- 2017 **Olivia Newtown-John: Hopelessly Devoted to You,** <small>Ch 7</small>
+- 2016 **Newton's Law,** <small>ABC</small>
+- 2016 **Fancy Boy, the tv series,** <small>ABC</small>
+- 2016 **Please Like Me,** <small>series 4, ABC</small>
+- 2015 **Ronny Chieng: International Student,** <small>ABC</small>
+- 2015 **Open Slather,** <small>Foxtel</small>
+- 2014 **Glitch,** <small>ABC</small>
+- 2014 **It's a Date,** <small>series 2, ABC</small>
+- 2014 **Please Like Me,** <small>series 2, ABC</small>
+- 2013 **Marngrook Footy Show,** <small>ABC</small>
+- 2013 **Fat Tony & Co,** <small>Ch 9</small>
+- 2013 **This is Littleton,** <small>ABC</small>
+- 2013 **Slide Show,** <small>Ch 7</small>
+- 2013 **Jonah from Tonga,** <small>ABC</small>
+- 2013 **Ja'mie: Private School Girl,** <small>ABC</small>
+- 2013 **Offspring,** <small>series 4, Ch 10</small>
+- 2012 **Jonah from Tonga,** <small>ABC</small>
+- 2012 **Ja'mie: Private School Girl,** <small>ABC</small>
+- 2012 **Offspring,** <small>series 4, Ch 10</small>
+- 2012 **Problems,** <small>ABC</small>
+- 2012 **Mr and Mrs Murder,** <small>Ch 10</small>
+- 2012 **Doctor Blake Mysteries,** <small>ABC</small>
+- 2012 **Please Like Me,** <small>series 1, ABC</small>
+- 2012 **Adam Hills in Gordon Street Tonight,** <small>ABC</small>
+- 2012 **Marngrook Footy Show,** <small>ABC</small>
+- 2011 **Myf Warhurst's Nice,** <small>ABC</small>
+- 2011 **Lowdown,** <small>series 2, ABC</small>
+- 2011 **Miss Fisher's Murder Mysteries,** <small>ABC</small>
+- 2011 **Tangle,** <small>series 3, Foxtel</small>
+- 2011 **Spicks and Specks,** <small>ABC</small>
+- 2011 **Adam Hills in Gordon Street Tonight,** <small>ABC</small>
+- 2011 **Marngrook Footy Show,** <small>ABC</small>
+- 2011 **Offspring,** <small>series 2, Ch 10</small>
+- 2010 **Spicks and Specks,** <small>ABC</small>
+- 2010 **Judith Lucy's Spiritual Journey,** <small>ABC</small>
+- 2010 **Outland,** <small>ABC</small>
+- 2010 **The Interview,** <small>ABC</small>
+- 2010 **The Last Word,** <small>SBS</small>
+- 2010 **Underbelly: Movie Files,** <small>Ch 9</small>
+- 2010 **Offspring,** <small>Ch 10</small>
+- 2010 **Killing Time,** <small>Foxtel</small>
+- 2010 **The Librarians,** <small>series 3, ABC</small>
+- 2010 **Santo Sam Ed's Cup Fever,** <small>SBS</small>
+- 2010 **Tangle,** <small>series 2, Foxtel</small>
+- 2010 **Bed of Roses,** <small>series 3, ABC</small>
+- 2010 **Angry Boys,** <small>ABC</small>
+- 2009 **Spicks and Specks,** <small>ABC</small>
+- 2009 **Angry Boys,** <small>ABC</small>
+- 2009 **Sleuth 101,** <small>ABC</small>
+- 2009 **Lowdown,** <small>series 1, ABC</small>
+- 2009 **Hawke,** <small>Ch 10</small>
+- 2009 **The Poker Star,** <small>Ch 10</small>
+- 2009 **Underbelly,** <small>series 3, Ch 9</small>
+- 2009 **Rush,** <small>series 2, Ch 10</small>
+- 2009 **Rockwiz,** <small>SBS</small>
+- 2009 **Race Relations,** <small>ABC</small>
+- 2009 **Thank God You're Here,** <small>Ch 7</small>
+- 2009 **Bed of Roses,** <small>series 2, ABC</small>
+- 2008 **Spicks and Specks,** <small>ABC</small>
+- 2008 **Bed of Roses,** <small>series 2, ABC</small>
+- 2008 **Tangle,** <small>Foxtel</small>
+- 2008 **Underbelly,** <small>series 2, Ch 9</small>
+- 2008 **Saved,** <small>SBS</small>
+- 2008 **The Phone,** <small>Foxtel</small>
+- 2008 **Dirt Game,** <small>ABC</small>
+- 2008 **Rush,** <small>series 1, Ch 10</small>
+- 2008 **Bogan Pride,** <small>SBS</small>
+- 2008 **Carla Cametti PD,** <small>SBS</small>
+- 2008 **Very Small Business,** <small>ABC</small>
+- 2007 **Spicks and Specks,** <small>ABC</small>
+- 2007 **Bed of Roses,** <small>series 1, ABC</small>
+- 2007 **Kath and Kim,** <small>series 4, Ch 7</small>
+- 2007 **Valentine's Day,** <small>ABC</small>
+- 2007 **Underbelly,** <small>Ch 9</small>
+- 2007 **Canal Road,** <small>Ch 9</small>
+- 2007 **The Librarians,** <small>series 1, ABC</small>
+- 2007 **Surprise Gotcha,** <small>Ch 9</small>
+- 2007 **The King,** <small>Ch 9</small>
+- 2007 **Summer Heights High,** <small>ABC</small>
+- 2006 **Bastard Boys,** <small>ABC</small>
+- 2006 **Real Stories,** <small>Ch 10</small>
+- 2006 **Spicks and Specks,** <small>ABC</small>
+- 2005 **Kath and Kim,** <small>telemovie, ABC</small>
+- 2005 **Private Investigators,** <small>Ch 7</small>
+- 2005 **Little Oberon,** <small>Ch 9</small>
+- 2005 **Let Loose Live,** <small>Ch 7</small>
+- 2005 **MDA,** <small>series 3, ABC</small>
+- 2004 **Rockwiz,** <small>SBS</small>
+- 2004 **Kath and Kim,** <small>series 3, ABC</small>
+- 2004 **Russell Coight,** <small>Ch 10</small>
+- 2004 **Secret Life of Us,** <small>Ch 10</small>
+- 2004 **Eagle and Evans,** <small>ABC</small>
+- 2004 **Sensing Murder,** <small>Ch 10</small>
+- 2004 **Rapid Response,** <small>Ch 10</small>
+- 2004 **We Can Be Heroes,** <small>ABC</small>
+- 2004 **Murray Whelan Series,** <small>Ch 7</small>
+- 2003 **Silversun,** <small>ABC</small>
+- 2003 **MDA,** <small>series 2, ABC</small>
+- 2003 **Loot,** <small>ABC</small>
+- 2003 **Kath and Kim,** <small>series 2, ABC</small>
+- 2002 **Welcher and Welcher,** <small>ABC</small>
+- 2002 **Marshall Law,** <small>Ch 7</small>
+- 2002 **MDA,** <small>series 1, ABC</small>
