@@ -67,6 +67,10 @@ h1 {
   }
 }
 
+h1, h2, h3, h4, h5, h6, p, li {
+  text-wrap: pretty;
+}
+
 .unstyle-button {
   border: 0;
   padding: 0;
