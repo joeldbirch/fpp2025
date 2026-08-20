@@ -3,6 +3,7 @@ title: Home
 pageTitle: The home of fast, furious & always groovy graphic design
 sidebar:
   - evolution
+cover: ../_assets/home-cover.png
 ---
 ## Faster Pussycat Productions – a small but tenacious graphic design business.
 

@@ -258,6 +258,10 @@
     {
       "id": "categories",
       "icon": "lucide-list-x"
+    },
+    {
+      "id": "cover",
+      "icon": "lucide-image"
     }
   ],
   "minimalPropertyIcons": false,
