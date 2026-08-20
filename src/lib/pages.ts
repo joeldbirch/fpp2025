@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content'
 import { getImage } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
-import { dirname } from 'node:path'
+import { dirname, posix } from 'node:path'
 
 // WordPress-shaped interfaces — kept intact so [...slug].astro and the React
 // sidebar components work unchanged. Content now comes from Vault CMS
@@ -52,8 +52,9 @@ const vaultImages = import.meta.glob<{ default: ImageMetadata }>(
 const imageByFsPath = new Map(
   Object.entries(vaultImages).map(([id, mod]) => [id.replace(/^\/+/, ''), mod.default]),
 )
+// normalise + collapse `..` segments (e.g. pages/../_assets → _assets), then match glob keys
 const joinRootRelative = (dir: string, src: string) =>
-  `${dir}/${src}`.replace(/^\/+/, '').replace(/\/+/g, '/')
+  posix.normalize(`${dir}/${src}`).replace(/^\/+/, '')
 
 const IMAGE_PLACEHOLDER = /__ASTRO_IMAGE_="([^"]+)"/g
 const escapeAttr = (value: string) => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;')
