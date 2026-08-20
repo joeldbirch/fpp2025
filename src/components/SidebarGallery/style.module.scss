@@ -33,7 +33,8 @@
   }
 
   p {
-    > :first-child:is(span) { // thumb wrapper
+    > :first-child:is(span), // thumb wrapper
+    > :first-child:is(img) { 
       border-bottom: 2px solid color('brand');
       left: 0;
       position: absolute;
