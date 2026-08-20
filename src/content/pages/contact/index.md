@@ -21,4 +21,4 @@ cover: ../../_assets/contact-cover.png
 
 </form>
 
-<small><i>We respect your privacy and will never pass on your email address to anyone else.</i></small>
+<small><i>We respect your privacy and will never pass on your email address to anyone else.</i></small>![contact-cover](../../_assets/contact-cover.png)
