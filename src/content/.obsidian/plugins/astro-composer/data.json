@@ -34,7 +34,7 @@
       "linkBasePath": "/sidebar/",
       "template": "---\ntitle: \"{{title}}\"\ntemplate: \"SidebarText\"\npublished: {{date}}\nupdated: \n---\n",
       "enabled": true,
-      "creationMode": "folder",
+      "creationMode": "file",
       "indexFileName": "index",
       "ignoreSubfolders": false,
       "enableUnderscorePrefix": false

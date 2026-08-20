@@ -86,3 +86,4 @@ views:
     descriptionProperty: note.description
     showTags: false
     showDraftStatus: false
+    imageProperty: note.cover
