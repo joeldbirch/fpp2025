@@ -8,10 +8,6 @@ sidebar:
 
 Born on the 5th July 1994, we draw upon our decades of experience in advertising and marketing to make your projects purr.
 
-![flag](https://assets.fppdesign.com.au/wp-content/uploads/2018/04/28111120/clientFLAG-768x460.jpg)
-
-![mushy](../_assets/mushy.jpg)
-
 ## Ready to pounce…
 
 Our lean size and depth of experience allows us to spring into action and tackle any deadline. Advertising, stationery, CD/DVD art, logos, website design and development, digital ads, graphics for TV and film, print management, project co-ordination... whatever your requirements are.
