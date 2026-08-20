@@ -11,3 +11,17 @@
   --font-sans: 'Open Sans', sans-serif;
   --font-serif: 'Times New Roman', Times, serif;
 }
+
+/* Cross-document view transitions: cross-fade page navigations.
+   No-ops in browsers without support (plain page load). */
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none;
+  }
+}
