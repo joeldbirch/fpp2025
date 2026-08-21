@@ -110,6 +110,7 @@ export async function getAllPages(): Promise<Page[]> {
           title: s.data.title,
           content: await renderedHtml(s),
           sidebarLayout: { template: s.data.template ?? null },
+          cacheKey: s.digest
         })),
     )
 
@@ -124,6 +125,7 @@ export async function getAllPages(): Promise<Page[]> {
       sidebarSelection: {
         pageSidebarItems: { nodes: await sidebarNodes(p.data.sidebar ?? []) },
       },
+      cacheKey: p.digest
     })),
   )
 }

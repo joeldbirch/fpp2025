@@ -7,6 +7,7 @@ export default defineConfig({
   site: 'https://fppdesign.com.au',
   trailingSlash: 'always',
   integrations: [react()],
+  session: false,
   image: {
     service: passthroughImageService()
   },
